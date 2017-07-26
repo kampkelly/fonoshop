@@ -1,0 +1,226 @@
+.navbar-transparent {
+  background-color: #DF8109 !important;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .navbar-transparent {
+    display: none;
+  }
+}
+
+.navbar-transparent a {
+  color: white;
+}
+
+.navbar-transparent li a:hover {
+  background-color: #EC971F !important;
+}
+
+.navbar-transparent ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar-transparent ul li {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.home_cover {
+  background-color: #DF8109;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.home_cover .top-layer .ism-slider {
+  height: 370px !important;
+  position: relative;
+  z-index: 2 !important;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .home_cover .top-layer .ism-slider {
+    height: 370px !important;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .home_cover .top-layer .ism-slider {
+    height: 370px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .home_cover .top-layer .ism-slider {
+    height: 390px !important;
+  }
+}
+
+.home_cover .top-layer .ism-slider img {
+  z-index: 2 !important;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .home_cover .top-layer .ism-slider img {
+    height: 370px !important;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .home_cover .top-layer .ism-slider img {
+    height: 370px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .home_cover .top-layer .ism-slider img {
+    height: 390px !important;
+  }
+}
+
+.home_cover .top-layer .ism_content {
+  position: absolute;
+  top: 30px;
+  left: 4%;
+  z-index: 10 !important;
+}
+
+.home_cover h3,
+.home_cover h4 {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+.home_cover p {
+  color: white;
+}
+
+.home_cover input {
+  color: black;
+  height: 25px !important;
+}
+
+.home_cover select {
+  height: 25px !important;
+}
+
+.home_cover h4,
+.home_cover label {
+  color: white;
+}
+
+.home_cover input:focus {
+  background-color: white;
+}
+
+.home_cover .show-container {
+  margin-top: -35px;
+  background-color: white;
+  height: calc(100% - 390px);
+  overflow-y: hidden !important;
+}
+
+.home_cover .show-container .showcase {
+  position: relative;
+  z-index: 10 !important;
+}
+
+.home_cover .show-container .showcase h3 {
+  position: absolute;
+  top: 55px;
+  left: 10%;
+  color: #FAFAFA;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .home_cover .show-container .showcase h3 {
+    top: 0px;
+    font-size: 95%;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .home_cover .show-container .showcase h3 {
+    top: 0px;
+    font-size: 95%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .home_cover .show-container .showcase h3 {
+    top: 20px;
+    font-size: 18px;
+  }
+}
+
+.home_cover .show-container .showcase img {
+  height: 210px;
+  width: 100%;
+  -webkit-filter: blur(0px) brightness(0.7) grayscale(0%);
+          filter: blur(0px) brightness(0.7) grayscale(0%);
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  cursor: pointer;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .home_cover .show-container .showcase img {
+    height: 100px;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .home_cover .show-container .showcase img {
+    height: 120px;
+  }
+}
+
+.home_cover .show-container .showcase img:hover {
+  -webkit-transform: scale(1.1, 1.2);
+          transform: scale(1.1, 1.2);
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .home_cover .show-container .showcase {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .home_cover .show-container .showcase {
+    margin-bottom: 10px;
+  }
+}
+
+.home_cover form .asterisks {
+  color: red;
+}
+
+#hov {
+  position: relative;
+  display: inline-block;
+}
+
+#hov .shw {
+  visibility: hidden;
+  /* display: none; */
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  background-color: #286090;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#hov:hover .shw {
+  /*  visibility: visible; */
+}
+

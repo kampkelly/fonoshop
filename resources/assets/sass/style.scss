@@ -1,0 +1,174 @@
+$main-color: #DF8109;
+$brown-color: #533110;
+$smartphone: "(min-width: 0px) and (max-width: 467px)";
+$tablet: "(min-width: 468px) and (max-width: 767px)";
+$mini-laptop: "(min-width: 768px) and (max-width: 991px)";
+$smallest-font: 70%;
+$small-font: 75%;
+$medium-font: 80%;
+$sm-medium-font: 85%;
+$lg-medium-font: 90%;
+$near-normal-font: 95%;
+$normal-font: 100%;
+$md-normal-font: 105%;
+$lg-normal-font: 110%;
+.navbar-transparent {
+	@media #{$smartphone} {
+		display: none;
+	}
+	//#fafafabackground-color: #C05401;
+	background-color: $main-color !important;
+	a {
+		color: white;
+	}
+	li a:hover {
+		background-color: #EC971F !important;
+	}
+	ul {
+		display: flex;
+		li {
+			flex-grow: 1;
+		}
+	}
+}
+.home_cover {
+	//background-color: $main-color;
+	background-color: $main-color;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	.top-layer {
+	//	background-color: $brown-color;
+		.ism-slider {
+			//margin-top: 30px;
+			height: 370px !important;
+			position: relative;
+			z-index: 2 !important;
+			@media #{$smartphone} {
+				height: 370px !important;
+			}
+			@media #{$tablet} {
+				height: 370px !important;
+			}
+			@media #{$mini-laptop} {
+				height: 390px !important;
+			}
+			img {
+				z-index: 2 !important;
+				@media #{$smartphone} {
+					height: 370px !important;
+				}
+				@media #{$tablet} {
+					height: 370px !important;
+				}
+				@media #{$mini-laptop} {
+					height: 390px !important;
+				}
+			}
+		}
+		.ism_content {
+			position: absolute;
+			top: 30px;
+			left: 4%;
+			z-index: 10 !important;
+		}
+	}
+	h3,h4 {
+		padding-top: 30px;
+		padding-bottom: 20px;
+		color: white;
+	}
+	p {
+		color: white;
+	}
+	input {
+		color: black;
+		height: 25px !important;
+	//	background-color: #B2B2B2;
+	}
+	select {
+		height: 25px !important;
+	}
+	h4,label {color: white;}
+	//input::placeholder {color: white;}
+	input:focus {
+		background-color: white;
+	}
+	.show-container {
+		margin-top: -35px; 
+		background-color: white; 
+		height: calc(100% - 390px); 
+		overflow-y: hidden !important;
+		.showcase {
+			position: relative;
+			z-index: 10 !important;
+			h3 {
+				position: absolute;
+				top: 55px;
+				left: 10%;
+				color: #FAFAFA;
+				@media #{$smartphone} {
+					top: 0px;
+					font-size: 95%;
+				}
+				@media #{$tablet} {
+					top: 0px;
+					font-size: 95%;
+				}
+				@media #{$mini-laptop} {
+					top: 20px;
+					font-size: 18px;
+				}
+			}
+			img {
+				height: 210px;
+				width: 100%;
+				filter: blur(0px) brightness(0.7) grayscale(0%);
+				transform: scale(1,1);
+				cursor: pointer;
+			//	position: relative;
+			//	z-index: 99 !important;
+				@media #{$smartphone} {
+					height: 100px;
+				}
+				@media #{$tablet} {
+					height: 120px;
+				}
+			}
+			img:hover {
+				transform: scale(1.1,1.2);
+				transition: 1.5s;
+			}
+			@media #{$smartphone} {
+				margin-bottom: 10px;
+			}
+			@media #{$tablet} {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	form .asterisks {
+		color: red;
+	}
+}
+#hov {
+    position: relative;
+    display: inline-block;
+	 .shw {
+	    visibility: hidden; 
+	/* display: none; */
+	    
+	    color: white;
+	    text-align: center;
+	    border-radius: 6px;
+	    padding: 5px;
+	    background-color: #286090;
+
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+	}
+}
+#hov:hover .shw {
+  /*  visibility: visible; */
+}
