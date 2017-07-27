@@ -76,8 +76,13 @@ class CryptocurrencyController extends Controller
     public function edit($id)
     {
         $cryptocurrency = Cryptocurrency::find($id);
+        if(Auth::user()->id == $cryptocurrency->user_id) {
         $categories = Category::all();
          return view('cryptocurrencies.edit', compact('cryptocurrency'));
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
 
     /**
@@ -90,12 +95,17 @@ class CryptocurrencyController extends Controller
     public function update(Request $request, $id)
     {
         $cryptocurrency = Cryptocurrency::find($id);
+        if(Auth::user()->id == $cryptocurrency->user_id) {
             if (Input::has('price')) $cryptocurrency->price = $request->price;
             if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
             $cryptocurrency->save();
 
             session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
 
     /**

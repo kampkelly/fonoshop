@@ -124,9 +124,14 @@ class ProductController extends Controller
     public function edit($slug)
     {
          $product = Product::where('slug', $slug)->first();
+         if(Auth::user()->id == $product->user_id) {
          $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
           $categories = Category::all();
          return view('products.edit', compact('product', 'productsphotos', 'categories'));
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
               
     }
 
@@ -157,6 +162,7 @@ class ProductController extends Controller
         }
 
          $product = Product::where('slug', $slug)->first();
+         if(Auth::user()->id == $product->user_id) {
             if (Input::has('product_title')) $product->title = $request->product_title;
             if (Input::has('price')) $product->price = $request->price;
             if (Input::has('description')) $product->description = $request->description;
@@ -188,6 +194,10 @@ class ProductController extends Controller
 
             session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
 
      public function search()

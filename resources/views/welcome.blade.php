@@ -34,8 +34,8 @@
 			    </form> -->
 			    </div> 
 			    <div style="height: 20px"></div>
-				<p class="text-center">We serve as and provide all the neccaessary adgets and equipments you need to make your life easier.<br>
-				In need of a phone, computer, softwares, bitcoins, simply search and find the nearest location for it.<br>
+				<p class="text-center text-justify">We serve as and provide all the neccaessary adgets and equipments you need to make your life easier.
+ 				In need of a phone, computer, softwares, bitcoins, simply search and find the nearest location for it.
 				Welcome to Fonoshop - Quick access to your gadgets</p>
 				<div class="text-center">
 					<a href="#" class="text-center btn btn-md btn-primary">Sell an item</a>
@@ -215,17 +215,17 @@
 			<img src=" {{ asset('homepage/computer.jpg') }}" class="img-responsive img-rounded">
 			<h3>Computer/Phones</h3>
 		</a>		
-		<a href="/software" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
+		<a href="/category/2" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('homepage/softwares.jpg') }} " class="img-responsive img-rounded">
 			<h3>IT Softwares</h3>
 		</a>		
-		<a href="/category" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
+		<a href="/category/3" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('homepage/general.jpg') }} " class="img-responsive img-rounded">
 			<h3>General Stuffs</h3>
 		</a>		
 		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded">
-			<h3>Buy/Sell Bitcoins</h3>
+			<h3>Buy Bitcoins</h3>
 		</a>
 	</div>
 

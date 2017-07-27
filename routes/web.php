@@ -28,19 +28,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
-Route::get('myprofile/update/{email}', 'HomeController@myprofile')->name('myprofile');
-Route::post('/register/{email}', 'HomeController@updateprofile')->name('updateprofile');
-Route::get('myitems/{email}', 'HomeController@myitems')->name('myitems');
-Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
-Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
-Route::post('/product/{slug}', 'ProductController@update');
-Route::get('/product/new', 'ProductController@create');
-Route::post('/products', 'ProductController@store');
 
-Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
-Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
-Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
-Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
+
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('myprofile/update/{email}', 'HomeController@myprofile')->name('myprofile');
+	Route::post('/register/{email}', 'HomeController@updateprofile')->name('updateprofile');
+	Route::get('myitems/{email}', 'HomeController@myitems')->name('myitems');
+	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
+	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
+	Route::post('/product/{slug}', 'ProductController@update');
+	Route::get('/product/new', 'ProductController@create');
+	Route::post('/products', 'ProductController@store');
+	Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
+	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
+	Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
+	Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
+});
+
+
+
 Route::get('/cryptocurrencies', 'CryptocurrencyController@index');
 
 Route::any('/search', 'ProductController@search');

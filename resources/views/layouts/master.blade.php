@@ -33,6 +33,11 @@
     </head>
     <body style="width: 100%;">
     @include('partials/header')
+     @if($flash = session('message'))
+        <div class="alert alert-success notifications_panel" role="alert" style="position: fixed; top: 40px; width: 30%; z-index: 60;">
+            {{$flash}}
+        </div>
+    @endif
 
     @yield('content')
 

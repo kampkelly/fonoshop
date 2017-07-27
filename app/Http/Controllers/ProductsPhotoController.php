@@ -87,7 +87,13 @@ class ProductsPhotoController extends Controller
     {
         $id = request('photo_id');
         $deleted = ProductsPhoto::find($id);
+        if(Auth::user()->id == $deleted->user_id) {
         $deleted->delete();
         return redirect()->back()->with('message', 'Image deleted!');
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
+
 }

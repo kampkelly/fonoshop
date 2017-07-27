@@ -35,17 +35,27 @@ class HomeController extends Controller
     public function myprofile($email)
     {
        // $categories = Category::all();
-        $user = User::where('email', $email)->first();
-        return view('users.profile', compact('user'));
+        if(Auth::user()->email == $email) {
+            $user = User::where('email', $email)->first();
+            return view('users.profile', compact('user'));
+        }else{
+            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
 
     public function myitems($email)
     {
        // $categories = Category::all();
-        $user = User::where('email', $email)->first();
-        $products = $user->products()->orderBy('id', 'desc')->get();
-        $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
-        return view('users.items', compact('user', 'products', 'cryptocurrencies'));
+        if(Auth::user()->email == $email) {
+            $user = User::where('email', $email)->first();
+            $products = $user->products()->orderBy('id', 'desc')->get();
+            $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
+            return view('users.items', compact('user', 'products', 'cryptocurrencies'));
+        }else{
+             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
     }
 
     public function updateprofile(Request $request, $email)
@@ -53,9 +63,8 @@ class HomeController extends Controller
        $this->validate(request(), [
            'email' => 'required',
            'name' => 'required'
-        //   'phone' => 'required|min:8'
-          // 'city' => 'required|min:8'
         ]);
+       if(Auth::user()->email == $email) {
 
        $user = User::where('email', $email)->first();
             if (Input::has('email')) $user->email = $request->email;
@@ -65,9 +74,11 @@ class HomeController extends Controller
             
             $user->save();
             session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            //SESSION FLASH also include in the view with if 
-          //  return redirect('/startup/edit/'.$slug);
             return redirect()->back();
+        }else{
+             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+        }
        
     }
 
