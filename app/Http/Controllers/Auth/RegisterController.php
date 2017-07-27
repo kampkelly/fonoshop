@@ -126,7 +126,8 @@ class RegisterController extends Controller
             'price' => $request->price,
             'phone' => $request->phone,
             'user_id' => $user->id,
-            'slug' => $slug
+            'slug' => $slug,
+            'status' => 'active'
         //    'address' => $request->address,
            ]);
 

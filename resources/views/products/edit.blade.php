@@ -25,6 +25,43 @@
 	                	<textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter Description" value="{{$product->description}}"></textarea>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 col-lg-offset-3">
+						@if($product->condition == 'new')
+							<div class="radio">
+								<label>
+									<input type="radio" name="condition" id="input" value="new" checked="true">
+									New
+								</label>
+							</div>
+							@else
+								<div class="radio">
+									<label>
+										<input type="radio" name="condition" id="input" value="new">
+										New
+									</label>
+								</div>
+							@endif
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						@if($product->condition == 'used')
+							<div class="radio">
+								<label>
+									<input type="radio" name="condition" id="input" value="used" checked="true">
+									Used
+								</label>
+							</div>
+						@else
+								<div class="radio">
+									<label>
+										<input type="radio" name="condition" id="input" value="used">
+										Used
+									</label>
+								</div>
+						@endif
+					</div>
+				</div>
+				<div style="height: 10px;"></div>
 				<div class="form-group">
 	                <label for="image" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Cover Photo <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
@@ -46,12 +83,23 @@
 					</div>
 				</div>
 				<div class="form-group">
-	                <label for="phone" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Category <span class="asterisks">*</span></label>
+	                <label for="category_id" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Category <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                         <select name="category_id" id="category_id" class="form-control">
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
+                        </select>
+                    </div>
+				</div>
+				<div class="form-group">
+	                <label for="status" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Status <span class="asterisks">*</span></label>
+	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                        <select name="status" id="status" class="form-control">
+                        	<option value="{{$product->status}}">{{$product->status}}</option>
+                        	<option value="active">Active</option>
+                        	<option value="paused">Pause</option>
+                        	<option value="sold">Sold</option>
                         </select>
                     </div>
 				</div>

@@ -25,6 +25,25 @@
 	                	<textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter Description"></textarea>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 col-lg-offset-3">
+						<div class="radio">
+							<label>
+								<input type="radio" name="condition" id="input" value="new">
+								New
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div class="radio">
+							<label>
+								<input type="radio" name="condition" id="input" value="used">
+								Used
+							</label>
+						</div>
+					</div>
+				</div>
+				<div style="height: 10px;"></div>
 				<div class="form-group">
 	                <label for="image" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Cover Photo <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
@@ -58,7 +77,7 @@
 				 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                         <button type="submit" class="btn btn-primary btn-block btn-sm">
-                            Update Product
+                            Add Product
                         </button>
                     </div>
                 </div>         

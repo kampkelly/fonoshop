@@ -46,7 +46,8 @@ class ProductController extends Controller
                 'price' => 'required',
                 'description'=> 'required',
                 'phone'=>'required',
-                'category'=>'required'
+                'category_id'=>'required',
+                'condition'=>'required'
             ]); 
 
         if(Input::hasFile('image')){
@@ -74,8 +75,10 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'price' => $request->price,
             'phone' => $request->phone,
-            'user_id' => $user->id,
-            'slug' => $slug
+            'condition' => $request->condition,
+            'user_id' => Auth::user()->id,
+            'slug' => $slug,
+            'active' => 'active'
         //    'address' => $request->address,
            ]); 
 
@@ -97,6 +100,7 @@ class ProductController extends Controller
                      ]);
                 }
             }
+        return redirect('/myitems/'.Auth::user()->email);
 
     }
 
@@ -159,6 +163,8 @@ class ProductController extends Controller
             if (Input::hasFile('image')) $product->image = $newfilename;
             if (Input::has('phone')) $product->phone = $request->phone;
             if (Input::has('category_id')) $product->category_id = $request->category_id;
+            if (Input::has('condition')) $product->condition = $request->condition;
+            if (Input::has('status')) $product->status = $request->status;
             $product->save();
 
              if(Input::hasFile('photos')){
@@ -183,6 +189,27 @@ class ProductController extends Controller
             session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
     }
+
+     public function search()
+    {
+        $categories = Category::all();
+        $item = Input::get ( 'item' );
+        $products = Product::Where(function ($query) {
+                $item = Input::get ( 'item' );
+                $query->where('title', 'LIKE', '%'.$item.'%')
+                      ->where('status', '=', 'active');
+            })
+            ->orWhere(function ($query) {
+                $item = Input::get ( 'item' );
+                $query->where('condition', 'LIKE', '%'.$item.'%')
+                      ->where('status', '=', 'active');
+            })->orderBy('id', 'desc')->simplePaginate(15);
+        if(count($products) > 0) {
+            return view('products.search')->withDetails($products)->withQuery( $item );
+        }
+        else{ return view ('products.search')->withMessage('No products found. Try to search again !')->withQuery($item);
+        }
+    }   
 
     /**
      * Remove the specified resource from storage.

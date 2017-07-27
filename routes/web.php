@@ -37,6 +37,13 @@ Route::post('/product/{slug}', 'ProductController@update');
 Route::get('/product/new', 'ProductController@create');
 Route::post('/products', 'ProductController@store');
 
+Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
+Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
+Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
+Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
+Route::get('/cryptocurrencies', 'CryptocurrencyController@index');
+
+Route::any('/search', 'ProductController@search');
 //admin
 $this->post('login', 'Auth\LoginController@login');
 //$this->post('login', 'LognController@autheicate');

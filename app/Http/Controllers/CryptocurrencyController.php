@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use App\Category;
 use App\Product;
+use App\Cryptocurrency;
 use App\ProductsPhoto;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
-class CategoryController extends Controller
+class CryptocurrencyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $cryptocurrencies = Cryptocurrency::all();
+         return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 
     /**
@@ -27,7 +30,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+         return view('cryptocurrencies.create', compact('categories'));
     }
 
     /**
@@ -38,7 +42,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                'price' => 'required',
+                'currency'=>'required'
+            ]); 
+        $cryptocurrency = Cryptocurrency::create([
+            'price' => $request->price,
+            'currency' => $request->currency,
+            'user_id' => Auth::user()->id,
+        //    'address' => $request->address,
+           ]); 
+        return redirect('/myitems/'.Auth::user()->email);
+
     }
 
     /**
@@ -49,10 +64,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-         #$category->startups->simplePaginate(1);
-         $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(6);
-        return view('categories.show', compact('category', 'products'));
+        //
     }
 
     /**
@@ -63,7 +75,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cryptocurrency = Cryptocurrency::find($id);
+        $categories = Category::all();
+         return view('cryptocurrencies.edit', compact('cryptocurrency'));
     }
 
     /**
@@ -75,7 +89,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cryptocurrency = Cryptocurrency::find($id);
+            if (Input::has('price')) $cryptocurrency->price = $request->price;
+            if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
+            $cryptocurrency->save();
+
+            session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
     }
 
     /**

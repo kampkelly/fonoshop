@@ -18,12 +18,16 @@
 				<a href="#">Buy/Sell Cryptocurrencies</a>
 			</li> -->
 			<li>
-				<a href="/product/new">Add new product</a>
+				<a href="/product/new">Sell product</a>
+			</li>
+			<li>
+				<a href="/cryptocurrency/new">Sell Cryptocurrency</a>
 			</li> 
 			<li> 
-			<form class="navbar-form navbar-right" role="search">
+			<form action="/search" method="POST" class="navbar-form navbar-right" role="search">
+				{{ csrf_field() }}
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search Computers, Smartphones, Softwares, General Stuffs, etc.">
+					<input type="text" class="form-control" name="item" placeholder="Search Computers, Smartphones, Softwares, General Stuffs, etc.">
 				</div><span>
 				<button type="submit" class="btn btn-warning">
 			        <span class="glyphicon glyphicon-search"></span>

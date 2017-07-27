@@ -223,7 +223,7 @@
 			<img src=" {{ asset('homepage/general.jpg') }} " class="img-responsive img-rounded">
 			<h3>General Stuffs</h3>
 		</a>		
-		<a href="/category" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
+		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded">
 			<h3>Buy/Sell Bitcoins</h3>
 		</a>

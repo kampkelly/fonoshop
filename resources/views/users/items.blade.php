@@ -33,7 +33,7 @@
   <div id="tabs-1">
   	<div class="row">
 	  	@foreach($products as $product)
-	  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel panel-default">
+	  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel panel-default" style="height: 27em;">
 	  		<div class="row">
 		  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
 		  			<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-thumbnail" style="height: 12em;">
@@ -42,7 +42,7 @@
 		  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 		  			<div class="panel panel-info">
 		  				<div class="panel-heading">
-		  					<h3 class="panel-title">{{$product->title}}</h3><span style="color: green;">#{{$product->price}}</span>
+		  					<h3 class="panel-title">{{$product->title}}</h3><span style="color: green;">#{{$product->price}}</span> <span style="color: green;">{{$product->condition}}</span> <span class="pull-right small">{{$product->category->name}}<br>{{$product->status}}</span>
 		  				</div>
 		  				<div class="panel-body">
 		  					<p class="small">{{$product->description}}</p>
@@ -57,7 +57,16 @@
 	  			<h6 class="text-center" style="text-decoration: underline;">Addditional Images</h6>
 	  			@if(count($product->productsphoto) > 0)
 	  			@foreach($product->productsphoto as $photo)
-			  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+	  			<style type="text/css">
+	  				.ch img:hover {
+	  					cursor: pointer;
+	  					position: absolute;
+	  					transform: scale(2);
+	  					transition: 2s;
+	  					z-index: 99;
+	  				}
+	  			</style>
+			  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ch">
 			  			<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive img-rounded" style="height: 7em;">
 			  		</div>
 		  		@endforeach
@@ -72,7 +81,8 @@
   </div>
   <div id="tabs-2">
   	@foreach($cryptocurrencies as $cryptocurrency)
-		<p>{{$cryptocurrency->currency}}</p>
+		<p>Am selling {{$cryptocurrency->currency}}s at {{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</p>
+		<a href="/cryptocurrency/edit/{{$cryptocurrency->id}}">Edit</a>
 	@endforeach
     
   </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-     protected $fillable = [ 'title', 'image', 'description', 'category_id', 'price', 'phone', 'user_id', 'address', 'slug' ];
+     protected $fillable = [ 'title', 'image', 'description', 'category_id', 'price', 'phone', 'user_id', 'address', 'slug', 'condition' ];
 
      public function category(){
         return $this->belongsTo(Category::class);
