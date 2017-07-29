@@ -126,7 +126,7 @@ class RegisterController extends Controller
            $product = Product::create([
             'title' => $request->product_title,
             'image' => $newfilename,
-            'description' => 'desrcibe',
+            'description' => $request->description,
             'category_id' => $request->category_id,
             'price' => $request->price,
             'phone' => $request->phone,
