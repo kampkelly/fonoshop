@@ -21,7 +21,7 @@
 			<div class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
 				<h3 class="text-center">The Home for All Categories/ products and Brands</h3>
 			    <div style="heigt: 20px"></div>
-				<p class="text-center text-justify">Fonoshop is on stop shop with all the Computer Gadgets, General Equipments, IT Softwares, Cryptocurrencies e.t.c. Select a category, add a product and upload photos for buyers to view. Simply search for any products and cryptocurrencies and contact sellers directly.</p>
+				<p class="text-center text-justify">Fonoshop is a stop shop with all the Computer Gadgets, General Equipments, IT Softwares, Cryptocurrencies e.t.c. Select a category, add a product and upload photos for buyers to view. Simply search for any products, cryptocurrencies and contact sellers directly.</p>
 				<div class="text-center">
 					<a href="/products" class="btn btn-sm btn-primary">Shop Now</a>
 				</div>
