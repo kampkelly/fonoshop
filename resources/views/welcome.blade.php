@@ -61,7 +61,7 @@
 									</div>
 									<div class="panel-body">
 										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
-										{{str_limit($product->description, 35)}}
+										{{str_limit($product->description, 75)}}
 									</div>
 								</div>
 								<a href="#" style="color: white;">See more...</a>
