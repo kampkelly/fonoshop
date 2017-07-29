@@ -57,11 +57,11 @@
 							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11">
 								<div class="panel panel-primary">
 									<div class="panel-heading">
-										<h4 class="panel-title">{{$product->title}}</h4>
+										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
 									<div class="panel-body">
 										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
-										{{str_limit($product->description, 75)}}
+										{{str_limit($product->description, 75)}} <a href="/product/{{$product->slug}}" style="color: white;">See more...</a>
 									</div>
 								</div>
 								<a href="#" style="color: white;">See more...</a>
