@@ -201,14 +201,13 @@ class RegisterController extends Controller
            $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => $request->email,
-             'subject' => 'Welcome Email'
+             'subject' => 'Thanks For Registering'
               );
-                $act_code = str_random(60);
-                $view_data = array(
-                'actkey' => $act_code
+            $view_data = array(
+                'email' => $request->email,
             );
 
-              Mail::send('test', $view_data, function($message) use ($email_data) {
+              Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
               });

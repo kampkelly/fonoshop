@@ -7,13 +7,13 @@
 		<div class="ism-slider" data-play_type="loop" data-radios="false" id="my-slider">
 		  <ol>
 		    <li>
-		      <img src="ism/image/slides/cohesion.jpg">
+		      <img src="ism/image/slides/pics/coffee.jpg" style="filter: blur(2px) brightness(0.5) grayscale(0%);">
 		    </li>
 		    <li>
-		      <img src="ism/image/slides/business.jpg">
+		      <img src="ism/image/slides/pics/stones.jpg" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
 		    </li>
 		    <li>
-		      <img src="ism/image/slides/pexels.jpeg">
+		      <img src="ism/image/slides/pics/gen3.jpg" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
 		    </li>
 		  </ol>
 		</div>
@@ -225,19 +225,19 @@
 	<div class="row container-fluid show-container" style="diplay: none;">
 		<h5 class="text-center" style="margin-top: 0px;">Categories</h5>
 		<a href="/category/1" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('homepage/computer.jpg') }}" class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/pic2.png') }}" class="img-responsive img-rounded">
 			<h3>Computer/Phones</h3>
 		</a>		
 		<a href="/category/2" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('homepage/softwares.jpg') }} " class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/sof2.jpg') }} " class="img-responsive img-rounded">
 			<h3>IT Softwares</h3>
 		</a>		
 		<a href="/category/3" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('homepage/general.jpg') }} " class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/gen2.jpg') }} " class="img-responsive img-rounded">
 			<h3>General Stuffs</h3>
 		</a>		
 		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/buy 6.jpg') }} " class="img-responsive img-rounded">
 			<h3>Buy Bitcoins</h3>
 		</a>
 	</div>
