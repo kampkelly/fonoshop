@@ -21,6 +21,15 @@ Route::get('/category', function () {
 Route::get('/test', function () {
     return view('test');
 });
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/privacy', function () {
+    return view('privacy');
+});
+Route::get('/terms', function () {
+    return view('terms');
+});
 Route::get('/software', function () {
     return view('/categories/show_n');
 });

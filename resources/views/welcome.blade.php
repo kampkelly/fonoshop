@@ -19,11 +19,9 @@
 		</div>
 		<div class="ism_content row">
 			<div class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
-				<h3 class="text-center">The Home For All Your Gadgets, Equipments And Cryptocurrencies</h3>
+				<h3 class="text-center">The Home for All Categories/ products and Brands</h3>
 			    <div style="heigt: 20px"></div>
-				<p class="text-center text-justify">We serve as and provide all the neccaessary adgets and equipments you need to make your life easier.
- 				In need of a phone, computer, softwares, bitcoins, simply search and find the nearest location for it.
-				Welcome to Fonoshop - Quick access to your gadgets</p>
+				<p class="text-center text-justify">Fonoshop is on stop shop with all the Computer Gadgets, General Equipments, IT Softwares, Cryptocurrencies e.t.c. Select a category, add a product and upload photos for buyers to view. Simply search for any products and cryptocurrencies and contact sellers directly.</p>
 				<div class="text-center">
 					<a href="/products" class="btn btn-sm btn-primary">Shop Now</a>
 				</div>
@@ -108,11 +106,11 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-xs-0 col-sm-1 col-md-1 col-lg-1">
+									<div class="col-xs-0 col-sm-0 col-md-0 col-lg-0">
 									
 									</div>
-									<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-										<label>Condition</label>
+									<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2">
+										<label>Condition <span class="asterisks">*</span></label>
 									</div>
 									<div class="col-xs-2 col-sm-3 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top: -15px">
 										<div class="radio">
@@ -238,7 +236,7 @@
 			VPN<br>Applications<br>Installation packs<br>Anti-Virus</span></h3>
 		</a>		
 		<a href="/category/3" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('pics/gen2.jpg') }} " class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/gen3.jpg') }} " class="img-responsive img-rounded">
 			<h3>General Stuffs<br><span style="font-size: 10px;">
 			Electronics<br>Games<br>Toys<br>Furnitures<br>Cars</span></h3>
 		</a>		
@@ -249,7 +247,7 @@
 	</div>
 
 </section>
-<div style="height: 3em;"></div>
+<div style="height: 0em;"></div>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -259,6 +257,7 @@ $(document).ready(function () {
 		$(".form-one").slideUp();
 		$("#next_form").hide();
 		$("#previous_form").show();
+		$('#previous_form').css("margin-top", "-40px");
 		$(".form-two").slideDown();
 	});
 

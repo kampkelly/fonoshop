@@ -449,3 +449,8 @@ footer p {
   color: #533110;
 }
 
+.terms p {
+  line-height: 26px;
+  text-align: justify;
+}
+
