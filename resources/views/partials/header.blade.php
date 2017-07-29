@@ -48,7 +48,7 @@
         </ul>
       </li>
       <li style="position: relative;" class="drop">
-        <a href="#" style="cursor: pointer; color: white;">Cryptocurrencies</a>
+        <a href="/cryptocurrencies" style="cursor: pointer; color: white;">Cryptocurrencies</a>
         <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
           <li style="display: block;"><a href="/cryptocurrencies">Buy Cryptocurrency</a></li>
           <li style="display: block;" id="last"><a href="/cryptocurrency/new">Sell Cryptocurrency</a></li>
@@ -117,9 +117,14 @@
           <li><a href='/category/3'>General Equipments</a>
       </ul>
   </li>
-   <li><a href='/cryptocurrency/new'>Sell Cryptocurrencies</a></li>
-   <li><a href='/product_new'>Sell Products</a></li>
-   <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a></li>
+  <li><a href='/products'>All Products</a></li>
+  <li><a href='/cryptocurrencies'>Cryptocurrencies</a>
+      <ul>
+          <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a>
+          <li><a href='/cryptocurrency/new'>Sell Cryptocurrency</a>
+      </ul>
+  </li>
+   
    <li><a href='/about'>About</a></li>
    @if (Auth::check())
         <li>
