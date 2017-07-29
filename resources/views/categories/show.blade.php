@@ -43,8 +43,8 @@
 		<div class="row">
 		@foreach($products as $product)
 		@if( $loop->iteration == 2) <!-- bitcoins starts-->
-           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 50px;">
-                <div class="panel panel-primary">
+           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 hv" style="margin-bottom: 10px;">
+                <div class="pael panel-primary">
                 	<div class="panel-heading">
                 		<h3 class="panel-title">Buy or Sell Bitcoins</h3>
                 		
@@ -60,7 +60,7 @@
                 </div>
             </div>
         
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="hov" class="hv">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				
 				<div class="pael container-fluid row" style="width: 100%;">
 					<div class="col-xs-4 col-sm-6 col-md-4 col-lg-4">
@@ -75,57 +75,11 @@
 							<a href="/product/{{$product->slug}}" class="small">See more...</a>
 					</div>
 				</div>
-					<div class="shw" style="width: 92%;">
-						<p class="small">{{str_limit($product->description, 50)}}</p>
-						<div class="more" style="position: relative;">
-							<div class="photos" style="display: none; position: absolute; z-index: 99; bottom: 0px;">
-								<!--here-->
-								<div id="carousel-id" class="carousel slide" data-ride="carousel" style="width: 40%;">
-									<ol class="carousel-indicators">
-										<li data-target="#carousel-id" data-slide-to="0" class=""></li>
-										<li data-target="#carousel-id" data-slide-to="1" class=""></li>
-										<li data-target="#carousel-id" data-slide-to="2" class="active"></li>
-									</ol>
-									<div class="carousel-inner">
-										
-										@foreach($product->productsphoto as $photo)
-										@if($loop->iteration == 1)
-											<div class="item active">
-												<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" class="img" alt="Third slide" src="{{ asset('uploads/'.$photo->image) }}" style="height: 300px" width="100%">
-												<div class="container">
-													<div class="carousel-caption">
-														
-														<p><a class="btn btn-lg btn-primary btn-xs" href="#" role="button">Close</a></p>
-													</div>
-												</div>
-											</div>
-										@else
-											<div class="item">
-												<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" class="img" alt="Third slide" src="{{ asset('uploads/'.$photo->image) }}" style="height: 300px" width="100%">
-												<div class="container">
-													<div class="carousel-caption">
-														
-														<p><a class="btn btn-lg btn-primary btn-xs" href="#" role="button">Browse gallery</a></p>
-													</div>
-												</div>
-											</div>
-										@endif
-										@endforeach
-									</div>
-									<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-									<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-								<!--here-->
-							</div>
-							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
-						</div>
-						</p>
-						<span class="small">Seller's information:<br> Contact: {{$product->phone}}, City: {{$product->user->city}}</span>
-					</div>
-					<div style="height: 50px"></div>
+					
+					<div style="height: 10px"></div>
 			</div><!-- bitcoins ends-->
 		@else  <!--no bitcoins down-->
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="hov" class="hv">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				
 				<div class="pael container-fluid row" style="width: 100%;">
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -140,54 +94,8 @@
 							<a href="/product/{{$product->slug}}" class="small">See more...</a>
 					</div>
 				</div>
-					<div class="shw" style="width: 92%;">
-						<p class="small">{{str_limit($product->description, 50)}}</p>
-						<div class="more" style="position: relative;">
-							<div class="photos" style="display: none; position: absolute; z-index: 99; bottom: 0px;">
-								<!--here-->
-								<div id="carousel-id" class="carousel slide" data-ride="carousel" style="width: 40%;">
-									<ol class="carousel-indicators">
-										<li data-target="#carousel-id" data-slide-to="0" class=""></li>
-										<li data-target="#carousel-id" data-slide-to="1" class=""></li>
-										<li data-target="#carousel-id" data-slide-to="2" class="active"></li>
-									</ol>
-									<div class="carousel-inner">
-										
-										@foreach($product->productsphoto as $photo)
-										@if($loop->iteration == 1)
-											<div class="item active">
-												<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" class="img" alt="Third slide" src="{{ asset('uploads/'.$photo->image) }}" style="height: 300px" width="100%">
-												<div class="container">
-													<div class="carousel-caption">
-														
-														<p><a class="btn btn-lg btn-primary btn-xs" href="#" role="button">Close</a></p>
-													</div>
-												</div>
-											</div>
-										@else
-											<div class="item">
-												<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" class="img" alt="Third slide" src="{{ asset('uploads/'.$photo->image) }}" style="height: 300px" width="100%">
-												<div class="container">
-													<div class="carousel-caption">
-														
-														<p><a class="btn btn-lg btn-primary btn-xs" href="#" role="button">Browse gallery</a></p>
-													</div>
-												</div>
-											</div>
-										@endif
-										@endforeach
-									</div>
-									<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-									<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-								<!--here-->
-							</div>
-							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
-						</div>
-						</p>
-						<span class="small">Seller's information:<br> Contact: {{$product->phone}}, City: {{$product->user->city}}</span>
-					</div>
-					<div style="height: 50px"></div>
+					
+					<div style="height: 10px"></div>
 			</div>
 		@endif	
 			

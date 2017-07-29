@@ -215,7 +215,7 @@ body {
 			h3, h4 {
 				position: absolute;
 			//	top: 55px;
-				top: 10px;
+				top: 1px;
 				left: 10%;
 				color: #FAFAFA;
 				@media #{$smartphone} {
@@ -335,7 +335,10 @@ body {
 	}
 }
 .hv {
-	height: 100px;
+	//height: 10px;
+	.pael {
+		height: 140px !important;
+	}
 }
 
 footer {
