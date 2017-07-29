@@ -60,16 +60,6 @@
 										<input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" required="true">
 									</div>
 								</div>
-								<div class="widget">								 
-								  <fieldset>
-								    <label for="radio-1">New York</label>
-								    <input type="radio" name="radio-1" id="radio-1">
-								    <label for="radio-2">Paris</label>
-								    <input type="radio" name="radio-1" id="radio-2">
-								    <label for="radio-3">London</label>
-								    <input type="radio" name="radio-1" id="radio-3">
-								  </fieldset>
-								 </div>
 								<div class="form-group">
 					                <label for="name" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Full Name <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
