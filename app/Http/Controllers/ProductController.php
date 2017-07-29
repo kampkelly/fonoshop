@@ -9,6 +9,7 @@ use App\Cryptocurrency;
 use App\ProductsPhoto;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::where('status', 'active')->simplePaginate(15);
+         return view('products.index', compact('products'));
     }
 
     /**
@@ -100,6 +102,7 @@ class ProductController extends Controller
                      ]);
                 }
             }
+            session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
         return redirect('/myitems/'.Auth::user()->email);
 
     }
@@ -110,9 +113,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+         $product = Product::where('slug', $slug)->where('status', 'active')->first();
+         $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
+        return view('products.show', compact('product', 'productphotos'));
     }
 
     /**
@@ -192,7 +197,7 @@ class ProductController extends Controller
                 }
             }
 
-            session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Product Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
         }else{
             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"

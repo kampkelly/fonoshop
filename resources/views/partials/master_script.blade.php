@@ -1,6 +1,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
+	$(".drop").mouseenter(function() {
+	//	$(".drop ul").show("");
+		$(".drop ul").slideDown();
+	}); 
+	$(".drop").mouseleave(function() {
+		$(".drop ul").hide();
+	}); 
+
+
 /*
 	$(".pael").css('cursor', 'pointer');
 	$("section #hov").click(function() {

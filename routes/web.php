@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Input;
 
 Route::get('/old', function () {
     return view('welcome');
@@ -28,6 +29,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
+Route::get('/products', 'ProductController@index')->name('products');
+Route::get('/product/{slug}', 'ProductController@show')->name('productshow');
+Route::post('/category', function(){
+   $id = Input::get('category_id');    
+  # return Redirect::action('FrontController@buscarPrd', array('nom'=>$bsqd));
+   return redirect('/category/'.$id);
+
+});
 
 
 
@@ -38,7 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
 	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
 	Route::post('/product/{slug}', 'ProductController@update');
-	Route::get('/product/new', 'ProductController@create');
+	Route::get('/product_new', 'ProductController@create');
 	Route::post('/products', 'ProductController@store');
 	Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
 	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');

@@ -50,9 +50,10 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
+        $pro = Product::all();
          #$category->startups->simplePaginate(1);
-         $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(6);
-        return view('categories.show', compact('category', 'products'));
+         $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(15);
+        return view('categories.show', compact('category', 'products', 'pro'));
     }
 
     /**

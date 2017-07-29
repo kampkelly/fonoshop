@@ -2,7 +2,7 @@
 
 @section('content')
 	<div style="height: 20px"></div>
-	<h3 class="text-center">{{$category->name}}</h3>
+	<h3 class="text-center">All Products</h3>
 	<div style="height: 10px"></div>
 	<section class="container">
 	<style type="text/css">

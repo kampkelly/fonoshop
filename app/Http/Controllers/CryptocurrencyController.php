@@ -19,7 +19,7 @@ class CryptocurrencyController extends Controller
      */
     public function index()
     {
-        $cryptocurrencies = Cryptocurrency::all();
+        $cryptocurrencies = Cryptocurrency::simplePaginate(15);
          return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 
@@ -52,6 +52,7 @@ class CryptocurrencyController extends Controller
             'user_id' => Auth::user()->id,
         //    'address' => $request->address,
            ]); 
+        session()->flash('message', 'Cryptocurrency Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
         return redirect('/myitems/'.Auth::user()->email);
 
     }
@@ -100,7 +101,7 @@ class CryptocurrencyController extends Controller
             if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
             $cryptocurrency->save();
 
-            session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Cryptocurrency Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
         }else{
             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"

@@ -85,7 +85,8 @@ class RegisterController extends Controller
                 'product_title'=>'required|min:2',
                 'price'=>'required',
                 'photos'=>'required',
-                'phone'=>'required'
+                'phone'=>'required',
+                'condition'=>'required'
             ]);  
 
             $slug_title = request('product_title');
@@ -127,6 +128,7 @@ class RegisterController extends Controller
             'phone' => $request->phone,
             'user_id' => $user->id,
             'slug' => $slug,
+            'condition' => $request->condition,
             'status' => 'active'
         //    'address' => $request->address,
            ]);
@@ -151,9 +153,22 @@ class RegisterController extends Controller
                      ]);
                 } 
             }
+            $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => $request->email,
+             'subject' => 'Thanks For Registering'
+              );
+            $view_data = array(
+                'email' => $request->email,
+            );
+
+              Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); 
             Auth::login($user);
         
-            session()->flash('message', 'Please login'); 
+            session()->flash('message', 'Thanks for registering!'); 
              return redirect('/');
            //  return redirect('/toverify_email');
     }
