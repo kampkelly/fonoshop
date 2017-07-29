@@ -291,7 +291,7 @@ body {
 @media (min-width: 0px) and (max-width: 467px) {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
-    top: 0px;
+    top: -120px;
     font-size: 95%;
   }
 }
@@ -300,6 +300,7 @@ body {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
     top: 0px;
+    left: 15%;
     font-size: 95%;
   }
 }
@@ -308,6 +309,7 @@ body {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
     top: 20px;
+    left: 15%;
     font-size: 18px;
   }
 }

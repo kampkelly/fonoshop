@@ -219,15 +219,17 @@ body {
 				left: 10%;
 				color: #FAFAFA;
 				@media #{$smartphone} {
-					top: 0px;
+					top: -120px;
 					font-size: 95%;
 				}
 				@media #{$tablet} {
 					top: 0px;
+					left: 15%;
 					font-size: 95%;
 				}
 				@media #{$mini-laptop} {
 					top: 20px;
+					left: 15%;
 					font-size: 18px;
 				}
 			}

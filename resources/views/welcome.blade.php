@@ -106,7 +106,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-xs-0 col-sm-0 col-md-0 col-lg-0">
+									<div class="col-xs-0 col-sm-0 col-md-0 col-lg-1">
 									
 									</div>
 									<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2">
@@ -226,12 +226,12 @@
 	<div class="row container-fluid show-container" style="diplay: none;">
 		<h5 class="text-center" style="margin-top: 0px;">Categories</h5>
 		<a href="/category/1" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('pics/pic2.png') }}" class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/pic2.png') }}" class="img-responsive img-rounded" style="filter: blur(0.7px) brightness(0.6) grayscale(0%);">
 			<h4>Computer/Phones<br><span style="font-size: 10px;">
 			Laptops<br>Desktop<br>Ipads<br>Phones<br>Gadgets</span></h4>
 		</a>		
 		<a href="/category/2" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
-			<img src=" {{ asset('pics/sof2.jpg') }} " class="img-responsive img-rounded">
+			<img src=" {{ asset('pics/sof2.jpg') }} " class="img-responsive img-rounded" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
 			<h3>IT Softwares<br><span style="font-size: 10px;">
 			VPN<br>Applications<br>Installation packs<br>Anti-Virus</span></h3>
 		</a>		
