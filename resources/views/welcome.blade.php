@@ -61,12 +61,13 @@
 									</div>
 									<div class="panel-body">
 										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
-										{{$product->description}}
+										{{str_limit($product->description, 35)}}
 									</div>
 								</div>
+								<a href="#" style="color: white;">See more...</a>
 							</div>
 						@endforeach
-						<a href="#">See more...</a>
+
 					</div>
 				@else
 							
