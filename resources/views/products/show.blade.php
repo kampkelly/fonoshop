@@ -11,10 +11,13 @@
 		/*   padding-top: 56.25%; /* 1:1 Aspect Ratio */
 		}
 	</style>
+	<div class="container">
+<div class="row">
+	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<div class="row">
-		<div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
+		<div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
 			<h4 class="text-center">{{$product->title}}</h4>
-			<h6 class="text-center">Price: <span style="color: green;">N{{$product->price}}</span> Condition: {{$product->condition}} Seller: {{$product->user->name}}</h6>
+			<h6 class="text-center">Price: <span style="color: green; font-size: 120%;">N{{$product->price}}</span> Condition:<span style="color: green; font-size: 110%;"> {{$product->condition}}</span> Seller: {{$product->user->name}}</h6>
 			<section class="container-fluid text-center product">
 				<p class="text-center text-justify" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
 				<div class="row" stye="padding: 0px 220px 0px 220px;">
@@ -22,7 +25,7 @@
 						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
 					</div>
 					@foreach($product->productsphoto as $photo)
-						<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 panel panel-deault">
+						<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 panel panel-deault">
 							<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive">
 						</div>
 					@endforeach
@@ -35,8 +38,10 @@
 		<p class="small contact" style="display: none;">Phone: {{$product->phone}}<br> City: {{$product->user->city}}</p>
 		</div>
 	</div>
-	
-	
+	</div>
+	@include('partials/sidebar')
+</div>
+</div>
 	
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

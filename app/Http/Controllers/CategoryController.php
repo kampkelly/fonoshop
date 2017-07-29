@@ -7,6 +7,9 @@ use App\User;
 use App\Category;
 use App\Product;
 use App\ProductsPhoto;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CategoryController extends Controller
 {
@@ -53,6 +56,23 @@ class CategoryController extends Controller
         $pro = Product::all();
          #$category->startups->simplePaginate(1);
          $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(15);
+         //
+         if(Auth::check()) {
+         $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => 'kampkelly@live.com',
+             'subject' => 'Thanks For Registering'
+              );
+            $view_data = array(
+                'email' => 'kampkelly@live.com',
+            );
+
+              Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); 
+            }
+         //
         return view('categories.show', compact('category', 'products', 'pro'));
     }
 

@@ -160,7 +160,7 @@ class RegisterController extends Controller
                      ]);
                 } 
             }
-            $email_data = array(
+         /*   $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => $request->email,
              'subject' => 'Thanks For Registering'
@@ -172,7 +172,7 @@ class RegisterController extends Controller
               Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              }); 
+              });  */
             Auth::login($user);
         
             session()->flash('message', 'Thanks for registering!'); 
@@ -204,7 +204,7 @@ class RegisterController extends Controller
             'user_id' => $user->id
         //    'address' => $request->address,
            ]);  
-
+           /*
            $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => $request->email,
@@ -217,7 +217,7 @@ class RegisterController extends Controller
               Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              });
+              }); */
 
            Auth::login($user);
             session()->flash('message', 'Thanks for registering!'); 

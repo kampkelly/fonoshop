@@ -48,25 +48,25 @@
         </ul>
       </li>
       <li style="position: relative;" class="drop">
-        <a href="/cryptocurrencies" style="cursor: pointer; color: white;">Cryptocurrencies</a>
+        <a href="/cryptocurrencies" style="cursor: pointer; color: white;">Cryptocurrencies <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
         <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
           <li style="display: block;"><a href="/cryptocurrencies">Buy Cryptocurrency</a></li>
           <li style="display: block;" id="last"><a href="/cryptocurrency/new">Sell Cryptocurrency</a></li>
         </ul>
-      <li>
+      </li>
       <li style="position: relative;" class="drop">
-        <a href="#" style="cursor: pointer; color: white;">Products</a>
+        <a href="#" style="cursor: pointer; color: white;">Products <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
         <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
           <li style="display: block;"><a href="/products">Buy Products</a></li>
           <li style="display: block;" id="last"><a href="/product_new">Sell Products</a></li>
         </ul>
       @if(Auth::check())
-        <li>
+     <!--   <li>
           <a href="/myitems/{{Auth::user()->email}}">My Products</a>
         </li>
         <li>
           <a href="/myprofile/update/{{Auth::user()->email}}">Update Profile</a>
-        </li>
+        </li> -->
          <li>
               <a href="{{ route('logout') }}"  
                   onclick="event.preventDefault();
@@ -140,7 +140,6 @@
         </li>
         @else
         <li><a id="log" href="/login">Signin</a></li>
-        <li><a id="reg" href="#register">Signup</a></li>
         @endif
 </ul>
 </div>

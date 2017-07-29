@@ -1,4 +1,10 @@
 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+@if(Auth::check())
+    <div class="text-center">
+        <h4><a href="/myitems/{{Auth::user()->email}}">My Products</a></h4>
+        <h5><a href="/myprofile/update/{{Auth::user()->email}}">Update Profile</a></h5>
+    </div>
+@endif
 		<h4 class="text-center">Latest Products</h4>
 		<ul class="list-group">
 		@foreach($side_products as $p)
