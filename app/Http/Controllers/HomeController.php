@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Category;
+use App\Product;
 use App\Cryptocurrency;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,8 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('welcome', compact('categories'));
+        $products = Product::where('status', 'active')->simplePaginate(1);
+        return view('welcome', compact('categories', 'products'));
     }
 
     public function myprofile($email)

@@ -45,6 +45,29 @@
 						<a href="/myprofile/update/{{Auth::user()->email}}" class="tn bn-sm bn-info" style="font-size: 1.2em; color: #2E6DA4;">Update your profile</a> or 
 						view <a href="/myitems/{{Auth::user()->email}}" class="bn bn-sm bn-success" style="font-size: 1.2em; color: #4CAE4C;">your products</a></p>
 					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-7 col-md-0 col-lg-0">
+							
+						</div>
+
+						
+					
+					
+						@foreach($products as $product)
+							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{$product->title}}</h4>
+									</div>
+									<div class="panel-body">
+										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
+										{{$product->description}}
+									</div>
+								</div>
+							</div>
+						@endforeach
+						<a href="#">See more...</a>
+					</div>
 				@else
 							
 				

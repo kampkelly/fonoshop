@@ -40,7 +40,7 @@
         }
       </style>
       <li style="position: relative;" class="drop">
-        <a href="#" style="cursor: pointer; color: white;">Categories <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span> </a>
+        <a href="/products" style="cursor: pointer; color: white;">Categories <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span> </a>
         <ul style="position: absolute; left: 0%; bottom: -320%; width: 200%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
           <li style="display: block;"><a href="/category/1">Computers/Phones/Gadgets</a></li>
           <li style="display: block;"><a href="/category/2">IT Softwares</a></li>
@@ -55,7 +55,7 @@
         </ul>
       </li>
       <li style="position: relative;" class="drop">
-        <a href="#" style="cursor: pointer; color: white;">Products <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
+        <a href="/products" style="cursor: pointer; color: white;">Products <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
         <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
           <li style="display: block;"><a href="/products">Buy Products</a></li>
           <li style="display: block;" id="last"><a href="/product_new">Sell Products</a></li>

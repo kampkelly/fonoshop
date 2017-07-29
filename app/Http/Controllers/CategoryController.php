@@ -60,11 +60,11 @@ class CategoryController extends Controller
          if(Auth::check()) {
          $email_data = array(
           //   'recipient' => $user->user_email,
-             'recipient' => 'kampkelly@live.com',
+             'recipient' => Auth::user()->email,
              'subject' => 'Thanks For Registering'
               );
             $view_data = array(
-                'email' => 'kampkelly@live.com',
+                'email' => Auth::user()->email,
             );
 
               Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
