@@ -41,9 +41,9 @@
 				@if(Auth::check())
 					<p class="text-center">You are logged in!</p>
 					<div class="text-center">
-						<p>You can 
-						<a href="/myprofile/update/{{Auth::user()->email}}" class="tn bn-sm bn-info" style="font-size: 1.2em; color: #2E6DA4;">Update your profile</a> or 
-						view <a href="/myitems/{{Auth::user()->email}}" class="bn bn-sm bn-success" style="font-size: 1.2em; color: #4CAE4C;">your products</a></p>
+						<p> 
+						<a href="/myprofile/update/{{Auth::user()->email}}" class="tn bn-sm bn-info" style="font-size: 1.2em; color: #DF8109;">Update profile</a> <br>
+						 <a href="/myitems/{{Auth::user()->email}}" class="bn bn-sm bn-success" style="font-size: 1.2em; color: #4CAE4C;">My products</a></p>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-7 col-md-0 col-lg-0">
