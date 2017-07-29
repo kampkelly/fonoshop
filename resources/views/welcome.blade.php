@@ -25,7 +25,7 @@
  				In need of a phone, computer, softwares, bitcoins, simply search and find the nearest location for it.
 				Welcome to Fonoshop - Quick access to your gadgets</p>
 				<div class="text-center">
-					<a href="/products" class="btn btn-sm btn-primary">Buy Items</a>
+					<a href="/products" class="btn btn-sm btn-primary">Shop Now</a>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
@@ -33,7 +33,7 @@
 				<!-- <h4 class="text-center" style="text-decoration: underline; margin-bottom: 0px;">Sell An Item <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> <label class="small" id="product">Product</label> <span class="small" id="bitcoin">Cryptocurrency</span></h4> -->
 				<div class="row seller-div">
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-						<h4 style="paddin-tp: 0px; paddng-bttom: 0px;">Sell <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></h4>
+						<h6 style="paddin-tp: 0px; paddng-bttom: 0px;">Are you a seller? <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></h6>
 					</div>
 	                <div class="col-xs-12 col-sm-9 col-md-5 col-lg-7 text-center" style="margin-top: 0px; margin-bottom: 5px; margin-left: 0px;">
 						<a href="#product" class="small btn btn-xs btn-info" id="product" style="cursor: pointer;">Sell Product</a> <a href="#cryptocurrency" class="small btn btn-xs btn-warning" id="bitcoin" style="color: white; cursor: pointer;">Sell Cryptocurrency</a>
@@ -57,56 +57,45 @@
 								<div class="form-group">
 					                <label for="email" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Email <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address">
+										<input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" required="true">
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-xs-0 col-sm-1 col-md-1 col-lg-1">
-									
-									</div>
-									<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-										<label>Condition</label>
-									</div>
-									<div class="col-xs-2 col-sm-3 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top: -15px">
-										<div class="radio">
-											<label>
-												<input type="radio" name="condition" id="input" value="new">
-												New
-											</label>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6" style="margin-top: -15px">
-										<div class="radio">
-											<label>
-												<input type="radio" name="condition" id="input" value="used">
-												Used
-											</label>
-										</div>
+								<div class="widget">								 
+								  <fieldset>
+								    <label for="radio-1">New York</label>
+								    <input type="radio" name="radio-1" id="radio-1">
+								    <label for="radio-2">Paris</label>
+								    <input type="radio" name="radio-1" id="radio-2">
+								    <label for="radio-3">London</label>
+								    <input type="radio" name="radio-1" id="radio-3">
+								  </fieldset>
+								 </div>
+								<div class="form-group">
+					                <label for="name" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Full Name <span class="asterisks">*</span></label>
+					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
+										<input type="text" name="name" id="name" class="form-control" required="required" placeholder="Name" required="true">
 									</div>
 								</div>
+								<div class="form-group">
+					                <label for="password" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Pasword <span class="asterisks">*</span></label>
+					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
+										<input type="password" name="password" id="password" class="form-control" required="required" placeholder="Enter Password" required="true" minlength="8">
+									</div>
+								</div>
+								
 								<div class="form-group">
 					                <label for="product_title" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Title <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title">
+										<input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="4">
 									</div>
 								</div>
-								<div class="form-group">
-					                <label for="price" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
-					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price">
-									</div>
-								</div>
-								<div class="form-group">
-					                <label for="price" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Description <span class="asterisks">*</span></label>
-					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-					                	<textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter Description"></textarea>
-									</div>
-								</div>
+								
+								
 								<div class="form-group">
 					                <label for="photo" class="col-xs-2 col-sm-3 col-md-3 col-lg-3 control-label">Photos <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-									<!--	<input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(at least two photos)</span>
-										<input type="file" name="photos[]" id="photo" class="btn btn-success" multiple />
+									<!--	<input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(minimum of two photos)</span>
+										<input type="file" name="photos[]" id="photo" class="btn btn-success" required="true" accept="image/*" onchange="validateFileType()" multiple />
 									</div>
 								</div>
 							</div>
@@ -122,22 +111,46 @@
 			                </div>
 			                
 			                <div class="form-two" style="display: none;">
-								<div class="form-group">
-					                <label for="name" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Name <span class="asterisks">*</span></label>
+			                	<div class="form-group">
+					                <label for="price" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Description <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="text" name="name" id="name" class="form-control" required="required" placeholder="Name">
+					                	<textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter full description of product including accessories, functions, etc." required="true"></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-0 col-sm-1 col-md-1 col-lg-1">
+									
+									</div>
+									<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+										<label>Condition</label>
+									</div>
+									<div class="col-xs-2 col-sm-3 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top: -15px">
+										<div class="radio">
+											<label>
+												<input type="radio" name="condition" id="input" value="new" checked="">
+												New
+											</label>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6" style="margin-top: -15px">
+										<div class="radio">
+											<label>
+												<input type="radio" name="condition" id="input" value="used">
+												Used
+											</label>
+										</div>
 									</div>
 								</div>
 								<div class="form-group">
-					                <label for="password" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Pasword <span class="asterisks">*</span></label>
+					                <label for="price" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="password" name="password" id="password" class="form-control" required="required" placeholder="Enter Password">
+										<input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true">
 									</div>
 								</div>
 								<div class="form-group">
 					                <label for="phone" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">Phone <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="text" name="phone" id="phone" class="form-control" required="required" placeholder="Phone Number">
+										<input type="text" name="phone" id="phone" class="form-control" required="required" placeholder="Phone Number" required="true">
 									</div>
 								</div>
 								<div class="form-group">
@@ -145,7 +158,7 @@
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
 			                            <select name="category_id" id="category_id" class="form-control">
 			                                @foreach($categories as $category)
-			                                    <option value="{{$category->id}}">{{$category->name}}</option>
+			                                    <option value="{{$category->id}}" required="true">{{$category->name}}</option>
 			                                @endforeach
 			                            </select>
 			                        </div>
@@ -226,15 +239,18 @@
 		<h5 class="text-center" style="margin-top: 0px;">Categories</h5>
 		<a href="/category/1" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/pic2.png') }}" class="img-responsive img-rounded">
-			<h3>Computer/Phones</h3>
+			<h4>Computer/Phones<br><span style="font-size: 10px;">
+			Laptops<br>Desktop<br>Ipads<br>Phones<br>Gadgets</span></h4>
 		</a>		
 		<a href="/category/2" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/sof2.jpg') }} " class="img-responsive img-rounded">
-			<h3>IT Softwares</h3>
+			<h3>IT Softwares<br><span style="font-size: 10px;">
+			VPN<br>Applications<br>Installation packs<br>Anti-Virus</span></h3>
 		</a>		
 		<a href="/category/3" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/gen2.jpg') }} " class="img-responsive img-rounded">
-			<h3>General Stuffs</h3>
+			<h3>General Stuffs<br><span style="font-size: 10px;">
+			Electronics<br>Games<br>Toys<br>Furnitures<br>Cars</span></h3>
 		</a>		
 		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/buy 6.jpg') }} " class="img-responsive img-rounded">
@@ -276,5 +292,16 @@ $(document).ready(function () {
 		//$(".form-one").slideDown();
 	});
 	
+	
 });
+function validateFileType(){
+        var fileName = document.getElementById("photo").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            alert("Only jpg/jpeg and png files are allowed!");
+        }   
+    }
 </script>

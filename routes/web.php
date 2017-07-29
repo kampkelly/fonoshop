@@ -24,6 +24,9 @@ Route::get('/test', function () {
 Route::get('/software', function () {
     return view('/categories/show_n');
 });
+Route::get('/olditems', function () {
+    return view('/users/old_items');
+});
 Route::get('/', 'HomeController@index');
 Auth::routes();
 

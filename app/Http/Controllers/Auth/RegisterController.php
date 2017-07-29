@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Image;
 
 class RegisterController extends Controller
 {
@@ -107,7 +108,10 @@ class RegisterController extends Controller
                     $t = date("i-s");
                     $newfilename = md5($file_basename) . $t . $file_ext;
                   //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
-                    $file->move('uploads', $newfilename);
+                    Image::make($file)->resize(1500, null, function ($constraint) {
+                      $constraint->aspectRatio();
+                  })->save(public_path('/uploads/'. $newfilename));
+                 //   $file->move('uploads', $newfilename);
                 }else {}
             }
 
@@ -144,7 +148,10 @@ class RegisterController extends Controller
                     $file_ext = substr($dd, strripos($dd, '.')); // get file extension
                     $t = date("i-s");
                     $filename = md5($file_basename) . $t . $file_ext;
-                    $file->move('uploads', $filename);
+                    Image::make($file)->resize(1500, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save(public_path('/uploads/'. $filename));
+                  //  $file->move('uploads', $filename);
                     //uploading photo ends
                     ProductsPhoto::create([
                         'product_id' => $product->id,

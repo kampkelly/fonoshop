@@ -280,29 +280,33 @@ body {
   z-index: 10 !important;
 }
 
-.home_cover .show-container .showcase h3 {
+.home_cover .show-container .showcase h3,
+.home_cover .show-container .showcase h4 {
   position: absolute;
-  top: 55px;
+  top: 10px;
   left: 10%;
   color: #FAFAFA;
 }
 
 @media (min-width: 0px) and (max-width: 467px) {
-  .home_cover .show-container .showcase h3 {
+  .home_cover .show-container .showcase h3,
+  .home_cover .show-container .showcase h4 {
     top: 0px;
     font-size: 95%;
   }
 }
 
 @media (min-width: 468px) and (max-width: 767px) {
-  .home_cover .show-container .showcase h3 {
+  .home_cover .show-container .showcase h3,
+  .home_cover .show-container .showcase h4 {
     top: 0px;
     font-size: 95%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .home_cover .show-container .showcase h3 {
+  .home_cover .show-container .showcase h3,
+  .home_cover .show-container .showcase h4 {
     top: 20px;
     font-size: 18px;
   }

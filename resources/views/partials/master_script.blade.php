@@ -3,12 +3,13 @@
 $(document).ready(function () {
 	$(".drop").mouseenter(function() {
 	//	$(".drop ul").show("");
-		$(".drop ul").slideDown();
+		//$(".drop ul").slideDown();
+		$(this).find("ul").slideDown();
 	}); 
 	$(".drop").mouseleave(function() {
 		$(".drop ul").hide();
 	}); 
-
+	
 
 /*
 	$(".pael").css('cursor', 'pointer');

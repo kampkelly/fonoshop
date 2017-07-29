@@ -40,33 +40,38 @@
         }
       </style>
       <li style="position: relative;" class="drop">
-        <a href="#" style="cursor: pointer; color: white;"><strong>Categories</strong></a>
-        <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+        <a href="#" style="cursor: pointer; color: white;">Categories</a>
+        <ul style="position: absolute; left: 0%; bottom: -320%; width: 200%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <li style="display: block;"><a href="/category/1">Computers/Phones/Gadgets</a></li>
           <li style="display: block;"><a href="/category/2">IT Softwares</a></li>
-          <li style="display: block;"><a href="/category/1">Computers/Mobiles</a></li>
-          <li style="display: block;" id="last"><a href="/category/3">General Equipments</a></li>
+          <li style="display: block;" id="last"><a href="/category/3">General Products</a></li>
         </ul>
       </li>
-        <a href="/cryptocurrencies"><strong>Buy Cryptocurrency</strong></a>
-      </li>
+      <li style="position: relative;" class="drop">
+        <a href="#" style="cursor: pointer; color: white;">Cryptocurrencies</a>
+        <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <li style="display: block;"><a href="/cryptocurrencies">Buy Cryptocurrency</a></li>
+          <li style="display: block;" id="last"><a href="/cryptocurrency/new">Sell Cryptocurrency</a></li>
+        </ul>
       <li>
-        <a href="/product_new"><strong>Sell Product</strong></a>
-      </li>
-      <li>
-        <a href="/cryptocurrency/new"><strong>Sell Cryptocurrency</strong></a>
-      </li> 
+      <li style="position: relative;" class="drop">
+        <a href="#" style="cursor: pointer; color: white;">Products</a>
+        <ul style="position: absolute; left: 0%; bottom: -320%; width: 180%; height: 7em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <li style="display: block;"><a href="/products">Buy Products</a></li>
+          <li style="display: block;" id="last"><a href="/product_new">Sell Products</a></li>
+        </ul>
       @if(Auth::check())
         <li>
-          <a href="/myitems/{{Auth::user()->email}}"><strong>My Products</strong></a>
+          <a href="/myitems/{{Auth::user()->email}}">My Products</a>
         </li>
         <li>
-          <a href="/myprofile/update/{{Auth::user()->email}}"><strong>Update Profile</strong></a>
+          <a href="/myprofile/update/{{Auth::user()->email}}">Update Profile</a>
         </li>
          <li>
               <a href="{{ route('logout') }}"  
                   onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
-                  <strong>Logout</strong>
+                  Logout
               </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -75,14 +80,14 @@
           </li>
       @else
       <li>
-        <a href="/login"><strong>Login</strong></a>
+        <a href="/login">Login</a>
       </li> 
       @endif 
       <li id="li_form"> 
         <form action="/search" method="POST" class="navbar-form navbar-cente" role="search" style="display: inline;">
           {{ csrf_field() }}
           <div class="form-group">
-            <input type="text" class="form-control" name="item" placeholder="Search items..." style="width: 15em; height: 2em;">
+            <input type="text" class="form-control" name="item" placeholder="Product, category or brand..." style="width: 15em; height: 2em;">
           </div><span>
           <button type="submit" class="btn btn-success">
                 <span class="glyphicon glyphicon-search"></span>

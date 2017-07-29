@@ -212,9 +212,10 @@ body {
 		.showcase {
 			position: relative;
 			z-index: 10 !important;
-			h3 {
+			h3, h4 {
 				position: absolute;
-				top: 55px;
+			//	top: 55px;
+				top: 10px;
 				left: 10%;
 				color: #FAFAFA;
 				@media #{$smartphone} {
