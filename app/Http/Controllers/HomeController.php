@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::where('status', 'active')->simplePaginate(1);
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(1);
         return view('welcome', compact('categories', 'products'));
     }
 
