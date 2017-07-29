@@ -105,15 +105,13 @@
 <div id='cssmenu' class="mobilehead" style="position: fixed; color: white; top: 0%; z-index: 2; width: 100%;">
 <ul>
    <li><a href='/'>Home</a></li>
-   @if (Auth::check()) 
-       <li><a href='/products'>Categories</a>
-            <ul>
-                <li><a href='/category/1'>Computers/Phones</a>
-                <li><a href='/category/2'>IT Softwares</a>
-                <li><a href='/category/3'>General Equipments</a>
-            </ul>
-        </li>
-   @endif
+    <li><a href='/products'>Categories</a>
+      <ul>
+          <li><a href='/category/1'>Computers/Phones</a>
+          <li><a href='/category/2'>IT Softwares</a>
+          <li><a href='/category/3'>General Equipments</a>
+      </ul>
+  </li>
    <li><a href='/cryptocurrency/new'>Sell Cryptocurrencies</a></li>
    <li><a href='/product_new'>Sell Products</a></li>
    <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a></li>
