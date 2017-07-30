@@ -60,7 +60,7 @@
 											<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
-											<p style="color: black;"> {{str_limit($product->description, 125)}} <a href="/product/{{$product->slug}}" style="color: #337AB7;" class="small">Read more...</a></p>
+											<p style="color: black;"> {{str_limit($product->description, 75)}} <a href="/product/{{$product->slug}}" style="color: #337AB7;" class="small">Read more...</a></p>
 										</div>
 									</div>
 								</div>
