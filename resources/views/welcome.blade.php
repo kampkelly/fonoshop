@@ -255,18 +255,18 @@
 		<h5 class="text-center" style="margin-top: 0px;">Categories</h5>
 		<a href="/category/1" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/pic2.png') }}" class="img-responsive img-rounded" style="filter: blur(0.7px) brightness(0.6) grayscale(0%);">
-			<h4>Computer/Phones<br><span style="font-size: 10px;">
+			<h4>Computer/Phones<br><span>
 			Laptops<br>Desktop<br>Ipads<br>Phones<br>Gadgets</span></h4>
 		</a>		
 		<a href="/category/2" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/sof2.jpg') }} " class="img-responsive img-rounded" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
-			<h3>IT Softwares<br><span style="font-size: 10px;">
-			VPN<br>Applications<br>Installation packs<br>Anti-Virus</span></h3>
+			<h4>IT Softwares<br><span>
+			VPN<br>Applications<br>Installation packs<br>Anti-Virus</span></h4>
 		</a>		
 		<a href="/category/3" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/gen3.jpg') }} " class="img-responsive img-rounded">
-			<h3>General Stuffs<br><span style="font-size: 10px;">
-			Electronics<br>Games<br>Toys<br>Furnitures<br>Cars</span></h3>
+			<h4>General Stuffs<br><span>
+			Electronics<br>Games<br>Toys<br>Furnitures<br>Cars</span></h4>
 		</a>		
 		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/buy 6.jpg') }} " class="img-responsive img-rounded">
@@ -275,7 +275,7 @@
 	</div>
 
 </section>
-<div style="height: 3em;"></div>
+<div style="heiht: 3em;"></div>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

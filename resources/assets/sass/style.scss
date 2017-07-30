@@ -123,6 +123,9 @@ body {
 				padding: 0px 10px 0px 10px;
 			}
 			h3 {
+				padding-top: 30px;
+				padding-bottom: 10px;
+				color: white;
 				@media #{$smartphone} {
 					font-size: 20px;
 				}
@@ -134,6 +137,7 @@ body {
 				}
 			}
 			h4 {
+				color: white;
 				padding: 0px 0px 0px 0px;
 				@media #{$tablet} {
 					padding: 10px 0px 0px 0px;
@@ -167,9 +171,9 @@ body {
 		}
 	}
 	h3,h4 {
-		padding-top: 30px;
-		padding-bottom: 10px;
-		color: white;
+	//	padding-top: 30px;
+	//	padding-bottom: 10px;
+	//	color: white;
 		@media #{$smartphone} {
 			top: 0px !important;
 		}
@@ -203,7 +207,7 @@ body {
 	.show-container {
 		margin-top: -35px; 
 		background-color: white; 
-		height: calc(100% - 390px); 
+	//	height: calc(100% - 390px); 
 		overflow-y: hidden !important;
 		@media #{$tablet} {
 			margin-top: -5px; 
@@ -219,18 +223,33 @@ body {
 				left: 10%;
 				color: #FAFAFA;
 				@media #{$smartphone} {
-					top: -120px;
+					top: -20px;
+					left: 15%;
 					font-size: 95%;
 				}
 				@media #{$tablet} {
-					top: 0px;
+					top: -20px;
 					left: 15%;
 					font-size: 95%;
 				}
 				@media #{$mini-laptop} {
-					top: 20px;
+					top: -20px;
 					left: 15%;
-					font-size: 18px;
+					font-size: 20px;
+				}
+			}
+			h4 span {
+				@media #{$smartphone} {
+					font-size: 10px;
+				}
+				@media #{$tablet} {
+					font-size: 11px;
+				}
+				@media #{$mini-laptop} {
+					font-size: 13px;
+				}
+				@media #{$desktop} {
+					font-size: 13px;
 				}
 			}
 			img {
@@ -242,7 +261,7 @@ body {
 			//	position: relative;
 			//	z-index: 99 !important;
 				@media #{$smartphone} {
-					height: 100px;
+					height: 150px;
 				}
 				@media #{$tablet} {
 					height: 140px;
@@ -349,6 +368,14 @@ footer {
 	}
 	p {
 		color: $brown-color;
+	}
+	@media #{$smartphone} {
+		margin-top: 210px;
+		bottom: -10em;
+	}
+	@media #{$tablet} {
+		margin-top: 100px;
+		bottom: -10em;
 	}
 }
 
