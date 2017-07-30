@@ -49,19 +49,19 @@
 						<div class="col-xs-12 col-sm-7 col-md-0 col-lg-0">
 							
 						</div>
-
-						
-					
-					
 						@foreach($products as $product)
 							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11 container-flui" style="padding: 2em;">
 								<div class="pael panel-primary">
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
-									<div class="panel-body" style="background-color: white; border: 1px solid white; border-radius: 1%;">
-										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
-										{{str_limit($product->description, 75)}} <a href="/product/{{$product->slug}}" style="color: #337AB7;" class="small">Read more...</a>
+									<div class="panel-body" style="background-color: #b7b7b7; border: 1px solid #b7b7b7; border-radius: 1%;">
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+											<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-9">
+											<p style="color: black;"> {{str_limit($product->description, 125)}} <a href="/product/{{$product->slug}}" style="color: #337AB7;" class="small">Read more...</a></p>
+										</div>
 									</div>
 								</div>
 								<a href="/products" style="color: #337AB7;">View all products...</a>
