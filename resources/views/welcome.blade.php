@@ -45,13 +45,13 @@
 						<a href="/myprofile/update/{{Auth::user()->email}}" class="tn bn-sm bn-info" style="font-size: 1.2em; color: #DF8109;">Update profile</a> <br>
 						 <a href="/myitems/{{Auth::user()->email}}" class="bn bn-sm bn-success" style="font-size: 1.2em; color: #4CAE4C;">My products</a></p>
 					</div>
-					<div class="row">
+					<div class="row" style="margin-top: -30px;">
 						<div class="col-xs-12 col-sm-7 col-md-0 col-lg-0">
 							
 						</div>
 						@foreach($products as $product)
 							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11 container-flui" style="padding: 2em;">
-								<div class="panel panel-primary">
+								<div class="pael panel-primary">
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
