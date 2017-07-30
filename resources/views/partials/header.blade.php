@@ -14,7 +14,7 @@
        <span class="icon-fonoshop" style="font-size: 2em; height: 10em !important;">
                 <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span>
                 </span>
-                <a href="/" style="font-size: 1.2em !important;">SalesNaija</a>
+                <a href="/" style="font-size: 1.6em !important;">SalesNaija</a>
    <!--   <li>
         <a href="/category/2">IT Softwares</a>
       </li>

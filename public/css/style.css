@@ -14,7 +14,7 @@ body {
 
 .navbar-transparent a {
   color: white;
-  font-size: 0.78em !important;
+  font-size: 0.9em !important;
   padding: 5px;
 }
 
@@ -283,14 +283,14 @@ body {
 .home_cover .show-container .showcase h4 {
   position: absolute;
   top: 1px;
-  left: 10%;
+  left: 25%;
   color: #FAFAFA;
 }
 
 @media (min-width: 0px) and (max-width: 467px) {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
-    top: -20px;
+    top: 10px;
     left: 15%;
     font-size: 95%;
   }
@@ -299,7 +299,7 @@ body {
 @media (min-width: 468px) and (max-width: 767px) {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
-    top: -20px;
+    top: 10px;
     left: 15%;
     font-size: 95%;
   }
@@ -308,8 +308,8 @@ body {
 @media (min-width: 768px) and (max-width: 991px) {
   .home_cover .show-container .showcase h3,
   .home_cover .show-container .showcase h4 {
-    top: -20px;
-    left: 15%;
+    top: 10px;
+    left: 20%;
     font-size: 20px;
   }
 }

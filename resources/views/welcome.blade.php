@@ -7,13 +7,13 @@
 		<div class="ism-slider" data-play_type="loop" data-radios="false" id="my-slider">
 		  <ol>
 		    <li>
-		      <img src="ism/image/slides/pics/coffee.jpg" style="filter: blur(2px) brightness(0.5) grayscale(0%);">
+		      <img src="homepage/networks.jpeg" style="filter: blur(1px) brightness(0.5) grayscale(0%);">
 		    </li>
 		    <li>
-		      <img src="ism/image/slides/pics/stones.jpg" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
+		      <img src="ism/image/slides/pics/stones.jpg" style="filter: blur(0px) brightness(0.5) grayscale(0%);">
 		    </li>
 		    <li>
-		      <img src="ism/image/slides/pics/gen3.jpg" style="filter: blur(0px) brightness(0.6) grayscale(0%);">
+		      <img src="ism/image/slides/pics/gen3.jpg" style="filter: blur(0px) brightness(0.5) grayscale(0%);">
 		    </li>
 		  </ol>
 		</div>
@@ -268,9 +268,15 @@
 			<h4>General Stuffs<br><span>
 			Electronics<br>Games<br>Toys<br>Furnitures<br>Cars</span></h4>
 		</a>		
-		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
+	<!--	<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
 			<img src=" {{ asset('pics/buy 6.jpg') }} " class="img-responsive img-rounded">
-			<h3>Buy Bitcoins</h3>
+			<h4>Cryptocurrencies<br><span>
+			Bitcoins<br>Perfect Money<br>Litecoin</span></h4>
+		</a> -->
+		<a href="/cryptocurrencies" class="col-xs-6 col-sm-3 col-md-3 col-lg-3 showcase">
+			<img src=" {{ asset('pics/buy 6.jpg') }} " class="img-resposive img-rounded">
+			<h4 style="background-color: gray; padding: 20px;">Cryptocurrencies<br><span>
+			Bitcoins<br>Perfect Money<br>Litecoin</span></h4>
 		</a>
 	</div>
 
@@ -307,6 +313,13 @@ $(document).ready(function () {
 		$(".first-form").hide();
 		$(".second-form").show();
 		//$(".form-one").slideDown();
+	});
+
+	$(".showcase h4").mouseenter(function() {	
+	//	$(this).find("img").css({"transform": "scale(1.1,1.2)", "transition": "1.5s"});
+	});
+	$(".showcase h4").mouseleave(function() {	
+	//	$(this).find("img").css({"transform": "scale(1)", "transition": "1.5s"});
 	});
 	
 	
