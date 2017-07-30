@@ -51,11 +51,11 @@
 						</div>
 						@foreach($products as $product)
 							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11 container-flui" style="padding: 2em;">
-								<div class="pael panel-primary">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
-									<div class="panel-body" style="background-color: #b7b7b7; border: 1px solid #b7b7b7; border-radius: 1%;">
+									<div class="panel-body" style="background-clor: #b7b7b7; brder: 1px solid #b7b7b7; boder-radius: 1%;">
 										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 											
 										</div>
