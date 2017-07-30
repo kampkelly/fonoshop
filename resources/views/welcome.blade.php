@@ -55,7 +55,7 @@
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
-									<div class="panel-body" style="background-color: #b7b7b7; brder: 1px solid #b7b7b7; boder-radius: 1%;">
+									<div class="panel-body" style="background-color: #e2e2e2; brder: 1px solid #b7b7b7; boder-radius: 1%;">
 										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 											
 										</div>
