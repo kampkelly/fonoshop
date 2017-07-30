@@ -55,11 +55,11 @@
 					
 						@foreach($products as $product)
 							<div class="col-xs-12 col-sm-7 col-md-11 col-lg-11 container-flui" style="padding: 2em;">
-								<div class="panl panel-primary">
+								<div class="pael panel-primary">
 									<div class="panel-heading">
 										<h4 class="panel-title"><a href="/product/{{$product->slug}}"> {{$product->title}}</a></h4>
 									</div>
-									<div class="panel-body">
+									<div class="panel-body" style="background-color: white; border: 1px solid white; border-radius: 1%;">
 										<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="height: 100px;">
 										{{str_limit($product->description, 75)}} <a href="/product/{{$product->slug}}" style="color: #337AB7;" class="small">Read more...</a>
 									</div>
