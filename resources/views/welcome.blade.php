@@ -68,9 +68,11 @@
 								</div>
 								<a href="/products" style="color: #337AB7;">View all products...</a>
 							</div>
+
 						@endforeach
 
 					</div>
+					<div style="height: 60px;"></div>
 				@else
 							
 				
