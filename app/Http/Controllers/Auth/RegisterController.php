@@ -83,7 +83,7 @@ class RegisterController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|unique:users',
                 'password'=> 'required|min:6',
-                'product_title'=>'required|min:2',
+                'product_title'=>'required',
                 'price'=>'required',
                 'photos'=>'required',
                 'phone'=>'required',
@@ -99,7 +99,7 @@ class RegisterController extends Controller
 
             foreach (request('photos') as $key=>$photo) {
                 //uploading photo starts
-                if($key == 1) {
+                if($key == 0) {
                   //  $file=Input::file('photo');
                     $file = $photo;
                     $dd = $file->getClientOriginalName();
@@ -139,7 +139,7 @@ class RegisterController extends Controller
 
             foreach (request('photos') as $key=>$photo) {
                 //uploading photo starts
-                if($key == 1) {
+                if($key == 0) {
 
                 }else {
                     $file = $photo;

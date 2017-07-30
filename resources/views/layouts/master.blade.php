@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>FonoShop</title>
+        <title>SalesNaija</title>
 
         <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('ism/css/my-slider.css') }}" rel="stylesheet">

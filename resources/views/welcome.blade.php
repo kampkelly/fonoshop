@@ -19,7 +19,7 @@
 		</div>
 		<div class="ism_content row">
 			<div class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
-				<h3 class="text-center">The Home for All Categories/ products and Brands</h3>
+				<h3 class="text-center">The Home For All Categories/ products and Brands</h3>
 			    <div style="heigt: 20px"></div>
 				<p class="text-center text-justify">Fonoshop is a stop shop with all the Computer Gadgets, General Equipments, IT Softwares, Cryptocurrencies e.t.c. Select a category, add a product and upload photos for buyers to view. Simply search for any products, cryptocurrencies and contact sellers directly.</p>
 				<div class="text-center">
@@ -33,7 +33,7 @@
 					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 						<h6 style="paddin-tp: 0px; paddng-bttom: 0px;">Are you a seller? <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></h6>
 					</div>
-	                <div class="col-xs-12 col-sm-9 col-md-5 col-lg-7 text-center" style="margin-top: 0px; margin-bottom: 5px; margin-left: 0px;">
+	                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-7 text-center" style="margin-top: 0px; margin-bottom: 5px; margin-left: 0px;">
 						<a href="#product" class="small btn btn-xs btn-info" id="product" style="cursor: pointer;">Sell Product</a> <a href="#cryptocurrency" class="small btn btn-xs btn-warning" id="bitcoin" style="color: white; cursor: pointer;">Sell Cryptocurrency</a>
 					</div>
 				</div>
@@ -110,7 +110,7 @@
 								<div class="form-group">
 					                <label for="photo" class="col-xs-2 col-sm-3 col-md-3 col-lg-3 control-label">Photos <span class="asterisks">*</span></label>
 					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-									<!--	<input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(minimum of two photos)</span>
+									<!--	<input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(can select multiple photos)</span>
 										<input type="file" name="photos[]" id="photo" class="btn btn-success" required="true" accept="image/*" onchange="validateFileType()" multiple />
 									</div>
 								</div>
