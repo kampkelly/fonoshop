@@ -1,5 +1,13 @@
+/*
+$darkerbl: #236d9d;
+$darkbl: #2980b9;
+$lightbl: #409ad5;
+$lightestbl: #5ca9db;
+*/
+
 body {
   min-height: 100vh;
+  font-family: 'Lora', sans-serif;
 }
 
 .navbar-transparent {
@@ -492,5 +500,54 @@ footer p {
 .terms p {
   line-height: 26px;
   text-align: justify;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .tophead {
+    display: none;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  #searchdiv {
+    padding: 0px 2px 0px 2px !important;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .introtext1 {
+    display: none;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .introtext2 {
+    margin-top: -7px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .firstsection h3 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .firstsection .hspan {
+    font-size: 16px !important;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .firstsection {
+    height: 89vh !important;
+    margin-top: -10px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .new_cover .item img {
+    height: 250px !important;
+  }
 }
 

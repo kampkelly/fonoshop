@@ -1,5 +1,17 @@
 $main-color: #DF8109;
 $brown-color: #533110;
+//orange
+$darker: #d78512;
+$normal: #ec971f;
+$lighter: #efa63e;
+$lightest: #f8d8ac;
+//bluebelow
+/*
+$darkerbl: #236d9d;
+$darkbl: #2980b9;
+$lightbl: #409ad5;
+$lightestbl: #5ca9db;
+*/
 $smartphone: "(min-width: 0px) and (max-width: 467px)";
 $tablet: "(min-width: 468px) and (max-width: 767px)";
 $mini-laptop: "(min-width: 768px) and (max-width: 991px)";
@@ -16,6 +28,7 @@ $lg-normal-font: 110%;
 body {
 	min-height: 100vh;
 //	background-color: #fafafa;
+	font-family: 'Lora', sans-serif;
 }
 .navbar-transparent {
 	@media only screen and (max-width: 768px) {
@@ -389,8 +402,51 @@ footer {
 	}
 }
 
+.tophead {
+	@media #{$smartphone} {
+		display: none;
+	}
+}
 
-
+#searchdiv {
+	@media #{$smartphone} {
+		padding: 0px 2px 0px 2px !important;
+	}
+}
+.new_cover {
+	.introtext1 {
+		@media #{$smartphone} {
+			display: none;
+		}
+	}
+	.introtext2 {
+		@media #{$smartphone} {
+			//display: inline;
+			margin-top: -7px;
+		}
+	}
+	.firstsection {
+		h3 {
+			@media #{$smartphone} {
+				font-size: 18px;
+			}
+		}
+		.hspan {
+			@media #{$smartphone} {
+				font-size: 16px !important;
+			}
+		}
+		@media #{$smartphone} {
+			height: 89vh !important;
+			margin-top: -10px;
+		}
+	}
+	.item img {
+		@media #{$smartphone} {
+			height: 250px !important;
+		}
+	}
+}
 
 
 

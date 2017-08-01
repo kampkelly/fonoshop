@@ -37,9 +37,10 @@ Route::get('/olditems', function () {
     return view('/users/old_items');
 });
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@newindex');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/product/{slug}', 'ProductController@show')->name('productshow');
