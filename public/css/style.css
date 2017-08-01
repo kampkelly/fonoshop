@@ -520,6 +520,12 @@ footer p {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .new_cover .introtext2 {
+    display: none;
+  }
+}
+
 @media (min-width: 0px) and (max-width: 467px) {
   .new_cover .introtext2 {
     margin-top: -7px;

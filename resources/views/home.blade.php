@@ -99,19 +99,19 @@
     <section style="height: 100vh; background-color: #49422C;">
         <div class="container" style="height: 32vh;">
             <div class="row">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                     <h4 class="text-center" style="color: white;">Computers</h4>
                     <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                     <h4 class="text-center" style="color: white;">Softwares</h4>
                     <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                     <h4 class="text-center" style="color: white;">General</h4>
                     <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                     <h4 class="text-center" style="color: white;">Bitcoins</h4>
                     <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
                 </div>

@@ -420,6 +420,9 @@ footer {
 		}
 	}
 	.introtext2 {
+		@media only screen and (min-width: 768px) {
+			display: none;
+		}
 		@media #{$smartphone} {
 			//display: inline;
 			margin-top: -7px;
