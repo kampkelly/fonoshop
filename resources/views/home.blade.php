@@ -51,7 +51,7 @@
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
             <h5 class="text-capitalize"><b>Want to sell?</b> quickly upload your product below</h5>
-            <form action="/toregister" method="get" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
+            <form action="/toregister" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" required="true">
                 <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">

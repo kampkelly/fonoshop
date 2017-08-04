@@ -69,10 +69,10 @@ class RegisterController extends Controller
     {
      //   $categories = Category::all();
      //   $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
-        $name = $request->name;
         $product_title = $request->product_title;
-        $price = Input::get('price') ;
-        $product_title = Input::get('product_title') ;
+        $price = $request->price;
+      //  $price = Input::get('price') ;
+       // $product_title = Input::get('product_title') ;
       //  return view('auth.register', compact('categories', 'products', 'name', 'product_title'));
         return redirect('/register/'.$product_title.'/'.$price);
     }
