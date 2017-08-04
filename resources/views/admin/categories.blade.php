@@ -28,7 +28,7 @@
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-9">
 							<form action="/category/{{$category->id}}" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
 				                {{ csrf_field() }}
-				                <input type="text" name="name" id="name" class="form-control" placeholder="New Category Name" required="true">
+				                <input type="text" name="name" id="name" class="form-control" placeholder="New Category Name" required="true" value="{{$category->name}}">
 				                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-warning" value="Update Name">
 				            </form>
 						</div>
