@@ -68,6 +68,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
 });
 
+//Route::group(['middleware' => 'check-permission:admin|superadmin'], function () {
+	Route::get('/admin/panel', 'AdminController@index')->name('adminpanel');
+	Route::get('/admin/categories', 'AdminController@categories')->name('admincategories');
+	Route::post('/categoriess', 'CategoryController@store');
+	Route::post('/category/{id}', 'CategoryController@update');
+	Route::post('/category/delete/{id}', 'CategoryController@destroy');
+//});	
 
 
 Route::get('/cryptocurrencies', 'CryptocurrencyController@index');

@@ -22,6 +22,11 @@
         <li>
   				<a href="/myitems/{{Auth::user()->email}}" style="color: #d78512;">My Products</a>
   			</li>
+        @if(checkPermission(['admin']))
+            <li>
+              <a href="/admin/panel" style="color: #d78512;">Admin Panel</a>
+            </li>
+        @endif
       @endif
 			<li>
 				<a href="#" style="color: #d78512;">Contact Us</a>
@@ -40,10 +45,10 @@
         </li>
       @else
       <li class="pull-right">
-        <a href="#" style="color: #d78512;">Register</a>
+        <a href="/register" style="color: #d78512;">Register</a>
       </li>
       <li class="pull-right">
-        <a href="#" style="color: #d78512;">Login</a>
+        <a href="/login" style="color: #d78512;">Login</a>
       </li>
       @endif
 		<!--	<p class="navbar-text">Purchase all used and new items...</p> -->

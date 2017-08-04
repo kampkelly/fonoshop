@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="photo" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Photos <span class="asterisks">*</span></label>
+                    <label for="photo" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Additional Photos <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
                     <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(can select multiple photos)</span>
                         <input type="file" name="photos[]" id="photo" class="btn btn-success btn-block" required="true" accept="image/*" onchange="validateFileType()" multiple />

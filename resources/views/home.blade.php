@@ -39,10 +39,9 @@
                 <hr>
                 <h4 class="text-center">Our Categories</h4>
                 <ul class="row list-unstyled text-center intrtext1">
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>Computers</h5></li>
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>Mobile Phones</h5></li>
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>IT Softwares</h5></li>
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>Accessories</h5></li>
+                @foreach($categories as $category)
+                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>{{$category->name}}</h5></li>
+                @endforeach
                 </ul>
                 <h5 class="text-center introtext1">Buy Cryptocurrencies</h5>
                 <ul class="row list-unstyled text-center introtext1">
@@ -107,22 +106,12 @@
     <section style="height: 100vh; background-color: #49422C;">
         <div class="container" style="height: 32vh;">
             <div class="row">
+            @foreach($categories as $category)
                 <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                    <h4 class="text-center" style="color: white;">Computers</h4>
-                    <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
+                    <h4 class="text-center" style="color: white;">{{$category->name}}</h4>
+                    <img src="{{ asset('categories/'.$category->image) }}" style="height: 160px; filter: blur(0px) brightness(1) grayscale(0%);" width="100%" class="img-responsive img-thumbnail">
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                    <h4 class="text-center" style="color: white;">Softwares</h4>
-                    <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
-                </div>
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                    <h4 class="text-center" style="color: white;">General</h4>
-                    <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
-                </div>
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                    <h4 class="text-center" style="color: white;">Bitcoins</h4>
-                    <img src="homepage/new/cat/1.jpg" style="filter: blur(0px) brightness(1) grayscale(0%);" class="img-responsive img-thumbnail">
-                </div>
+            @endforeach
             </div>
         </div>
         <div style="height: 65vh; backgroud-color: green;" id="bk_second">

@@ -10,6 +10,7 @@ use App\ProductsPhoto;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Image;
 
 class CategoryController extends Controller
 {
@@ -41,7 +42,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+           'name' => 'required'
+        ]); 
+        if(Input::hasFile('image')){
+            $file=Input::file('image');
+            $dd = $file->getClientOriginalName();
+            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+            $t = date("i-s");
+            $newfilename = md5($file_basename) . $t . $file_ext;
+            Image::make($file)->resize(1500, null, function ($constraint) {
+                  $constraint->aspectRatio();
+              })->save(public_path('/categories/'. $newfilename));
+          //  $file->move('static-pics/categories', $newfilename);
+        }
+
+         Category::create([
+            'name' => request('name'),
+            'image' => $newfilename
+        ]);
+        session()->flash('message', 'Category Created!');
+            return redirect()->back();
     }
 
     /**
@@ -96,7 +118,30 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Input::hasFile('image')){
+            $file=Input::file('image');
+            $dd = $file->getClientOriginalName();
+            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+            $t = date("i-s");
+            $newfilename = md5($file_basename) . $t . $file_ext;
+          //  Image::make($file)->resize(900, 600)->save(public_path('/static-pics/categories/'. $newfilename));
+            Image::make($file)->resize(1500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path('/categories/'. $newfilename));
+           // $file->move('static-pics/categories', $newfilename);
+        }
+
+         $category = Category::find($id);
+
+            if (Input::has('name')) $category->name = Input::get('name');
+            if (Input::hasFile('image')) $category->image = $newfilename;
+            if (Input::has('description')) $category->description = Input::get('description');
+            
+            $category->save();
+
+            session()->flash('message', 'Category Updated!');
+            return redirect()->back();
     }
 
     /**
@@ -105,8 +150,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $id = request('category_id');
+        $deleted = Category::find($id);
+        $deleted->delete();
+       // $id = request('category_id');
+        session()->flash('message', 'Category Deleted!');
+        return redirect()->back();
     }
 }
