@@ -164,7 +164,7 @@ class RegisterController extends Controller
             'condition' => $request->condition,
             'state' => $request->state,
             'city' => $request->city,
-            'status' => 'active'
+            'status' => 'active',
             'is_permission' => 0
         //    'address' => $request->address,
            ]);
