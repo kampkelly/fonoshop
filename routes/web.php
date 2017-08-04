@@ -86,7 +86,7 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-$this->get('/toregister', 'Auth\RegisterController@toregister')->name('toregister');
+$this->get('/toregiser', 'Auth\RegisterController@toregister')->name('toregister');
 $this->get('/register/{name}/{price}', 'Auth\RegisterController@register')->name('register');
 $this->get('/register', 'Auth\RegisterController@newregister')->name('register');
 #$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
