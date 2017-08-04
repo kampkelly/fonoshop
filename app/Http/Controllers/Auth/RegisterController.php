@@ -148,7 +148,8 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'phone' => $request->phone,
-            'status' => 'pending'
+            'status' => 'pending',
+            'is_permission' => 0
            ]);
 
            $product = Product::create([
@@ -164,8 +165,7 @@ class RegisterController extends Controller
             'condition' => $request->condition,
             'state' => $request->state,
             'city' => $request->city,
-            'status' => 'active',
-            'is_permission' => 0
+            'status' => 'active'
         //    'address' => $request->address,
            ]);
 
