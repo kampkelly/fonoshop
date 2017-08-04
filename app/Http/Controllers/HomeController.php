@@ -27,7 +27,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function newindex()
+
+
+     public function newindex()
     {
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);

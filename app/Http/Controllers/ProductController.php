@@ -32,8 +32,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
           $categories = Category::all();
-         return view('products.create', compact('categories'));
+         return view('products.create', compact('categories', 'states'));
     }
 
     /**
@@ -75,6 +76,7 @@ class ProductController extends Controller
             $slug = $slug_format;
 
         $product = Product::create([
+            'name' => $request->name,
             'title' => $request->product_title,
             'image' => $newfilename,
             'description' => 'desrcibe',
@@ -84,6 +86,8 @@ class ProductController extends Controller
             'condition' => $request->condition,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
+            'state' => $request->state,
+            'city' => $request->city,
             'active' => 'active'
         //    'address' => $request->address,
            ]); 
@@ -135,11 +139,12 @@ class ProductController extends Controller
      */
     public function edit($slug)
     {
+        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
          $product = Product::where('slug', $slug)->first();
          if(Auth::user()->id == $product->user_id) {
          $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
           $categories = Category::all();
-         return view('products.edit', compact('product', 'productsphotos', 'categories'));
+         return view('products.edit', compact('product', 'productsphotos', 'categories', 'states'));
         }else{
             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
@@ -178,6 +183,7 @@ class ProductController extends Controller
 
          $product = Product::where('slug', $slug)->first();
          if(Auth::user()->id == $product->user_id) {
+            if (Input::has('name')) $product->name = $request->name;
             if (Input::has('product_title')) $product->title = $request->product_title;
             if (Input::has('price')) $product->price = $request->price;
             if (Input::has('description')) $product->description = $request->description;
@@ -185,6 +191,8 @@ class ProductController extends Controller
             if (Input::has('phone')) $product->phone = $request->phone;
             if (Input::has('category_id')) $product->category_id = $request->category_id;
             if (Input::has('condition')) $product->condition = $request->condition;
+            if (Input::has('state')) $product->state = $request->state;
+            if (Input::has('city')) $product->city = $request->city;
             if (Input::has('status')) $product->status = $request->status;
             $product->save();
 

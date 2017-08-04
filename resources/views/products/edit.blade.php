@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.new_master')
 
 @section('content')
 	<div style="height: 60px"></div>
@@ -7,6 +7,12 @@
 	<section class="container">
 		<form action="/product/{{$product->slug}}" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 				{{ csrf_field() }}
+				<div class="form-group">
+                    <label for="name" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Full Name <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="name" id="name" class="form-control" required="required" placeholder="Full Name" required="true" value="{{$product->name}}">
+                    </div>
+                </div>
 				<div class="form-group">
 	                <label for="product_title" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Product Title <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -92,6 +98,23 @@
                         </select>
                     </div>
 				</div>
+				<div class="form-group">
+                    <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <select name="state" id="state" class="form-control">
+                        		<option value="{{$product->state}}" required="true">{{$product->state}}</option>
+                            @foreach($states as $state)
+                                <option value="{{$state}}" required="true">{{$state}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true" value="{{$product->city}}">
+                    </div>
+                </div>
 				<div class="form-group">
 	                <label for="status" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Status <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

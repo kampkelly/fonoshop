@@ -42,7 +42,7 @@
     <div style="min-height: 100vh;">
         @include('partials/new_header')
          @if($flash = session('message'))
-            <div class="alert alert-success notifications_panel" role="alert" style="position: fixed; top: 40px; width: 30%; z-index: 60;">
+            <div class="alert alert-success notifications_panel" role="alert" style="position: fixed; top: 40px; left: 20%; width: 60%; z-index: 60;">
                 {{$flash}}
             </div>
         @endif

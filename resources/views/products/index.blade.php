@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.new_master')
 
 @section('content')
 	<div style="height: 20px"></div>
@@ -75,7 +75,15 @@
 							<a href="/product/{{$product->slug}}" class="small">See more...</a>
 					</div>
 				</div>
-					
+					<div class="shw" style="width: 92%;">
+						<p class="small">{{str_limit($product->description, 50)}}</p>
+						<div class="more" style="position: relative;">
+							
+							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
+						</div>
+						</p>
+						<span class="small">Seller's information:<br> Contact: {{$product->phone}}, City: {{$product->user->city}}</span>
+					</div>
 					<div style="height: 10px"></div>
 			</div><!-- bitcoins ends-->
 		@else  <!--no bitcoins down-->
@@ -94,7 +102,15 @@
 							<a href="/product/{{$product->slug}}" class="small">See more...</a>
 					</div>
 				</div>
-					
+					<div class="shw" style="width: 92%;">
+						<p class="small">{{str_limit($product->description, 50)}}</p>
+						<div class="more" style="position: relative;">
+							
+							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
+						</div>
+						</p>
+						<span class="small">Seller's information:<br> Contact: {{$product->phone}}, City: {{$product->user->city}}</span>
+					</div>
 					<div style="height: 10px"></div>
 			</div>
 		@endif	

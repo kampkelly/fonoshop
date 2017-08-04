@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.new_master')
 
 @section('content')
 	<div style="height: 70px"></div>

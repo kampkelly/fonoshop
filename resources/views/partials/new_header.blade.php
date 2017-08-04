@@ -6,20 +6,46 @@
 				<a href="#" style="color: #d78512;">Home</a>
 			</li>
 			<li>
-				<a href="#" style="color: #d78512;">Categories</a>
-			</li>
+        <a href="/products" style="color: #d78512;">Products</a>
+      </li>
+      
 			<li>
-				<a href="#" style="color: #d78512;">Cryptocurrencies</a>
-			</li>
+        <a href="/cryptocurrencies" style="color: #d78512;">Cryptocurrencies</a>
+      </li>
+      @if(Auth::check())
+        <li>
+        <a href="/product_new" style="color: #d78512;">Sell A Product</a>
+      </li>
+        <li>
+          <a href="/myprofile/update/{{Auth::user()->email}}" style="color: #d78512;">My Profile</a>
+        </li>
+        <li>
+  				<a href="/myitems/{{Auth::user()->email}}" style="color: #d78512;">My Products</a>
+  			</li>
+      @endif
 			<li>
-				<a href="#" style="color: #d78512;">About</a>
+				<a href="#" style="color: #d78512;">Contact Us</a>
 			</li>
-			<li class="pull-right">
-				<a href="#" style="color: #d78512;">Signup</a>
-			</li>
-			<li class="pull-right">
-				<a href="#" style="color: #d78512;">Login</a>
-			</li>
+      @if(Auth::check())
+			  <li class="pull-right">
+            <a href="{{ route('logout') }}" style="color: #d78512;"  
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </li>
+      @else
+      <li class="pull-right">
+        <a href="#" style="color: #d78512;">Register</a>
+      </li>
+      <li class="pull-right">
+        <a href="#" style="color: #d78512;">Login</a>
+      </li>
+      @endif
 		<!--	<p class="navbar-text">Purchase all used and new items...</p> -->
 		</ul>
 	</div>
@@ -64,17 +90,5 @@
 </div>
 <!--search form -->
 <div style="height: 0px;"></div>
-<div class="container" id="searchdiv" style="padding: 0px 40px 0px 40px;">
-	<form action="/search" method="POST" role="search">
-        {{ csrf_field() }}
-        <div class="input-group">
-            <input type="text" class="form-control" name="q"
-                placeholder="Search laptops, desktops, phones, softwares, hard disks, etc..."> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search" style="height: 1.4em;"></span>
-                </button>
-            </span>
-        </div>
-    </form>
-</div>
+
 <!--search form -->

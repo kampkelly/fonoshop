@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Image;
+use App\Category;
+
 
 class RegisterController extends Controller
 {
@@ -45,6 +47,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+       // $this->middleware('guest')->except(' ');
     }
 
     /**
@@ -60,6 +63,36 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+    }
+
+        public function toregister(Request $request)
+    {
+     //   $categories = Category::all();
+     //   $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
+        $name = $request->name;
+        $product_title = $request->product_title;
+        $price = Input::get('price') ;
+        $product_title = Input::get('product_title') ;
+      //  return view('auth.register', compact('categories', 'products', 'name', 'product_title'));
+        return redirect('/register/'.$product_title.'/'.$price);
+    }
+
+    public function register(Request $request, $product_title, $price)
+    {
+        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+        $categories = Category::all();
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
+        session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
+        return view('auth.register', compact('categories', 'products', 'product_title', 'price', 'states'));
+    }
+
+    public function newregister(Request $request)
+    {
+        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+        $categories = Category::all();
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
+     //   session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
+        return view('auth.register', compact('categories', 'products', 'states'));
     }
 
     /**
@@ -85,7 +118,7 @@ class RegisterController extends Controller
                 'password'=> 'required|min:6',
                 'product_title'=>'required',
                 'price'=>'required',
-                'photos'=>'required',
+                'image'=>'required',
                 'phone'=>'required',
                 'condition'=>'required'
             ]);  
@@ -97,11 +130,7 @@ class RegisterController extends Controller
             $slug_format = strtr($slug_combine, ' ', '-');
             $slug = $slug_format;
 
-            foreach (request('photos') as $key=>$photo) {
-                //uploading photo starts
-                if($key == 0) {
-                  //  $file=Input::file('photo');
-                    $file = $photo;
+                    $file=Input::file('image');
                     $dd = $file->getClientOriginalName();
                     $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
                     $file_ext = substr($dd, strripos($dd, '.')); // get file extension
@@ -112,8 +141,7 @@ class RegisterController extends Controller
                       $constraint->aspectRatio();
                   })->save(public_path('/uploads/'. $newfilename));
                  //   $file->move('uploads', $newfilename);
-                }else {}
-            }
+               
 
            $user = User::create([
             'name' => $request->name,
@@ -124,6 +152,7 @@ class RegisterController extends Controller
            ]);
 
            $product = Product::create([
+            'name' => $request->name,
             'title' => $request->product_title,
             'image' => $newfilename,
             'description' => $request->description,
@@ -133,15 +162,14 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'slug' => $slug,
             'condition' => $request->condition,
+            'state' => $request->state,
+            'city' => $request->city,
             'status' => 'active'
         //    'address' => $request->address,
            ]);
 
             foreach (request('photos') as $key=>$photo) {
                 //uploading photo starts
-                if($key == 0) {
-
-                }else {
                     $file = $photo;
                     $dd = $file->getClientOriginalName();
                     $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
@@ -158,7 +186,6 @@ class RegisterController extends Controller
                         'image' => $filename,
                         'user_id' => $user->id
                      ]);
-                } 
             }
          /*   $email_data = array(
           //   'recipient' => $user->user_email,
@@ -176,7 +203,7 @@ class RegisterController extends Controller
             Auth::login($user);
         
             session()->flash('message', 'Thanks for registering!'); 
-             return redirect('/');
+             return redirect('/home');
            //  return redirect('/toverify_email');
     }
 

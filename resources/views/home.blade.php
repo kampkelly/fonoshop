@@ -17,6 +17,7 @@
             height: 600px;
         }
 </style>
+@include('partials/search')
 <div class="new_cover">
     <div style="height: 0px"></div>
     <div class="container firstsection" style="background-color: #f5fafd; height: 83vh;">
@@ -51,11 +52,11 @@
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
             <h5 class="text-capitalize"><b>Want to sell?</b> quickly upload your product below</h5>
-            <form action="/newregister" method="POST" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
+            <form action="/toregister" method="get" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" required="true">
-                <input type="email" name="email" id="email" class="form-control" required="required" placeholder="Product Title" required="true">
-                <input type="submit" name="email" id="email" class="form-control btn btn-sm btn-warning" required="required" placeholder="Email Address" required="true" value="Continue">
+                <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" required="true">
+                <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">
+                <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
             </form>
                  <!--carousel-->
                  <div id="carousel-id" class="carousel slide" data-ride="carousel">

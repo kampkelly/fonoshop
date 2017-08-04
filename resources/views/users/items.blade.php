@@ -26,7 +26,7 @@
   </script>
 </head>
 <body>
-@include('partials/header')
+@include('partials/new_header')
 <div style="height: 70px;"></div>
  <div class="container">
 	 <div class="row">

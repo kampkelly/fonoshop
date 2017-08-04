@@ -36,7 +36,7 @@ Route::get('/software', function () {
 Route::get('/olditems', function () {
     return view('/users/old_items');
 });
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@newindex');
 Route::get('/home', 'HomeController@newindex');
 Auth::routes();
 
@@ -79,7 +79,9 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-$this->get('innovator/register', 'Auth\RegisterController@innovator')->name('register');
+$this->get('toregister', 'Auth\RegisterController@toregister')->name('toregister');
+$this->get('register/{name}/{price}', 'Auth\RegisterController@register')->name('register');
+$this->get('register', 'Auth\RegisterController@newregister')->name('register');
 #$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 $this->get('investor/register', 'Auth\RegisterController@investor')->name('register');
 $this->post('/newregister', 'Auth\RegisterController@new_register');

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.new_master')
 
 @section('content')
 	<div style="height: 20px"></div>
@@ -10,6 +10,12 @@
 		<h4 class="text-center">Add a new product</h4>
 		<form action="/products" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 				{{ csrf_field() }}
+				<div class="form-group">
+                    <label for="name" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Name <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="name" id="name" class="form-control" required="required" placeholder="Name" required="true">
+                    </div>
+                </div>
 				<div class="form-group">
 	                <label for="product_title" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Product Title <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -77,6 +83,22 @@
                         </select>
                     </div>
 				</div>
+				<div class="form-group">
+                    <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <select name="state" id="state" class="form-control">
+                            @foreach($states as $state)
+                                <option value="{{$state}}" required="true">{{$state}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true">
+                    </div>
+                </div>
 				 <div class="form-group">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-4 col-md-offset-3 col-lg-offset-3">
                         <button type="submit" class="btn btn-primary btn-block btn-sm">
