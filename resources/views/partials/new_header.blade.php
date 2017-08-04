@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="#" style="color: #d78512;">SalesNaija</a>
+		<a class="navbar-brand" href="/" style="color: #d78512;">SalesNaija</a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 			<li class="active">
-				<a href="#" style="color: #d78512;">Home</a>
+				<a href="/" style="color: #d78512;">Home</a>
 			</li>
 			<li>
         <a href="/products" style="color: #d78512;">Products</a>
