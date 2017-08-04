@@ -50,6 +50,9 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
+            @if(Auth::check())
+
+            @else
             <h5 class="text-capitalize"><b>Want to sell?</b> quickly upload your product below</h5>
             <form action="/toregister" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -57,6 +60,7 @@
                 <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">
                 <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
             </form>
+            @endif
                  <!--carousel-->
                  <div id="carousel-id" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
