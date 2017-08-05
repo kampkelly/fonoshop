@@ -79,7 +79,7 @@ class CategoryController extends Controller
          #$category->startups->simplePaginate(1);
          $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(15);
          //
-         if(Auth::check()) {
+     /*    if(Auth::check()) {
          $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => Auth::user()->email,
@@ -93,7 +93,7 @@ class CategoryController extends Controller
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
               }); 
-            }
+            } */
          //
         return view('categories.show', compact('category', 'products', 'pro'));
     }
