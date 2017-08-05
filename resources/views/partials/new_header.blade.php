@@ -60,14 +60,30 @@
 
 <ul>
    <li><a href='/'>Home</a></li>
-    <li><a href='/products'>Categories</a>
-      <ul>
-          <li><a href='/category/1'>Computers/Phones</a>
-          <li><a href='/category/2'>IT Softwares</a>
-          <li><a href='/category/3'>General Equipments</a>
-      </ul>
-  </li>
+  <!--  <li><a href='/products'>Categories</a>
+        <ul>
+            <li><a href='/category/1'>Computers/Phones</a>
+            <li><a href='/category/2'>IT Softwares</a>
+            <li><a href='/category/3'>General Equipments</a>
+        </ul>
+    </li> -->
   <li><a href='/products'>All Products</a></li>
+   @if(Auth::check())
+      <li>
+      <a href="/product_new">Sell A Product</a>
+    </li>
+      <li>
+        <a href="/myprofile/update/{{Auth::user()->email}}">My Profile</a>
+      </li>
+      <li>
+        <a href="/myitems/{{Auth::user()->email}}">My Products</a>
+      </li>
+      @if(checkPermission(['admin']))
+          <li>
+            <a href="/admin/panel">Admin Panel</a>
+          </li>
+      @endif
+    @endif
   <li><a href='/cryptocurrencies'>Cryptocurrencies</a>
       <ul>
           <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a>
