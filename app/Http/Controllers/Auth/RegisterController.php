@@ -114,7 +114,7 @@ class RegisterController extends Controller
 
                $this->validate($request, [
                 'name' => 'required|max:255',
-                'email' => 'required|email|unique:users',
+                'email' => 'required',
                 'password'=> 'required|min:6',
                 'product_title'=>'required',
                 'price'=>'required',
@@ -122,6 +122,9 @@ class RegisterController extends Controller
                 'phone'=>'required',
                 'condition'=>'required'
             ]);  
+
+            $user = User::where('email', '=', Input::get('email'))->first();
+            if ($user === null) {
 
             $slug_title = request('product_title');
             $slug_random = rand();
@@ -169,6 +172,7 @@ class RegisterController extends Controller
         //    'address' => $request->address,
            ]);
 
+           if(Input::hasFile('photos')) {
             foreach (request('photos') as $key=>$photo) {
                 //uploading photo starts
                     $file = $photo;
@@ -188,6 +192,7 @@ class RegisterController extends Controller
                         'user_id' => $user->id
                      ]);
             }
+          }
          /*   $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => $request->email,
@@ -205,7 +210,10 @@ class RegisterController extends Controller
         
             session()->flash('message', 'Thanks for registering!'); 
              return redirect('/home');
-           //  return redirect('/toverify_email');
+        }else{
+           session()->flash('message', 'Email Already Exists'); 
+                return redirect()->back();
+        }
     }
 
      public function bit_register(Request $request){
