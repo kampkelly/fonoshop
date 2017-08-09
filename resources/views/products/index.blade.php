@@ -1,7 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
-	<div style="height: 20px"></div>
+	<div style="height: 0px"></div>
 	<h3 class="text-center">All Products</h3>
 	<div style="height: 10px"></div>
 	<section class="container">
@@ -42,7 +42,7 @@
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 		<div class="row">
 		@foreach($products as $product)
-		@if( $loop->iteration == 2) <!-- bitcoins starts-->
+		@if( $loop->iteration == 20) <!-- bitcoins starts-->
            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 hv" style="margin-bottom: 10px;">
                 <div class="pael panel-primary">
                 	<div class="panel-heading">
@@ -91,7 +91,7 @@
 				
 				<div class="pael container-fluid row" style="width: 100%;">
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
+						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
 						<span class="small">Seller: {{$product->user->name}}</span>
 					</div>
 					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -103,13 +103,13 @@
 					</div>
 				</div>
 					<div class="shw" style="width: 92%;">
-						<p class="small">{{str_limit($product->description, 50)}}</p>
+						<p class="small">{{str_limit($product->description, 125)}}</p>
 						<div class="more" style="position: relative;">
 							
 							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
 						</div>
 						</p>
-						<span class="small">Seller's information:<br> Contact: {{$product->phone}}, City: {{$product->user->city}}</span>
+						<span class="small">Seller resides in {{$product->state}}</span>
 					</div>
 					<div style="height: 10px"></div>
 			</div>

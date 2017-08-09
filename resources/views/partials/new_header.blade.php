@@ -1,3 +1,20 @@
+<style type="text/css">
+        .namedrop:hover ul {
+          
+        }
+        .namedrop ul li {
+          padding: 5px 0px 10px 0px;
+          border-bottom: 1px solid gray;
+          border-right: none;
+          cursor: pointer;
+        }
+        .namedrop ul li a {
+          color: #d78512;
+        }
+        .namedrop ul #last {
+          border-bottom: none;
+        }
+      </style>
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
 		<a class="navbar-brand" href="/" style="color: #d78512;">SalesNaija</a>
@@ -14,14 +31,11 @@
       </li>
       @if(Auth::check())
         <li>
-        <a href="/product_new" style="color: #d78512;">Sell A Product</a>
-      </li>
-        <li>
-          <a href="/myprofile/update/{{Auth::user()->email}}" style="color: #d78512;">My Profile</a>
+          <a href="/product_new" style="color: #d78512;">Sell A Product</a>
         </li>
         <li>
-  				<a href="/myitems/{{Auth::user()->email}}" style="color: #d78512;">My Products</a>
-  			</li>
+          <a href="/cryptocurrency/new" style="color: #d78512;">Sell Cryptocurrency</a>
+        </li>
         @if(checkPermission(['admin']))
             <li>
               <a href="/admin/panel" style="color: #d78512;">Admin Panel</a>
@@ -32,16 +46,24 @@
 				<a href="#" style="color: #d78512;">Contact Us</a>
 			</li>
       @if(Auth::check())
-			  <li class="pull-right">
-            <a href="{{ route('logout') }}" style="color: #d78512;"  
-                onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-                Logout
-            </a>
+        <li class="pull-right namedrop" style="position: relative;">
+          <a href="#" style="color: #d78512;">{{Auth::user()->name}} <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
+          <ul style="position: absolute; left: 0%; bottom: -210%; width: 180%; height: 9em; background-color: #F8F8F8; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+            <li style="display: block;"><a href="/myprofile/update/{{Auth::user()->email}}" class="small">My Profile</a></li>
+            <li style="display: block;"><a href="/myitems/{{Auth::user()->email}}" class="small">My Products</a></li>
+            <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li>
+            <li id="last" style="display: block;">
+                <a href="{{ route('logout') }}" class="small" style="color: #d78512;"  
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+          </ul>
         </li>
       @else
       <li class="pull-right">

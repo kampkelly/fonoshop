@@ -1,10 +1,12 @@
 @extends('layouts.new_master')
 
 @section('content')
-	<div style="height: 60px"></div>
-	<h4 class="text-center">Edit Cryptocurrency</h4>
-	<div style="height: 40px"></div>
+	<div style="height: 0px"></div>
+	<div class="row">
+	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<section class="container">
+	<h4 class="text-center">Edit Cryptocurrency</h4>
+	<div style="height: 10px"></div>
 		<form action="/cryptocurrencies/{{$cryptocurrency->id}}" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -32,6 +34,9 @@
 				</form>
 	
 	</section>
+	</div>
+	@include('partials/sidebar')
+	</div>
 	
 	
 	

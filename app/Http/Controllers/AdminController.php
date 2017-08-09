@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\Cryptocurrency;
 use App\ProductsPhoto;
+use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,12 @@ class AdminController extends Controller
     {
         $categories = Category::all();
          return view('admin.categories', compact('categories'));
+    } 
+
+    public function posts()
+    {
+        $posts = Post::all();
+         return view('admin.posts', compact('posts'));
     }
 
     /**

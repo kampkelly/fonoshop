@@ -447,20 +447,8 @@ body {
   }
 }
 
-.myitems .panel h3 {
-  font-size: 10px !important;
-}
-
-.myitems .panel span {
-  font-size: 9px !important;
-}
-
-.myitems .panel p {
-  font-size: 9px !important;
-}
-
-.myitems a {
-  font-size: 10px !important;
+.myitems a span {
+  font-size: 19px;
 }
 
 .myitems .more-images img {

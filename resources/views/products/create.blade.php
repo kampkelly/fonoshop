@@ -1,7 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
-	<div style="height: 20px"></div>
+	<div style="height: 0px"></div>
 	<div class="container">
 	<div style="height: 10px"></div>
 	<div class="row">

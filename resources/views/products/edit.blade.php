@@ -1,10 +1,13 @@
 @extends('layouts.new_master')
 
 @section('content')
-	<div style="height: 60px"></div>
-	<h4 class="text-center">Edit this product</h4>
-	<div style="height: 40px"></div>
-	<section class="container">
+	<div style="height: 0px"></div>
+	<div style="height: 0px"></div>
+	<div class="row">
+	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+	<section class="container-fluid">
+		<h4 class="text-center">Edit this product</h4>
+		<a href="#pics" class="pull-right" style="color: #D78512;">Manage Aditional Pics</a>
 		<form action="/product/{{$product->slug}}" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -134,7 +137,7 @@
                     </div>
                 </div>         
 				</form>
-				<div class="row"> 
+				<div class="row" id="pics"> 
 				@foreach($product->productsphoto as $photo)
 			  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			  			<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive img-rounded" style="height: 12em;">
@@ -148,6 +151,9 @@
 				</div>
 	
 	</section>
+	</div>
+	@include('partials/sidebar')
+	</div>
 	
 	
 	

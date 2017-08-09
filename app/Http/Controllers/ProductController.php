@@ -168,17 +168,23 @@ class ProductController extends Controller
         ]);
 
          if(Input::hasFile('image')){
-            $file=Input::file('image');
-            $dd = $file->getClientOriginalName();
-            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-            $t = date("i-s");
-            $newfilename = md5($file_basename) . $t . $file_ext;
-         //   Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
-            Image::make($file)->resize(1500, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('/uploads/'. $newfilename));
-         //   $file->move('uploads', $newfilename);
+            if(filesize(Input::file('image')) > 500){
+                session()->flash('message', 'Image too big');
+               // return redirect()->back();
+                return redirect('/fileuploaderror');
+            }else{
+                $file=Input::file('image');
+                $dd = $file->getClientOriginalName();
+                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                $t = date("i-s");
+                $newfilename = md5($file_basename) . $t . $file_ext;
+             //   Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
+                Image::make($file)->resize(1500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save(public_path('/uploads/'. $newfilename));
+             //   $file->move('uploads', $newfilename);
+            }
         }
 
          $product = Product::where('slug', $slug)->first();
@@ -198,23 +204,29 @@ class ProductController extends Controller
 
              if(Input::hasFile('photos')){
                  foreach (request('photos') as $photo) {
-                    //uploading photo starts
-                    $file = $photo;
-                    $dd = $file->getClientOriginalName();
-                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-                    $t = date("i-s");
-                    $filename = md5($file_basename) . $t . $file_ext;
-                    Image::make($file)->resize(1500, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->save(public_path('/uploads/'. $filename));
-                   // $file->move('uploads', $filename);
-                    //uploading photo ends
-                    ProductsPhoto::create([
-                        'product_id' => $product->id,
-                        'image' => $filename,
-                        'user_id' => Auth::user()->id
-                     ]);
+                    if(filesize($photo) > 500){
+                        session()->flash('message', 'Image too big');
+                       // return redirect()->back();
+                        return redirect('/fileuploaderror');
+                    }else{
+                        //uploading photo starts
+                        $file = $photo;
+                        $dd = $file->getClientOriginalName();
+                        $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                        $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                        $t = date("i-s");
+                        $filename = md5($file_basename) . $t . $file_ext;
+                        Image::make($file)->resize(1500, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save(public_path('/uploads/'. $filename));
+                       // $file->move('uploads', $filename);
+                        //uploading photo ends
+                        ProductsPhoto::create([
+                            'product_id' => $product->id,
+                            'image' => $filename,
+                            'user_id' => Auth::user()->id
+                         ]);
+                    }
                 }
             }
 

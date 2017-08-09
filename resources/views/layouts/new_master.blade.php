@@ -42,8 +42,9 @@
     <div style="min-height: 100vh;">
         @include('partials/new_header')
          @if($flash = session('message'))
-            <div class="alert alert-success notifications_panel" role="alert" style="position: fixed; top: 40px; left: 20%; width: 60%; z-index: 60;">
+            <div class="alert alert-success notifications_panel" id="notifier" role="alert" style="position: fixed; top: 40px; left: 20%; width: 60%; z-index: 60;">
                 {{$flash}}
+                <span class="glyphicon glyphicon-remove pull-right" id="cancel_notifier" aria-hidden="true" style="cursor: pointer;"></span>
             </div>
         @endif
         <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>

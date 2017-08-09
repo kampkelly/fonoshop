@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fonoshop</title>
+  <title>SalesNaija</title>
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
@@ -27,7 +27,7 @@
 </head>
 <body>
 @include('partials/new_header')
-<div style="height: 70px;"></div>
+<div style="height: 0px;"></div>
  <div class="container">
 	 <div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
@@ -50,13 +50,13 @@
 				  		<div class="col-xs-9 col-sm-8 col-md-8 col-lg-9">
 				  			<div class="panel panel-info">
 				  				<div class="panel-heading">
-				  					<h3 class="panel-title">{{$product->title}}</h3><span style="color: green;">#{{$product->price}}</span> <span style="color: green;">{{$product->condition}}</span> <span class="pull-right small">{{$product->category->name}}<br>{{$product->status}}</span>
+				  					<h3 class="panel-title"><a href="/product/{{$product->slug}}">{{$product->title}}</a></h3><span style="color: green;">#{{$product->price}}</span> <span style="color: green;">{{$product->condition}}</span> <span class="pull-right small">{{$product->category->name}}<br>{{$product->status}}</span>
 				  				</div>
 				  				<div class="panel-body">
 				  					<p class="small">{{str_limit($product->description, 100)}}</p>
 				  				</div>
 			  					<div class="panel-foter">
-			  						<p class="small">Phone: {{$product->phone}}, City: {{$product->user->city}}</p>
+			  						<p class="small">Phone: {{$product->phone}}, City: {{$product->user->city}} <span><a href="/product/{{$product->slug}}">View</a></span> <span><a href="/product/edit/{{$product->slug}}">Edit</a></span></p> 
 			  					</div>
 				  			</div>
 				  		</div>
@@ -97,50 +97,6 @@
 		    <p>Empty!</p>
 		  </div>
 		</div>
-		<div class="widget">
-  <h1>Checkbox and radio button widgets</h1>
- 
-  <h2>Radio Group</h2>
-  <fieldset>
-    <legend>Select a Location: </legend>
-    <label for="radio-1">New York</label>
-    <input type="radio" name="radio-1" id="radio-1">
-    <label for="radio-2">Paris</label>
-    <input type="radio" name="radio-1" id="radio-2">
-    <label for="radio-3">London</label>
-    <input type="radio" name="radio-1" id="radio-3">
-  </fieldset>
- 
-  <h2>Checkbox</h2>
-  <fieldset>
-    <legend>Hotel Ratings: </legend>
-    <label for="checkbox-1">2 Star</label>
-    <input type="checkbox" name="checkbox-1" id="checkbox-1">
-    <label for="checkbox-2">3 Star</label>
-    <input type="checkbox" name="checkbox-2" id="checkbox-2">
-    <label for="checkbox-3">4 Star</label>
-    <input type="checkbox" name="checkbox-3" id="checkbox-3">
-    <label for="checkbox-4">5 Star</label>
-    <input type="checkbox" name="checkbox-4" id="checkbox-4">
-  </fieldset>
- 
-  <h2>Checkbox nested in label</h2>
-  <fieldset>
-    <legend>Bed Type: </legend>
-    <label for="checkbox-nested-1">2 Double
-      <input type="checkbox" name="checkbox-nested-1" id="checkbox-nested-1">
-    </label>
-    <label for="checkbox-nested-2">2 Queen
-      <input type="checkbox" name="checkbox-nested-2" id="checkbox-nested-2">
-    </label>
-    <label for="checkbox-nested-3">1 Queen
-      <input type="checkbox" name="checkbox-nested-3" id="checkbox-nested-3">
-    </label>
-    <label for="checkbox-nested-4">1 King
-      <input type="checkbox" name="checkbox-nested-4" id="checkbox-nested-4">
-    </label>
-  </fieldset>
-</div>
 		 
 		 </div>
 		 @include('partials/sidebar')

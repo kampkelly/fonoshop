@@ -10,6 +10,7 @@
 		<h4 class="text-center">Admin Panel</h4>
 		<ol>
 			<li><a href="/admin/categories">Categories</a></li>
+			<li><a href="/admin/posts">Posts</a></li>
 		</ol>
 	</section>
 	</div>

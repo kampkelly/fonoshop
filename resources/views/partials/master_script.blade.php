@@ -1,13 +1,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
-	$(".drop").mouseenter(function() {
+	$(".namedrop").click(function() {
 	//	$(".drop ul").show("");
 		//$(".drop ul").slideDown();
 		$(this).find("ul").slideDown();
 	}); 
-	$(".drop").mouseleave(function() {
-		$(".drop ul").hide();
+	$(".namedrop").mouseleave(function() {
+		$(".namedrop ul").hide(1000);
+	}); 
+	$("#cancel_notifier").click(function() {
+		$("#notifier").hide();
 	}); 
 	
 
