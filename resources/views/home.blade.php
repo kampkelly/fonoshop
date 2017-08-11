@@ -18,48 +18,46 @@
         }
 </style>
 @include('partials/search')
-<div class="new_cover">
+<div class="new_cover" style="margin-top: -10px;">
     <div style="height: 0px"></div>
-    <div class="container firstsection" style="background-color: #f5fafd; height: 83vh;">
-        <h3 style="color: #333333;">SalesNaija - <span style="font-size: 20px; color: #333333;" class="hspan">purchase all IT gadgets (computers, phones, accessories, etc.)</span></h3>
+    <div class="container firstsection" style="background-color: #f5fafd; height: 86vh;">
+    <h3 class="text-center" style="color: #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
+    <h4 class="text-center">Everything IT- Computers, Phones, Software, Accessories ...</h4>
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-6">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
                 <div class="introtext1">
-                    <h4>Find a product, contact seller, buy! <strong>It's that easy!</strong></h4>
                  <!--   <h5 class="text-center">- bringing technology closer!</h5> -->
                 </div>
                 <div class="introtext2">
                     <h4 class="text-center">Find a product, contact seller, buy!<br> <strong style="font-size: 15px;">It's that easy!</strong></h4>
                  <!--   <h5 class="text-center">- bringing technology closer!</h5> -->
                 </div>
-                <div class="text-center">
-                    
-                    <a href="#" class="btn btn-md btn-primary">See All Products</a>
-                </div>
                 <hr>
-                <h4 class="text-center">Our Categories</h4>
-                <ul class="row list-unstyled text-center intrtext1">
+                <h3 class="text-center" style="color: #236d9d;">Our Categories</h3>
+                <ul class="list-unstyled tet-center intrtext1">
                 @foreach($categories as $category)
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>{{$category->name}}</h5></li>
+                    <li><h5><a href="#"> {{$category->name}}</a></h5></li>
                 @endforeach
                 </ul>
-                <h5 class="text-center introtext1">Buy Cryptocurrencies</h5>
-                <ul class="row list-unstyled text-center introtext1">
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>Bitcoins</h5></li>
-                    <li class="col-xs-5 col-sm-5 col-md-5 col-lg-6"><h5>Perfect Money</h5></li>                
+                <h4 class="text-center introtext1" style="color: #236d9d;">Buy Cryptocurrencies</h4>
+                <ul class="list-unstyled text-cnter introtext1">
+                    <li class=""><h5><a href="#">Bitcoins</a></h5></li>
+                    <li class=""><h5><a href="#">Perfect Money</a></h5></li>                
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
             @if(Auth::check())
 
             @else
-            <h5 class="text-capitalize"><b>Want to sell?</b> quickly upload your product below</h5>
-            <form action="/toregister" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" required="true">
-                <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">
-                <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
-            </form>
+            <div class="text-center">
+                <h5 class="text-capitalize"><b>Want to sell?</b> Start Now...</h5>
+                <form action="/toregister" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" required="true">
+                    <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">
+                    <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
+                </form>
+            </div>
             @endif
                  <!--carousel-->
                  <div id="carousel-id" class="carousel slide" data-ride="carousel">
@@ -104,58 +102,138 @@
                 </div>
                  <!--carousel-->
             </div>
-        </div>
-    </div>
-    <div style="height: 90px;"></div>
-    <section style="height: 100vh; background-color: #49422C;">
-        <div class="container" style="height: 32vh;">
-            <div class="row">
-            @foreach($categories as $category)
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                    <h4 class="text-center" style="color: white;">{{$category->name}}</h4>
-                    <img src="{{ asset('categories/'.$category->image) }}" style="height: 160px; filter: blur(0px) brightness(1) grayscale(0%);" width="100%" class="img-responsive img-thumbnail">
-                </div>
-            @endforeach
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
+                <h3 class="text-center" style="color: #236d9d;">Top Selling Products</h3>
+                @foreach($prods as $prod)
+                    <div href="#" style="position: relative; padding-left: 50px;">
+                        <a href="#">
+                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;">Microsoft Surface Pro Laptop N350,000</h5>
+                        <img src="homepage/new/1.jpg" class="img-responsive img-rounded" style="height: 120px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        </a>
+                    </div>
+                    <div style="height: 20px;"></div>
+                @endforeach
             </div>
         </div>
-        <div style="height: 65vh; backgroud-color: green;" id="bk_second">
-           <!-- <img src="homepage/new/2.jpg" style="filter: blur(0px) brightness(1) grayscale(0%); height: 65vh; width: 100%;" class="img-responsive img-rounded"> -->
-           <div class="text-center">
-               <h3 class="text-center" style="color: white; padding-top: 2.5em;">Get Quick Access To Your Laptops, Phones, Softwares</h3>
-               <div style="height: 1em"></div>
-               <h4 class="text-center" style="color: white; line-height: 30px;">Whatever your needs are, be it buying or selling, we cater for it. Get access to sellers within your location.<br>
-               No extra charges,<br>
-               Find a Seller, make a call, buy the product!<br>
-               It's that easy.</h4>
-               <a href="#" class="btn btn-lg btn-primary">Learn More</a>
-           </div>
+    </div>
+    <div style="height: 50px;"></div>
+
+    <div style="background-color: #236d9d; height: 40vh; padding-top: 30px;" class="second_section">
+        <h3 class="text-center" style="color: white;">SalesNaija - linking you to all your IT gadgets with ease</h3>
+        <h4 class="text-center" style="color: white;">Search for a product in any location in Nigeria, contact seller, pick up the product.</h4>
+        <div class="text-center">
+            <a href="#" class="btn btn-warning btn-lg">Find Product</a>
         </div>
-    </section>
+    </div>
+
+   
     <!--products section-->
     <?php $ka=['game','boy','boy','boy','boy','boy','boy','boy','boy','boy','boy','boy',]; ?>
     <div style="height: 45px;"></div>
-    <div class="row container-fluid">
-    <h3 class="text-center">Latest Products</h3>
-    @foreach($products as $product)
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3 img-respnsive">
-            <div style="padding-bottm:100%; oveflow:hidden; poition:relative;">
-                <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; posiion: absolute; mx-width: 100%;max-hight: 100%;op: 40%;
-      lft: 0%;">
-        <div class="panel panel-defalt">
-            <div class="panel-footr">
-            <h6>{{str_limit($product->title, 25)}}</h6>
-                <span class="pull-left">{{$product->condition}}, N{{$product->price}}</span>
-
-                <div class="clearfix"></div>
-                
+    <section class="row container-fluid third_section">
+        <h3 class="text-center">Latest Products</h3>
+        @foreach($products as $product)
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3" style="padding: 0px 30px 0px 30px;" >
+                <div style="background-color: #FAFAFA;">
+                        <h5 class="text-center">{{str_limit($product->title, 25)}}</h5>
+                        <h5><b>N{{$product->price}}</b> {{$product->condition}}</h5>
+                        <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded" style="height: 150px; width: 100%; posiion: absolute; mx-width: 100%;max-hight: 100%;op: 40%;
+              lft: 0%;">
+                </div>
+                    <div style="height: 15px;"></div>
             </div>
-        </div>
-            
-            </div>
-            <div style="height: 15px;"></div>
-        </div>
+        @endforeach
+    </section>
+    <section class="bitcoin_section container">
+    <h3 class="text-center">Buy Cryptocurrencies</h3>
+    <ul class="list-group">
+    @foreach($cryptocurrencies as $cryptocurrency)
+        <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
     @endforeach
-    </div>
+    </ul>
+    </section>
+
+
+     <section style="height: 100vh; background-color: white;" class="fourth_section">
+        <div class="container" style="height: 32vh;">
+            <h3 class="text-center">Categories</h3>
+            <div class="row">
+            @foreach($categories as $category)
+            @if($loop->iteration <= 3)
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-4">        
+                     <div style="position: relative; padding-eft: 50px;">
+                        <a href="#">
+                            <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 20%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        </a>
+                    </div>
+                </div>
+                <div style="height: 20px;"></div>
+            @endif
+            @endforeach
+            </div>
+            <div class="row">
+                  <div class="col-xs-4 col-sm-3 col-md-3 col-lg-1"> 
+
+                </div>       
+            @foreach($categories as $category)
+            @if($loop->iteration == 4)
+                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-5">        
+                     <div style="position: relative; padding-eft: 50px;">
+                        <a href="#">
+                            <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        </a>
+                    </div>
+                </div>
+                <div style="height: 20px;"></div>
+            @endif
+            @endforeach
+                 <div class="col-xs-4 col-sm-3 col-md-3 col-lg-5">        
+                     <div style="position: relative; padding-eft: 50px;">
+                        <a href="#">
+                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <img src="homepage/new/3.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        </a>
+                    </div>
+                </div>
+                  <div class="col-xs-4 col-sm-3 col-md-3 col-lg-1"> 
+
+                </div>       
+            </div>
+        </div>
+    </section>
+    <section class="container fifth_section" style="background:linear-gradient(#f8d8ac, #efa63e); height: 50vh;">
+         <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <h4 class="text-ceter" style="text-decoration: underline;">Contact Us:</h4>
+                <div class="form-group">
+                    <label for="product_title" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Name <span class="asterisks">*</span></label>
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="4" style="background-color: #f2f2f2;">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Email <span class="asterisks">*</span></label>
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true" style="background-color: #f2f2f2;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Message <span class="asterisks">*</span></label>
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                    <textarea class="form-control" rows="5" placeholder="Type Message"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-8 col-md-7 col-lg-4 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm">
+                            Leave a Message
+                        </button>
+                    </div>
+                </div>
+        </form>
+    </section>
  </div>   
     <!--products section-->
 @endsection

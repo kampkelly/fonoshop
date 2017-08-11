@@ -1,5 +1,5 @@
 <div style="heiht: 350px"></div>
-<footer style="position: relative; bottm: -10em; min-height: 5em; background-color: #DF8109; width: 100%; padding-top: 1.8em">
+<footer style="position: relative; bottom: -1em; min-height: 5em; background-color: #DF8109; width: 100%; padding-top: 1.8em">
 	<ul class="list-inline list-unstyled container">
 		<li><a href="/">Fonoshop</a></li>
 		<li><a href="/products">Products</a></li>

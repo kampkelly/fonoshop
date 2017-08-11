@@ -1,6 +1,9 @@
 @extends('layouts.new_master')
 
 @section('content')
+<div class="search_top" style="margin-top: 15px;">
+	@include('partials/search')
+</div>
 	<div style="height: 0px"></div>
 	<h3 class="text-center">All Products</h3>
 	<div style="height: 10px"></div>

@@ -12,7 +12,25 @@ $(document).ready(function () {
 	$("#cancel_notifier").click(function() {
 		$("#notifier").hide();
 	}); 
-	
+
+	if ($(window).width() > 768) {
+		$(".search_top").hide();
+	}else{
+		$(".search_top").show();
+	}
+
+	//WINDOW RESIZE EVENTS BEGINS
+    window.addEventListener("resize", myFunction);
+    function myFunction() {
+        var w = window.outerWidth;
+        var h = window.outerHeight;
+        var txt = "Window size: width=" + w + ", height=" + h;
+        if (w > 768) {
+        	$(".search_top").hide();
+        }else{
+        	$(".search_top").show();
+        }
+	}
 
 /*
 	$(".pael").css('cursor', 'pointer');

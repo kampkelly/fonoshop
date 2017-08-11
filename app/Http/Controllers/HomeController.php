@@ -31,9 +31,11 @@ class HomeController extends Controller
 
      public function newindex()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'asc')->get();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
-        return view('home', compact('categories', 'products'));
+        $prods = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(3);
+        $cryptocurrencies = Cryptocurrency::simplePaginate(15);
+        return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods'));
     }
 
     public function index()

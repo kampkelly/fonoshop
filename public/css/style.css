@@ -539,6 +539,21 @@ footer p {
   }
 }
 
+.new_cover .second_section h3,
+.new_cover .second_section h4,
+.new_cover .second_section a {
+  line-height: 30px;
+}
+
+.new_cover .third_section h5 {
+  color: #409ad5;
+}
+
+.new_cover .bitcoin_section .list-group-item {
+  border: none !important;
+  background-color: #FAFAFA !important;
+}
+
 @media (min-width: 0px) and (max-width: 467px) {
   .new_cover .item img {
     height: 250px !important;

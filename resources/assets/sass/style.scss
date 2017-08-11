@@ -446,6 +446,25 @@ footer {
 			margin-top: -10px;
 		}
 	}
+	.second_section {
+		h3,h4,a {
+			line-height: 30px;
+		}
+	}
+	.third_section {
+		h5 {
+			color: #409ad5;
+		}
+	}
+	.bitcoin_section {
+		.list-group {
+
+		}
+		.list-group-item {
+			border: none !important;
+			background-color: #FAFAFA !important;
+		}
+	}
 	.item img {
 		@media #{$smartphone} {
 			height: 250px !important;

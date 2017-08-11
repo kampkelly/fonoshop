@@ -54,7 +54,7 @@
         @include('partials/master_script')
     </div>
     <div style="height: 100px;"></div>
-  <!--  @include('partials/footer') -->
+    @include('partials/footer')
 
 
         <!--Start of Tawk.to Script 

@@ -252,8 +252,9 @@ class ProductController extends Controller
                 $query->where('condition', 'LIKE', '%'.$item.'%')
                       ->where('status', '=', 'active');
             })->orderBy('id', 'desc')->simplePaginate(15);
+        $cryptocurrencies = Cryptocurrency::where('currency', 'LIKE', '%'.$item.'%')->orderBy('id', 'desc')->simplePaginate(15);
         if(count($products) > 0) {
-            return view('products.search')->withDetails($products)->withQuery( $item );
+            return view('products.search')->withDetails($products, $cryptocurrencies)->withQuery( $item );
         }
         else{ return view ('products.search')->withMessage('No products found. Try to search again !')->withQuery($item);
         }
