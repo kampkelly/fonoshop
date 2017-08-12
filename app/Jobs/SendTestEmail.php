@@ -33,7 +33,7 @@ class SendTestEmail implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle($user)
     {
         $email_data = array(
           //   'recipient' => $user->user_email,
