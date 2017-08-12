@@ -26,7 +26,7 @@ class CryptocurrencyController extends Controller
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
         $email_data = array(
           //   'recipient' => $user->user_email,
-             'recipient' => 'ssa5l@eyepaste.com',
+             'recipient' => 'kampkelly@live.com',
              'subject' => 'Testing Email'
               );
                 $act_code = str_random(60);
