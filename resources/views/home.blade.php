@@ -21,13 +21,13 @@
 <div class="new_cover" style="margin-top: -10px;">
     <div style="height: 0px"></div>
     <div class="container firstsection" style="background-color: #f5fafd; height: 86vh;">
-    <h3 class="text-center" style="color: #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
+    <h3 class="text-center" style="color: #DF8109; text-shadow: 0.3px 0.3px #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
     <h4 class="text-center">Everything IT- Computers, Phones, Software, Accessories ...</h4>
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                 <div class="row">
                     <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
-                        <h4 class="text-center intrtext1" style="color: #236d9d;">Our Categories</h4>
+                        <h4 class="text-center intrtext1" style="color: #236d9d; text-shadow: 0.2px 0.2px #236d9d;">Our Categories</h4>
                         <ul class="list-unstyled tet-center intrext1">
                         @foreach($categories as $category)
                             <li><h5><a href="#"> {{$category->name}}</a></h5></li>
