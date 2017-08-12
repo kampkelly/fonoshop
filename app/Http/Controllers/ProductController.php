@@ -25,8 +25,9 @@ class ProductController extends Controller
      */
     public function sendmail()
     {
-      //  $this->dispatch(new SendTestEmail());
-        $email_data = array(
+        $email = Auth::user()->email;
+        $this->dispatch(new SendTestEmail($email));
+      /*  $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => Auth::user()->email,
              'subject' => 'Testing Email'
@@ -39,7 +40,7 @@ class ProductController extends Controller
               Mail::send('emails.new', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              }); 
+              }); */
         session()->flash('message', 'Mail Sent, please check!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
         return redirect()->back();
     }

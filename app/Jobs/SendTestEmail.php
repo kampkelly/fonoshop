@@ -15,14 +15,15 @@ class SendTestEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $email;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -34,7 +35,7 @@ class SendTestEmail implements ShouldQueue
     {
         $email_data = array(
           //   'recipient' => $user->user_email,
-             'recipient' => 'kampkelly@live.com',
+             'recipient' => $email,
              'subject' => 'Testing Email'
               );
                 $act_code = str_random(60);
