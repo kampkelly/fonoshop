@@ -48,7 +48,7 @@ class ProductController extends Controller
       public function index()
     {
         $products = Product::where('status', 'active')->simplePaginate(15);
-        $this->dispatch(new SendTestEmail());
+      //  $this->dispatch(new SendTestEmail());
          return view('products.index', compact('products'));
     }
 
