@@ -9,6 +9,10 @@ use App\Cryptocurrency;
 use App\ProductsPhoto;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Mail\Mailer;
+//use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendTestEmail;
 
 class CryptocurrencyController extends Controller
 {
@@ -20,6 +24,20 @@ class CryptocurrencyController extends Controller
     public function index()
     {
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
+        $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => 'kampkelly@live.com',
+             'subject' => 'Testing Email'
+              );
+                $act_code = str_random(60);
+                $view_data = array(
+                'actkey' => $act_code,
+            );
+
+              Mail::send('emails.new', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); 
          return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 

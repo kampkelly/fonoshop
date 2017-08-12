@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Image;
+use App\Http\Controllers\Mail\Mailer;
+//use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendTestEmail;
 
 class ProductController extends Controller
 {
@@ -22,6 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::where('status', 'active')->simplePaginate(15);
+        $this->dispatch(new SendTestEmail());
          return view('products.index', compact('products'));
     }
 
