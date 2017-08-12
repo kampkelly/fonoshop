@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+@include('partials/mobile_search')
 	<div style="height: 60px"></div>
 	<h3 class="text-center">{{$category->name}}</h3>
 	<div style="height: 40px"></div>

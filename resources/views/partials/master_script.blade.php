@@ -15,8 +15,21 @@ $(document).ready(function () {
 
 	if ($(window).width() > 768) {
 		$(".search_top").hide();
+]		$('.firstsection').removeClass('container');
 	}else{
 		$(".search_top").show();
+		$('.firstsection').addClass('container');
+	}
+	if ($(window).width() < 468) {
+		 $('.intrtext1').removeClass('text-center');
+	}else{
+		$('.intrtext1').addClass('text-center');
+	}
+	if ($(window).width() > 992) {
+	 $(".top_selling").show();
+	 $('.firstsection').addClass('container');
+	}else{
+		$(".top_selling").hide();
 	}
 
 	//WINDOW RESIZE EVENTS BEGINS
@@ -27,9 +40,24 @@ $(document).ready(function () {
         var txt = "Window size: width=" + w + ", height=" + h;
         if (w > 768) {
         	$(".search_top").hide();
+        	$('.firstsection').removeClass('container');
+        	$(".top_selling").show();
         }else{
         	$(".search_top").show();
+        	$('.firstsection').addClass('container');
+        	$(".top_selling").hide();
         }
+        if (w < 468) {
+		 $('.intrtext1').removeClass('text-center');
+		}else{
+			$('.intrtext1').addClass('text-center');
+		}
+		if (w > 992) {
+		// $(".top_selling").show();
+		 $('.firstsection').addClass('container');
+		}else{
+	//		$(".top_selling").hide();
+		}
 	}
 
 /*

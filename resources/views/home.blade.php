@@ -24,28 +24,26 @@
     <h3 class="text-center" style="color: #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
     <h4 class="text-center">Everything IT- Computers, Phones, Software, Accessories ...</h4>
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
-                <div class="introtext1">
-                 <!--   <h5 class="text-center">- bringing technology closer!</h5> -->
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center intrtext1" style="color: #236d9d;">Our Categories</h4>
+                        <ul class="list-unstyled tet-center intrext1">
+                        @foreach($categories as $category)
+                            <li><h5><a href="#"> {{$category->name}}</a></h5></li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center intrtext1" style="color: #236d9d;">Buy Cryptocurrencies</h4>
+                        <ul class="list-unstyled text-cnter intrtxt1">
+                            <li class=""><h5><a href="#">Bitcoins</a></h5></li>
+                            <li class=""><h5><a href="#">Perfect Money</a></h5></li>                
+                        </ul>
+                    </div>
                 </div>
-                <div class="introtext2">
-                    <h4 class="text-center">Find a product, contact seller, buy!<br> <strong style="font-size: 15px;">It's that easy!</strong></h4>
-                 <!--   <h5 class="text-center">- bringing technology closer!</h5> -->
-                </div>
-                <hr>
-                <h3 class="text-center" style="color: #236d9d;">Our Categories</h3>
-                <ul class="list-unstyled tet-center intrtext1">
-                @foreach($categories as $category)
-                    <li><h5><a href="#"> {{$category->name}}</a></h5></li>
-                @endforeach
-                </ul>
-                <h4 class="text-center introtext1" style="color: #236d9d;">Buy Cryptocurrencies</h4>
-                <ul class="list-unstyled text-cnter introtext1">
-                    <li class=""><h5><a href="#">Bitcoins</a></h5></li>
-                    <li class=""><h5><a href="#">Perfect Money</a></h5></li>                
-                </ul>
             </div>
-            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-6">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
             @if(Auth::check())
 
             @else
@@ -68,7 +66,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item">
-                            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="homepage/new/3.jpg" style="height: 371.5px; filter: blur(0px) brightness(0.8) grayscale(0%);">
+                            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="homepage/new/3.jpg" style="filter: blur(0px) brightness(0.8) grayscale(0%);">
                             <div class="container">
                                 <div class="carousel-caption">
                                     <h3 style="margin-top: -160px;">Be Satisfied With What You Get!</h3>
@@ -77,7 +75,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/2remod.jpg" class="img-responsive" style="height: 371.5px; filter: blur(0px) brightness(0.8) grayscale(10%);">
+                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/2remod.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%);">
                             <div class="container">
                                 <div class="carousel-caption">
                                     <h3 style="margin-top: -160px;">Everything Tech Related.</h3>
@@ -87,7 +85,7 @@
                             </div>
                         </div>
                         <div class="item active">
-                            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="homepage/new/1.jpg" style="height: 371.5px; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="homepage/new/1.jpg" style="filter: blur(0px) brightness(0.8) grayscale(20%);">
                             <div class="container">
                                 <div class="carousel-caption">
                                     <h2 style="margin-top: -200px;">Buy New or Used Items</h2>
@@ -102,8 +100,8 @@
                 </div>
                  <!--carousel-->
             </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
-                <h3 class="text-center" style="color: #236d9d;">Top Selling Products</h3>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top_selling">
+                <h4 class="text-center" style="color: #236d9d;">Top Selling Products</h4>
                 @foreach($prods as $prod)
                     <div href="#" style="position: relative; padding-left: 50px;">
                         <a href="#">
@@ -133,7 +131,7 @@
     <section class="row container-fluid third_section">
         <h3 class="text-center">Latest Products</h3>
         @foreach($products as $product)
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3" style="padding: 0px 30px 0px 30px;" >
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" style="padding: 0px 30px 0px 30px;" >
                 <div style="background-color: #FAFAFA;">
                         <h5 class="text-center">{{str_limit($product->title, 25)}}</h5>
                         <h5><b>N{{$product->price}}</b> {{$product->condition}}</h5>
@@ -160,7 +158,7 @@
             <div class="row">
             @foreach($categories as $category)
             @if($loop->iteration <= 3)
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-4">        
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
                             <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 20%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
@@ -173,12 +171,12 @@
             @endforeach
             </div>
             <div class="row">
-                  <div class="col-xs-4 col-sm-3 col-md-3 col-lg-1"> 
+                  <div class="col-xs-0 col-sm-0 col-md-0 col-lg-1"> 
 
                 </div>       
             @foreach($categories as $category)
             @if($loop->iteration == 4)
-                <div class="col-xs-4 col-sm-3 col-md-3 col-lg-5">        
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
                             <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
@@ -189,7 +187,7 @@
                 <div style="height: 20px;"></div>
             @endif
             @endforeach
-                 <div class="col-xs-4 col-sm-3 col-md-3 col-lg-5">        
+                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
                             <h4 style="position: absolute; paddng: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
@@ -203,7 +201,7 @@
             </div>
         </div>
     </section>
-    <section class="container fifth_section" style="background:linear-gradient(#f8d8ac, #efa63e); height: 50vh;">
+    <section class="container fifth_section" style="background:linear-gradient(#f8d8ac, #efa63e); height: 54vh;">
          <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
         {{ csrf_field() }}
         <h4 class="text-ceter" style="text-decoration: underline;">Contact Us:</h4>

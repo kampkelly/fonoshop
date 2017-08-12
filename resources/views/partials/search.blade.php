@@ -1,4 +1,4 @@
-<div class="container" id="searchdiv" style="padding: 0px 40px 0px 40px; margin-top: -13px;">
+<div class="container" id="searchdiv" style="padding: 0px 40px 0px 40px; margin-top: 1px;">
 	<form action="/search" method="POST" role="search">
         {{ csrf_field() }}
         <div class="input-group">

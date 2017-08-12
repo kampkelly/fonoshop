@@ -1,6 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
+@include('partials/mobile_search')
 	<div style="height: 0px"></div>
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">

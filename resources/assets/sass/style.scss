@@ -405,6 +405,9 @@ footer {
 }
 
 .tophead {
+	@media #{$tablet} {
+		display: none;
+	}
 	@media #{$smartphone} {
 		display: none;
 	}
@@ -433,12 +436,48 @@ footer {
 	.firstsection {
 		h3 {
 			@media #{$smartphone} {
+				font-size: 20px;
+			}
+		}
+		h4 {
+			@media #{$smartphone} {
+				font-size: 15px;
+			}
+		}
+		.row h3 {
+			@media #{$smartphone} {
 				font-size: 18px;
 			}
 		}
 		.hspan {
 			@media #{$smartphone} {
 				font-size: 16px !important;
+			}
+		}
+		ul li a {
+			color: black;
+		}
+		.carousel img {
+			height: 371.5px;
+			@media #{$smartphone} {
+				height: 185.75;
+			}
+			@media #{$tablet} {
+				 height: 300;
+			}
+			@media #{$mini-laptop} {
+				height: 300;
+			}
+		}
+		.top_selling {
+			@media #{$smartphone} {
+				display: none;
+			}
+			@media #{$tablet} {
+				display: none;
+			}
+			@media #{$mini-laptop} {
+				display: none;
 			}
 		}
 		@media #{$smartphone} {

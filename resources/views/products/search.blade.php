@@ -1,9 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
-<div class="search_top">
-	@include('partials/search')
-</div>
+@include('partials/mobile_search')
 
 	<div style="height: 0px"></div>
 	
