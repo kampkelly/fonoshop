@@ -10,6 +10,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Http\Controllers\Mail\Mailer;
 //use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class SendTestEmail implements ShouldQueue
 {
@@ -35,7 +37,7 @@ class SendTestEmail implements ShouldQueue
     {
         $email_data = array(
           //   'recipient' => $user->user_email,
-             'recipient' => $user->email,
+             'recipient' => $user,
              'subject' => 'Testing Email'
               );
                 $act_code = str_random(60);
