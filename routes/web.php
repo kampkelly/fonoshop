@@ -53,6 +53,7 @@ Route::post('/category', function(){
    return redirect('/category/'.$id);
 
 });
+Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
 
 
 

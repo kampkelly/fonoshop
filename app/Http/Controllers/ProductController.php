@@ -23,7 +23,28 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function sendmail()
+    {
+      //  $this->dispatch(new SendTestEmail());
+        $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => Auth::user()->email,
+             'subject' => 'Testing Email'
+              );
+                $act_code = str_random(60);
+                $view_data = array(
+                'actkey' => $act_code,
+            );
+
+              Mail::send('emails.new', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); 
+        session()->flash('message', 'Mail Sent, please check!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+    }
+
+      public function index()
     {
         $products = Product::where('status', 'active')->simplePaginate(15);
         $this->dispatch(new SendTestEmail());
