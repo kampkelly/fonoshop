@@ -25,8 +25,8 @@ class ProductController extends Controller
      */
     public function sendmail()
     {
-        $email = Auth::user()->email;
-        $this->dispatch(new SendTestEmail($email));
+        $user = Auth::user();
+        $this->dispatch(new SendTestEmail($user));
       /*  $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => Auth::user()->email,
