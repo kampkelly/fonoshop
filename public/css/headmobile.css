@@ -4,6 +4,7 @@
 #cssmenu ul li,
 #cssmenu ul li a,
 #cssmenu #menu-button {
+  z-index: 99 !important;
   margin: 0;
   padding: 0;
   border: 0;

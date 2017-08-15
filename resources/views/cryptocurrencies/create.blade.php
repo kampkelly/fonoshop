@@ -2,12 +2,12 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<div style="height: 5px"></div>
+	<div style="height: 11px"></div>
 	<div class="container">
 		<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 			<section class="container-fluid">
-				<h4 class="text-center">Sell Cryptocurrency</h4>
+				<h3 class="text-center">Sell Cryptocurrency</h3>
 				<div style="height: 20px"></div>
 				<form action="/cryptocurrencies" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 						{{ csrf_field() }}

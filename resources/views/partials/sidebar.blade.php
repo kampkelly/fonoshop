@@ -15,10 +15,10 @@
         <h3 class="panel-title">Buy or Sell Cryptocurrencies</h3>   
     </div>
     <div class="panel-body row">
-        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-3 col-sm-4 col-md-4 col-lg-6">
             <img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
         </div>
-        <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+        <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
         <p class="small">We offer the sale of bitcoins and perfect money. Buy Now!</p>
         <a href="#" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
         </div>

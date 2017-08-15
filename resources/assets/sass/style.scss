@@ -83,13 +83,13 @@ body {
 	}
 }
 .mobilehead,.search_top {
-	z-index: 90 !important;
+	z-index: 40 !important;
 	@media only screen and (min-width: 768px) {
 		display: none !important;
 	}
 }
 .search_desktop {
-	z-index: 90 !important;
+	z-index: 40 !important;
 	@media only screen and (max-width: 768px) {
 		display: none !important;
 	}
