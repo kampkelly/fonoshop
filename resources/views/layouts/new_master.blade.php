@@ -20,7 +20,7 @@
         <script src="{{ asset('ism/js/ism-2.2.min.js') }}"></script>
       <!--  <script src="{{ asset('jquery-ui/jquery-ui.js') }}"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/script1.js') }}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script type="text/javascript" src="nailthumb/jquery.nailthumb.1.1.js"></script>
         <link href="nailthumb/jquery.nailthumb.1.1.css" type="text/css" rel="stylesheet" />
@@ -48,7 +48,13 @@
             </div>
         @endif
         <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
-
+        <div class="search_top" style="margin-top: 45px; position: fixed; background-color: white;">
+            @include('partials/search')
+        </div>
+        <div class="search_top" style="height: 60px"></div>
+        <div class="search_desktop" style="margin-top: 0px; positio: fixed;">
+            @include('partials/search')
+        </div>
         @yield('content')
 
         @include('partials/master_script')
@@ -70,6 +76,20 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 End of Tawk.to Script-->
+
+<script type="text/javascript">
+  /*  $(".namedrop").click(function() {
+    //  $(".drop ul").show("");
+        //$(".drop ul").slideDown();
+        $(this).find("ul").slideDown();
+    }); 
+    $(".namedrop").mouseenter(function() {
+        $(this).css('color', 'red');
+    }); 
+    $(".namedrop").mouseleave(function() {
+        $(".namedrop ul").hide(1000);
+    }); */
+</script>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590b6d62620c44d0"></script>   -->
     </body>

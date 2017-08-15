@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
- <form action="/search" method="POST" role="search">
+ <form action="/search" method="POST" role="search" style="display: none;">
     {{ csrf_field() }}
     <div class="input-group">
         <input type="text" class="form-control" name="q"
@@ -20,7 +20,7 @@
         </div>
         <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
         <p class="small">We offer the sale of bitcoins and perfect money. Buy Now!</p>
-        <a href="#" class="btn btn-primary btn-sm">Buy Now</a>
+        <a href="#" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
         </div>
     </div>
 </div>

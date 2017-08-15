@@ -17,15 +17,15 @@ class SendTestEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $user;
+ //   protected $user;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+     //   $this->user = $user;
     }
 
     /**

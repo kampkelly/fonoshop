@@ -9,7 +9,8 @@
           cursor: pointer;
         }
         .namedrop ul li a {
-          color: #d78512;
+         /* color: #d78512; */
+          color: #DF8109;
         }
         .namedrop ul #last {
           border-bottom: none;
@@ -17,9 +18,9 @@
       </style>
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="/" style="color: #d78512;">SalesNaija</a>
+		<a class="navbar-brand" href="/" style="color: white;">SalesNaija</a>
 		<ul class="nav navbar-nav" style="width: 80%;">
-			<li class="active">
+			<li>
 				<a href="/" style="color: #d78512;">Home</a>
 			</li>
 			<li>
@@ -48,7 +49,7 @@
       @if(Auth::check())
         <li class="pull-right namedrop" style="position: relative;">
           <a href="#" style="color: #d78512;">{{Auth::user()->name}} <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
-          <ul style="position: absolute; left: 0%; bottom: -210%; width: 180%; height: 9em; background-color: #F8F8F8; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <ul style="position: absolute; left: 0%; bottom: -240%; width: 180%; height: 9em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
             <li style="display: block;"><a href="/myprofile/update/{{Auth::user()->email}}" class="small">My Profile</a></li>
             <li style="display: block;"><a href="/myitems/{{Auth::user()->email}}" class="small">My Products</a></li>
             <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li>
@@ -78,7 +79,7 @@
 	</div>
 </nav>
 <!--second form below --><div style="height: 0px;"></div>
-<div id='cssmenu' class="mobilehead" style="position: relative; color: white; top: 0%; z-index: 99; width: 100%;">
+<div id='cssmenu' class="mobilehead" style="position: fixed; color: white; top: 0%; z-index: 99; width: 100%;">
 
 <ul>
    <li><a href='/'>Home</a></li>
@@ -106,6 +107,13 @@
           </li>
       @endif
     @endif
+  <li><a href='/cryptocurrencies'>Categories</a>
+      <ul>
+      @foreach($side_categories as $category)
+          <li><a href='/category/{{$category->id}}'>{{$category->name}}</a>
+        @endforeach
+      </ul>
+  </li>
   <li><a href='/cryptocurrencies'>Cryptocurrencies</a>
       <ul>
           <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a>

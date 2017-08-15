@@ -31,6 +31,12 @@ body {
 //	background-color: #fafafa;
 	font-family: 'Lora', sans-serif;
 }
+.navbar-default {
+	background-color: $main-color !important;
+	li a {
+		color: white !important;
+	}
+}
 .navbar-transparent {
 	@media only screen and (max-width: 768px) {
 		display: none;
@@ -76,9 +82,15 @@ body {
 		}
 	}
 }
-.mobilehead {
+.mobilehead,.search_top {
 	z-index: 90 !important;
 	@media only screen and (min-width: 768px) {
+		display: none !important;
+	}
+}
+.search_desktop {
+	z-index: 90 !important;
+	@media only screen and (max-width: 768px) {
 		display: none !important;
 	}
 }
@@ -321,6 +333,32 @@ body {
 #hov:hover .shw {
   /*  visibility: visible; */
 }
+.all_products {
+	.hv {
+		a {
+			text-decoration: none;
+		}
+		.pael:hover {
+			background-color: white;
+			transition: 1s;
+		}
+		img {
+			//height: 100px !important;
+			@media #{$smartphone} {
+				height: 80px !important;
+			}
+			@media #{$tablet} {
+				height: 100px !important;
+			}
+			@media #{$mini-laptop} {
+				height: 100px !important;
+			}
+			@media #{$desktop} {
+				height: 100px !important;
+			}
+		}
+	}
+}
 .myitems {
 	height: 21em;
 	@media #{$smartphone} {
@@ -457,17 +495,30 @@ footer {
 		ul li a {
 			color: black;
 		}
-		.carousel img {
-			height: 371.5px;
-			@media #{$smartphone} {
-				height: 185.75;
+		.carousel {
+			img {
+				height: 371.5px;
+				@media #{$smartphone} {
+					height: 200px !important;
+					width: 100% !important;
+				}
+				@media #{$tablet} {
+					 height: 200px !important;
+					 width: 100% !important;
+				}
+				@media #{$mini-laptop} {
+					height: 300px;
+					width: 100%;
+				}
 			}
-			@media #{$tablet} {
-				 height: 300;
-			}
-			@media #{$mini-laptop} {
-				height: 300;
-			}
+		//	.carousel-caption {
+				h3,h2 {
+					margin-top: -160px;
+					@media #{$smartphone} {
+						 margin-top: 1000px !important;
+					}
+				}
+		//	}
 		}
 		.top_selling {
 			@media #{$smartphone} {
@@ -492,7 +543,53 @@ footer {
 	}
 	.third_section {
 		h5 {
-			color: #409ad5;
+			color: gray;
+		}
+		img {
+			height: 150px; 
+			width: 100%;
+			@media #{$smartphone} {
+				height: 100px !important;
+				width: 100%;
+			}
+			@media #{$tablet} {
+				height: 120px !important;
+				width: 100%;
+			}
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+	.kkks:hover {
+		transform: scale(0.97,0.97);
+		transition: 1s;
+	}
+	.fourth_section {
+		h4 {
+			left: 20%; 
+			top: 30%; 
+			z-index: 1; 
+			color: white;
+			@media #{$smartphone} {
+				left: 10%; 
+				font-size: $near-normal-font;
+				top: 30%; 
+				z-index: 1; 
+				color: white;
+			}
+			@media #{$mini-laptop} {
+				left: 10%;
+			}
+		}
+		img {
+			@media #{$smartphone} {
+				height: 100px !important;
+			}
+			@media #{$tablet} {
+				height: 140px !important;
+				width: 100%;
+			}
 		}
 	}
 	.bitcoin_section {

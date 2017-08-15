@@ -4,7 +4,7 @@
 @include('partials/mobile_search')
 	<div style="height: 0px"></div>
 	<div style="height: 10px"></div>
-	<section class="container">
+	<section class="container all_products">
 	<style type="text/css">
 		#hov {
 		    position: relative;
@@ -29,8 +29,11 @@
 			border-radius: 7px;
 			background-color: #fafafa;
 		}
+		.pael a {
+			color: green;
+		}
 		.pael:hover {
-		  /*  visibility: visible; */
+		  /*  visibility: visible; 
 		  cursor: pointer;
 		/*  background-color: #CCCCCC; */
 		  transition: 1s;
@@ -41,7 +44,6 @@
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 		<h3 class="text-center">All Products</h3>
-		<a href="/sendmail">Test Email</a>
 		<div class="row">
 		@foreach($products as $product)
 		@if( $loop->iteration == 20) <!-- bitcoins starts-->
@@ -65,17 +67,19 @@
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				
 				<div class="pael container-fluid row" style="width: 100%;">
-					<div class="col-xs-4 col-sm-6 col-md-4 col-lg-4">
-						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
-						<span class="small">Seller: {{$product->user->name}}</span>
-					</div>
-					<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8">
-						<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
-							{{$product->title}}</h5>
-							<em class="small" style="color: green; font-size: 120%;">#{{$product->price}}</em>
-							<p class="small">{{str_limit($product->description, 35)}}</p>
-							<a href="/product/{{$product->slug}}" class="small">See more...</a>
-					</div>
+					<a href="/product/{{$product->slug}}" style="coor: black;">
+						<div class="col-xs-4 col-sm-6 col-md-4 col-lg-4">
+							<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
+							<span class="small">Seller: {{$product->user->name}}</span>
+						</div>
+						<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8">
+							<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
+								{{$product->title}}</h5>
+								<em class="small" style="color: green; font-size: 120%;">#{{$product->price}}</em>
+								<p class="small">{{str_limit($product->description, 35)}}</p>
+								<a href="/product/{{$product->slug}}" class="small">See more...</a>
+						</div>
+					</a>
 				</div>
 					<div class="shw" style="width: 92%;">
 						<p class="small">{{str_limit($product->description, 50)}}</p>
@@ -92,17 +96,19 @@
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				
 				<div class="pael container-fluid row" style="width: 100%;">
-					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
-						<span class="small">Seller: {{$product->user->name}}</span>
-					</div>
-					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-						<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
-							{{$product->title}}</h5>
-							<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
-							<p class="small">{{str_limit($product->description, 35)}}</p>
-							<a href="/product/{{$product->slug}}" class="small">See more...</a>
-					</div>
+					<a href="/product/{{$product->slug}}">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
+							<span class="small">Seller: {{$product->user->name}}</span>
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+							<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
+								{{$product->title}}</h5>
+								<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
+								<p class="small">{{str_limit($product->description, 35)}}</p>
+								<a href="/product/{{$product->slug}}" class="small">See more...</a>
+						</div>
+					</a>
 				</div>
 					<div class="shw" style="width: 92%;">
 						<p class="small">{{str_limit($product->description, 125)}}</p>

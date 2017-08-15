@@ -2,10 +2,9 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<div style="height: 20px"></div>
 	<h3 class="text-center">{{$category->name}}</h3>
 	<div style="height: 10px"></div>
-	<section class="container">
+	<section class="container all_products">
 	<style type="text/css">
 		#hov {
 		    position: relative;
@@ -64,11 +63,11 @@
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				
 				<div class="pael container-fluid row" style="width: 100%;">
-					<div class="col-xs-4 col-sm-6 col-md-4 col-lg-4">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
 						<span class="small">Seller: {{$product->user->name}}</span>
 					</div>
-					<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8">
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 						<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
 							{{$product->title}}</h5>
 							<em class="small">#{{$product->price}}</em>

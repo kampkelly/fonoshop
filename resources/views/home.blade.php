@@ -17,9 +17,9 @@
             height: 600px;
         }
 </style>
-@include('partials/search')
-<div class="new_cover" style="margin-top: -10px;">
-    <div style="height: 0px"></div>
+<div class="new_cover" style="margin-top: 10px;">
+    <div style="height: 10px" class="search_top"></div>
+    <div style="margin-top: -10px" class="search_desktop"></div>
     <div class="container firstsection" style="background-color: #f5fafd; height: 86vh;">
     <h3 class="text-center" style="color: #DF8109; text-shadow: 0.3px 0.3px #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
     <h4 class="text-center">Everything IT- Computers, Phones, Software, Accessories ...</h4>
@@ -69,7 +69,7 @@
                             <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="homepage/new/3.jpg" style="filter: blur(0px) brightness(0.8) grayscale(0%);">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h3 style="margin-top: -160px;">Be Satisfied With What You Get!</h3>
+                                    <h3>Be Satisfied With What You Get!</h3>
                                     <p></p>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/2remod.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%);">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h3 style="margin-top: -160px;">Everything Tech Related.</h3>
+                                    <h3>Everything Tech Related.</h3>
                                     <p></p>
                                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse Products</a></p>
                                 </div>
@@ -88,7 +88,7 @@
                             <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="homepage/new/1.jpg" style="filter: blur(0px) brightness(0.8) grayscale(20%);">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h2 style="margin-top: -200px;">Buy New or Used Items</h2>
+                                    <h2 style=" ">Buy New or Used Items</h2>
                                     <p></p>
                                     <p><a class="btn btn-lg btn-warning" href="#" role="button">Learn More</a></p>
                                 </div>
@@ -131,12 +131,14 @@
     <section class="row container-fluid third_section">
         <h3 class="text-center">Latest Products</h3>
         @foreach($products as $product)
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" style="padding: 0px 30px 0px 30px;" >
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 kkks" style="padding: 0px 30px 0px 30px;" >
                 <div style="background-color: #FAFAFA;">
-                        <h5 class="text-center">{{str_limit($product->title, 25)}}</h5>
-                        <h5><b>N{{$product->price}}</b> {{$product->condition}}</h5>
-                        <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded" style="height: 150px; width: 100%; posiion: absolute; mx-width: 100%;max-hight: 100%;op: 40%;
-              lft: 0%;">
+                    <a href="/product/{{$product->slug}}">
+                            <h5 class="text-center">{{str_limit($product->title, 20)}}</h5>
+                            <h5><b>N{{$product->price}}</b> {{$product->condition}}</h5>
+                            <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded" style="posiion: absolute; mx-width: 100%;max-hight: 100%;op: 40%;
+                  lft: 0%;">
+                    </a>
                 </div>
                     <div style="height: 15px;"></div>
             </div>
@@ -158,15 +160,15 @@
             <div class="row">
             @foreach($categories as $category)
             @if($loop->iteration <= 3)
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">        
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
-                            <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 20%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
+                    <div style="height: 20px;"></div>
                 </div>
-                <div style="height: 20px;"></div>
             @endif
             @endforeach
             </div>
@@ -176,24 +178,25 @@
                 </div>       
             @foreach($categories as $category)
             @if($loop->iteration == 4)
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5">        
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
-                            <h4 style="position: absolute; pading: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
+                     <div style="height: 20px;"></div>
                 </div>
-                <div style="height: 20px;"></div>
             @endif
             @endforeach
-                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5">        
+                 <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="#">
-                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px; left: 34%; top: 30%; z-index: 1; color: white;">{{$category->name}}</h4>
+                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="homepage/new/3.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
+
                 </div>
                   <div class="col-xs-4 col-sm-3 col-md-3 col-lg-1"> 
 
@@ -201,6 +204,8 @@
             </div>
         </div>
     </section>
+
+
     <section class="container fifth_section" style="background:linear-gradient(#f8d8ac, #efa63e); height: 54vh;">
          <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
         {{ csrf_field() }}

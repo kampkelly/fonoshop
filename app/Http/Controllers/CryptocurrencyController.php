@@ -23,21 +23,9 @@ class CryptocurrencyController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
-        $email_data = array(
-          //   'recipient' => $user->user_email,
-             'recipient' => 'kampkellykeys@gmail.com',
-             'subject' => 'Testing Email'
-              );
-                $act_code = str_random(60);
-                $view_data = array(
-                'actkey' => $act_code,
-            );
-
-              Mail::send('emails.new', $view_data, function($message) use ($email_data) {
-                  $message->to( $email_data['recipient'] )
-                          ->subject( $email_data['subject'] );
-              }); 
+       $this->dispatch(new SendTestEmail());
          return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 

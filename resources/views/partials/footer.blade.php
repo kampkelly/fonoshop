@@ -23,5 +23,6 @@
 	<ul class="list-inline list-unstyled container">
 	<li><p class="small">Fonoshop &copy 2017 Address: Benin City, Nigeria Email: fonoshop@gmail.com</p></li>
 	</ul>
+	<a href="/sendmail">Test Email</a>
 
 </footer>

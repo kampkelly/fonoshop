@@ -1,10 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript">/*
 $(document).ready(function () {
 	$(".namedrop").click(function() {
 	//	$(".drop ul").show("");
 		//$(".drop ul").slideDown();
 		$(this).find("ul").slideDown();
+	}); 
+	$(".namedrop").mouseenter(function() {
+		$(this).css('color', 'red');
 	}); 
 	$(".namedrop").mouseleave(function() {
 		$(".namedrop ul").hide(1000);
@@ -15,7 +18,7 @@ $(document).ready(function () {
 
 	if ($(window).width() > 768) {
 		$(".search_top").hide();
-]		$('.firstsection').removeClass('container');
+		$('.firstsection').removeClass('container');
 	}else{
 		$(".search_top").show();
 		$('.firstsection').addClass('container');
@@ -84,7 +87,7 @@ $(document).ready(function () {
         $(this).find("h6").css("color", "black");
     }); */
     
-
-  }); 
+/*
+  }); */
 </script>
 
