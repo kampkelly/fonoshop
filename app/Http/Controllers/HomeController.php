@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['myprofile', 'myitems', 'updateprofile']]);
+      //  $this->middleware('guest', ['except' => ['myprofile', 'myitems', 'updateprofile']]);
     }
 
     /**
