@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+        $this->middleware('guest', ['except' => ['myprofile', 'myitems', 'updateprofile']]);
     }
 
     /**
@@ -60,14 +60,19 @@ class HomeController extends Controller
     public function myitems($email)
     {
        // $categories = Category::all();
-        if(Auth::user()->email == $email) {
-            $user = User::where('email', $email)->first();
-            $products = $user->products()->orderBy('id', 'desc')->get();
-            $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
-            return view('users.items', compact('user', 'products', 'cryptocurrencies'));
-        }else{
-             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
+        if( (checkPermission(['user'])) ){
+            if(Auth::user()->email == $email) {
+                $user = User::where('email', $email)->first();
+                $products = $user->products()->orderBy('id', 'desc')->get();
+                $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
+                return view('users.items', compact('user', 'products', 'cryptocurrencies'));
+            }else{
+                 session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+            }
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
         }
     }
 

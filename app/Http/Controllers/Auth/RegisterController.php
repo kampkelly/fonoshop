@@ -12,9 +12,11 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Image;
 use App\Category;
+use App\Http\Controllers\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\WelcomeRegistrationEmail;
 
 
 class RegisterController extends Controller
@@ -110,7 +112,7 @@ class RegisterController extends Controller
         ]);
     }
 
-      public function new_register(Request $request){
+    public function new_register(Request $request){
 
                $this->validate($request, [
                 'name' => 'required|max:255',
@@ -193,21 +195,8 @@ class RegisterController extends Controller
                      ]);
             }
           }
-         /*   $email_data = array(
-          //   'recipient' => $user->user_email,
-             'recipient' => $request->email,
-             'subject' => 'Thanks For Registering'
-              );
-            $view_data = array(
-                'email' => $request->email,
-            );
-
-              Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
-                  $message->to( $email_data['recipient'] )
-                          ->subject( $email_data['subject'] );
-              });  */
             Auth::login($user);
-        
+            $this->dispatch(new WelcomeRegistrationEmail());
             session()->flash('message', 'Thanks for registering!'); 
              return redirect('/home');
         }else{

@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-<!--<a class="btn btn-info" href="{{ URL::previous() }}">back</a> -->
-<a href="/home">Back to home</a>
+<!--<a class="btn btn-info" href="{{ URL::previous() }}">back</a> 
+<a href="/home">Back to home</a> -->
     <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
     {{ csrf_field() }}
         <h4 class="text-center">Please signup to submit your product</h4>
@@ -138,3 +138,11 @@
     </form>
 </div>
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.search_top').hide();
+        $('.search_top').css('visibility', 'hidden');
+        $('.search_desktop').hide();
+    });
+</script>

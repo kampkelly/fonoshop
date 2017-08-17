@@ -45,25 +45,30 @@ class CategoryController extends Controller
         $this->validate(request(), [
            'name' => 'required'
         ]); 
-        if(Input::hasFile('image')){
-            $file=Input::file('image');
-            $dd = $file->getClientOriginalName();
-            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-            $t = date("i-s");
-            $newfilename = md5($file_basename) . $t . $file_ext;
-            Image::make($file)->resize(1500, null, function ($constraint) {
-                  $constraint->aspectRatio();
-              })->save(public_path('/categories/'. $newfilename));
-          //  $file->move('static-pics/categories', $newfilename);
-        }
+        if( (checkPermission(['admin'])) ){
+            if(Input::hasFile('image')){
+                $file=Input::file('image');
+                $dd = $file->getClientOriginalName();
+                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                $t = date("i-s");
+                $newfilename = md5($file_basename) . $t . $file_ext;
+                Image::make($file)->resize(1500, null, function ($constraint) {
+                      $constraint->aspectRatio();
+                  })->save(public_path('/categories/'. $newfilename));
+              //  $file->move('static-pics/categories', $newfilename);
+            }
 
-         Category::create([
-            'name' => request('name'),
-            'image' => $newfilename
-        ]);
-        session()->flash('message', 'Category Created!');
-            return redirect()->back();
+             Category::create([
+                'name' => request('name'),
+                'image' => $newfilename
+            ]);
+            session()->flash('message', 'Category Created!');
+                return redirect()->back();
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -118,30 +123,35 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(Input::hasFile('image')){
-            $file=Input::file('image');
-            $dd = $file->getClientOriginalName();
-            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-            $t = date("i-s");
-            $newfilename = md5($file_basename) . $t . $file_ext;
-          //  Image::make($file)->resize(900, 600)->save(public_path('/static-pics/categories/'. $newfilename));
-            Image::make($file)->resize(1500, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('/categories/'. $newfilename));
-           // $file->move('static-pics/categories', $newfilename);
-        }
+        if( (checkPermission(['admin'])) ){
+            if(Input::hasFile('image')){
+                $file=Input::file('image');
+                $dd = $file->getClientOriginalName();
+                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                $t = date("i-s");
+                $newfilename = md5($file_basename) . $t . $file_ext;
+              //  Image::make($file)->resize(900, 600)->save(public_path('/static-pics/categories/'. $newfilename));
+                Image::make($file)->resize(1500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save(public_path('/categories/'. $newfilename));
+               // $file->move('static-pics/categories', $newfilename);
+            }
 
-         $category = Category::find($id);
+             $category = Category::find($id);
 
-            if (Input::has('name')) $category->name = Input::get('name');
-            if (Input::hasFile('image')) $category->image = $newfilename;
-            if (Input::has('description')) $category->description = Input::get('description');
-            
-            $category->save();
+                if (Input::has('name')) $category->name = Input::get('name');
+                if (Input::hasFile('image')) $category->image = $newfilename;
+                if (Input::has('description')) $category->description = Input::get('description');
+                
+                $category->save();
 
-            session()->flash('message', 'Category Updated!');
-            return redirect()->back();
+                session()->flash('message', 'Category Updated!');
+                return redirect()->back();
+             }else{
+                 session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                    return redirect()->back();
+            }
     }
 
     /**
@@ -152,11 +162,16 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request,$id)
     {
-        $id = request('category_id');
-        $deleted = Category::find($id);
-        $deleted->delete();
-       // $id = request('category_id');
-        session()->flash('message', 'Category Deleted!');
+        if( (checkPermission(['admin'])) ){
+            $id = request('category_id');
+            $deleted = Category::find($id);
+            $deleted->delete();
+           // $id = request('category_id');
+            session()->flash('message', 'Category Deleted!');
+            return redirect()->back();
+        }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
         return redirect()->back();
+        }
     }
 }

@@ -48,20 +48,24 @@ class PostController extends Controller
            'post_title' => 'required|min:1',
             'body' => 'required'
         ]); 
-
-        $slug_title = request('post_title');
-        $slug_date = date("Y-m-d");
-        $slug_combine = $slug_title.' '.$slug_date;
-        $slug_format = strtr($slug_combine, ' ', '-');
-        $slug = $slug_format;
-        //
-       $post = Post::create([
-            'title' => request('post_title'),
-            'body' => request('body'),
-            'user_id' => Auth::user()->id,
-            'slug' => $slug
-        ]);
-        return redirect('/news');
+        if( (checkPermission(['admin'])) ){
+            $slug_title = request('post_title');
+            $slug_date = date("Y-m-d");
+            $slug_combine = $slug_title.' '.$slug_date;
+            $slug_format = strtr($slug_combine, ' ', '-');
+            $slug = $slug_format;
+            //
+           $post = Post::create([
+                'title' => request('post_title'),
+                'body' => request('body'),
+                'user_id' => Auth::user()->id,
+                'slug' => $slug
+            ]);
+            return redirect('/news');
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -84,8 +88,13 @@ class PostController extends Controller
      */
     public function edit($slug)
     {
-        $news = Post::where('slug', $slug)->first();
-        return view('posts.edit', compact('news'));
+        if( (checkPermission(['admin'])) ){
+            $news = Post::where('slug', $slug)->first();
+            return view('posts.edit', compact('news'));
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -101,21 +110,25 @@ class PostController extends Controller
            'post_title' => 'required|min:1'
         //    'body' => 'required'
         ]); 
+        if( (checkPermission(['admin'])) ){
+            $news = Post::where('slug', $slug)->first();
+            $slug_title = request('post_title');
+            $slug_date = date("Y-m-d");
+            $slug_combine = $slug_title.' '.$slug_date;
+            $slug_format = strtr($slug_combine, ' ', '-');
+            $slug = $slug_format;
 
-        $news = Post::where('slug', $slug)->first();
-        $slug_title = request('post_title');
-        $slug_date = date("Y-m-d");
-        $slug_combine = $slug_title.' '.$slug_date;
-        $slug_format = strtr($slug_combine, ' ', '-');
-        $slug = $slug_format;
-
-      //  $news = Post::find();
-        if (Input::has('post_title')) $news->title = Input::get('post_title');
-        if (Input::has('body')) $news->body = Input::get('body');
-        $news->slug = $slug;
-        $news->user_id = Auth::user()->id;
-        $news->save();
-        return redirect('/news');
+          //  $news = Post::find();
+            if (Input::has('post_title')) $news->title = Input::get('post_title');
+            if (Input::has('body')) $news->body = Input::get('body');
+            $news->slug = $slug;
+            $news->user_id = Auth::user()->id;
+            $news->save();
+            return redirect('/news');
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -126,9 +139,14 @@ class PostController extends Controller
      */
     public function destroy($slug)
     {
-        $deleted = Post::where('slug', $slug)->first();
-        $deleted->delete();
-        session()->flash('message', 'Post Deleted!');
-        return redirect()->back();
+        if( (checkPermission(['admin'])) ){
+            $deleted = Post::where('slug', $slug)->first();
+            $deleted->delete();
+            session()->flash('message', 'Post Deleted!');
+            return redirect()->back();
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 }
