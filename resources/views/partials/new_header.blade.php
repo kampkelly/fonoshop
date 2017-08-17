@@ -20,9 +20,9 @@
 	<div class="container">
 		<a class="navbar-brand" href="/" style="color: white;">SalesNaija</a>
 		<ul class="nav navbar-nav" style="width: 80%;">
-			<li>
+		<!--	<li>
 				<a href="/" style="color: #d78512;">Home</a>
-			</li>
+			</li> -->
 			<li>
         <a href="/products" style="color: #d78512;">Products</a>
       </li>
