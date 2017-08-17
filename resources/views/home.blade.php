@@ -30,15 +30,15 @@
                         <h4 class="text-center intrtext1" style="color: #236d9d; text-shadow: 0.2px 0.2px #236d9d;">Our Categories</h4>
                         <ul class="list-unstyled tet-center intrext1">
                         @foreach($categories as $category)
-                            <li><h5><a href="#"> {{$category->name}}</a></h5></li>
+                            <li><h5><a href="/category/{{$category->id}}"> {{$category->name}}</a></h5></li>
                         @endforeach
                         </ul>
                     </div>
                     <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                         <h4 class="text-center intrtext1" style="color: #236d9d;">Buy Cryptocurrencies</h4>
                         <ul class="list-unstyled text-cnter intrtxt1">
-                            <li class=""><h5><a href="#">Bitcoins</a></h5></li>
-                            <li class=""><h5><a href="#">Perfect Money</a></h5></li>                
+                            <li class=""><h5><a href="/cryptocurrencies">Bitcoins</a></h5></li>
+                            <li class=""><h5><a href="/cryptocurrencies">Perfect Money</a></h5></li>                
                         </ul>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
         <h3 class="text-center" style="color: white;">SalesNaija - linking you to all your IT gadgets with ease</h3>
         <h4 class="text-center" style="color: white;">Search for a product in any location in Nigeria, contact seller, pick up the product.</h4>
         <div class="text-center">
-            <a href="#" class="btn btn-warning btn-lg">Find Product</a>
+            <a href="/products" class="btn btn-warning btn-lg">Browse Products</a>
         </div>
     </div>
 
@@ -148,7 +148,7 @@
     <h3 class="text-center">Buy Cryptocurrencies</h3>
     <ul class="list-group">
     @foreach($cryptocurrencies as $cryptocurrency)
-        <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
+        <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">N{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
     @endforeach
     </ul>
     </section>
@@ -162,7 +162,7 @@
             @if($loop->iteration <= 3)
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
-                        <a href="#">
+                        <a href="/category/{{$category->id}}">
                             <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
@@ -180,7 +180,7 @@
             @if($loop->iteration == 4)
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
-                        <a href="#">
+                        <a href="/category/{{$category->id}}">
                             <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
@@ -191,7 +191,7 @@
             @endforeach
                  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
-                        <a href="#">
+                        <a href="/cryptocurrencies">
                             <h4 style="position: absolute; paddng: 0px 10px 0px 10px;">{{$category->name}}</h4>
                             <img src="homepage/new/3.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
@@ -211,21 +211,21 @@
         {{ csrf_field() }}
         <h4 class="text-ceter" style="text-decoration: underline;">Contact Us:</h4>
                 <div class="form-group">
-                    <label for="product_title" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Name <span class="asterisks">*</span></label>
+                    <label for="contact_name" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Name <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="4" style="background-color: #f2f2f2;">
+                        <input type="text" name="contact_name" id="contact_name" class="form-control" required="required" placeholder="Full Name" required="true" minlength="4" style="background-color: #f2f2f2;">
                     </div>
                 </div>
                  <div class="form-group">
-                    <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Email <span class="asterisks">*</span></label>
+                    <label for="contact_email" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Email <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true" style="background-color: #f2f2f2;">
+                        <input type="text" name="contact_email" id="contact_email" class="form-control" required="required" placeholder="Email Address" required="true" style="background-color: #f2f2f2;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Message <span class="asterisks">*</span></label>
+                    <label for="contact_msg" class="col-xs-3 col-sm-4 col-md-4 col-lg-2 control-label">Message <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                    <textarea class="form-control" rows="5" placeholder="Type Message"></textarea>
+                    <textarea class="form-control" rows="5" placeholder="Type Message" name="contact_msg"></textarea>
                     </div>
                 </div>
                 <div class="form-group">

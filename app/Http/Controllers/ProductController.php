@@ -18,6 +18,10 @@ use App\Jobs\SendTestEmail;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,9 +63,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-          $categories = Category::all();
-         return view('products.create', compact('categories', 'states'));
+         if( (checkPermission(['user'])) ){
+            $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+              $categories = Category::all();
+             return view('products.create', compact('categories', 'states'));
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -80,68 +89,72 @@ class ProductController extends Controller
                 'category_id'=>'required',
                 'condition'=>'required'
             ]); 
-
-        if(Input::hasFile('image')){
-            $file=Input::file('image');
-            $dd = $file->getClientOriginalName();
-            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-            $t = date("i-s");
-            $newfilename = md5($file_basename) . $t . $file_ext;
-          //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
-            Image::make($file)->resize(1500, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('/uploads/'. $newfilename));
-          //  $file->move('uploads', $newfilename);
-        }
-
-            $slug_title = request('product_title');
-            $slug_random = rand();
-            $slug_date = date("Y-m-d");
-            $slug_combine = $slug_title.' '.$slug_random.' '.$slug_date;
-            $slug_format = strtr($slug_combine, ' ', '-');
-            $slug = $slug_format;
-
-        $product = Product::create([
-            'name' => $request->name,
-            'title' => $request->product_title,
-            'image' => $newfilename,
-            'description' => 'desrcibe',
-            'category_id' => $request->category_id,
-            'price' => $request->price,
-            'phone' => $request->phone,
-            'condition' => $request->condition,
-            'user_id' => Auth::user()->id,
-            'slug' => $slug,
-            'state' => $request->state,
-            'city' => $request->city,
-            'active' => 'active'
-        //    'address' => $request->address,
-           ]); 
-
-        if(Input::hasFile('photos')){
-                 foreach (request('photos') as $photo) {
-                    //uploading photo starts
-                    $file = $photo;
-                    $dd = $file->getClientOriginalName();
-                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-                    $t = date("i-s");
-                    $filename = md5($file_basename) . $t . $file_ext;
-                    Image::make($file)->resize(1500, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->save(public_path('/uploads/'. $filename));
-                 //   $file->move('uploads', $filename);
-                    //uploading photo ends
-                    ProductsPhoto::create([
-                        'product_id' => $product->id,
-                        'image' => $filename,
-                        'user_id' => Auth::user()->id
-                     ]);
-                }
+        if( (checkPermission(['user'])) ){
+            if(Input::hasFile('image')){
+                $file=Input::file('image');
+                $dd = $file->getClientOriginalName();
+                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                $t = date("i-s");
+                $newfilename = md5($file_basename) . $t . $file_ext;
+              //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
+                Image::make($file)->resize(1500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save(public_path('/uploads/'. $newfilename));
+              //  $file->move('uploads', $newfilename);
             }
-            session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-        return redirect('/myitems/'.Auth::user()->email);
+
+                $slug_title = request('product_title');
+                $slug_random = rand();
+                $slug_date = date("Y-m-d");
+                $slug_combine = $slug_title.' '.$slug_random.' '.$slug_date;
+                $slug_format = strtr($slug_combine, ' ', '-');
+                $slug = $slug_format;
+
+            $product = Product::create([
+                'name' => $request->name,
+                'title' => $request->product_title,
+                'image' => $newfilename,
+                'description' => 'desrcibe',
+                'category_id' => $request->category_id,
+                'price' => $request->price,
+                'phone' => $request->phone,
+                'condition' => $request->condition,
+                'user_id' => Auth::user()->id,
+                'slug' => $slug,
+                'state' => $request->state,
+                'city' => $request->city,
+                'active' => 'active'
+            //    'address' => $request->address,
+               ]); 
+
+            if(Input::hasFile('photos')){
+                     foreach (request('photos') as $photo) {
+                        //uploading photo starts
+                        $file = $photo;
+                        $dd = $file->getClientOriginalName();
+                        $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                        $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                        $t = date("i-s");
+                        $filename = md5($file_basename) . $t . $file_ext;
+                        Image::make($file)->resize(1500, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save(public_path('/uploads/'. $filename));
+                     //   $file->move('uploads', $filename);
+                        //uploading photo ends
+                        ProductsPhoto::create([
+                            'product_id' => $product->id,
+                            'image' => $filename,
+                            'user_id' => Auth::user()->id
+                         ]);
+                    }
+                }
+                session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect('/myitems/'.Auth::user()->email);
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
 
     }
 
@@ -166,15 +179,20 @@ class ProductController extends Controller
      */
     public function edit($slug)
     {
-        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-         $product = Product::where('slug', $slug)->first();
-         if(Auth::user()->id == $product->user_id) {
-         $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
-          $categories = Category::all();
-         return view('products.edit', compact('product', 'productsphotos', 'categories', 'states'));
+        if( (checkPermission(['user'])) ){
+            $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+             $product = Product::where('slug', $slug)->first();
+             if(Auth::user()->id == $product->user_id) {
+             $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
+              $categories = Category::all();
+             return view('products.edit', compact('product', 'productsphotos', 'categories', 'states'));
+            }else{
+                session()->flash('message', 'Sorry, incorrect request!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+            }
         }else{
-            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
         }
               
     }
@@ -194,6 +212,7 @@ class ProductController extends Controller
          //  'description' => 'required'
         ]);
 
+    if( (checkPermission(['user'])) ){
          if(Input::hasFile('image')){
             if(filesize(Input::file('image')) > 500){
                 session()->flash('message', 'Image too big');
@@ -260,9 +279,13 @@ class ProductController extends Controller
             session()->flash('message', 'Product Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
         }else{
-            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Sorry, incorrect request!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
         }
+    }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect()->back();
+    }
     }
 
      public function search()

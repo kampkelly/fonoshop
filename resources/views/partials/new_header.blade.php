@@ -31,12 +31,14 @@
         <a href="/cryptocurrencies" style="color: #d78512;">Cryptocurrencies</a>
       </li>
       @if(Auth::check())
+        @if(checkPermission(['user']))
         <li>
           <a href="/product_new" style="color: #d78512;">Sell A Product</a>
         </li>
         <li>
           <a href="/cryptocurrency/new" style="color: #d78512;">Sell Cryptocurrency</a>
         </li>
+        @endif
         @if(checkPermission(['admin']))
             <li>
               <a href="/admin/panel" style="color: #d78512;">Admin Panel</a>
@@ -44,6 +46,9 @@
         @endif
       @endif
 			<li>
+        <a href="/news" style="color: #d78512;">Site News</a>
+      </li>
+      <li>
 				<a href="#" style="color: #d78512;">Contact Us</a>
 			</li>
       @if(Auth::check())

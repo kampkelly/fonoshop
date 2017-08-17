@@ -43,6 +43,12 @@ class AdminController extends Controller
     {
         $posts = Post::all();
          return view('admin.posts', compact('posts'));
+    } 
+
+    public function cryptocurrencies()
+    {
+        $cryptocurrencies = Cryptocurrency::orderBy('id', 'desc')->simplePaginate(40);
+         return view('admin.cryptocurrencies', compact('cryptocurrencies'));
     }
 
     /**

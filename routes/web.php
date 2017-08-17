@@ -88,6 +88,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/admin/post/{slug}', 'PostController@update');
 	Route::get('/admin/post/delete/{slug}', 'PostController@destroy');
 	Route::get('/admin/posts', 'AdminController@posts');
+	//Cryptocurrencies
+	Route::get('/admin/cryptocurrencies', 'AdminController@cryptocurrencies');
 //});	
 
 

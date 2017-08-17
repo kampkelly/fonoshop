@@ -2,7 +2,6 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<h3 class="text-center">{{$category->name}}</h3>
 	<div style="height: 10px"></div>
 	<section class="container all_products">
 	<style type="text/css">
@@ -40,6 +39,7 @@
 	<?php $tuples=['game','books','ps4','xbox','fifa17','nintendo','sega','consoles','pes','god of war', 'mesut ozil', 'sanchez', 'lacazette', 'ramsey', 'walcott', 'cazorla', 'kolscieny,', 'gibbs', 'monreal', 'wilshere', 'oxlade', 'coquelin', 'mustafi']  ?>
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+		<h3 class="text-center">{{$category->name}}</h3>
 		<div class="row">
 		@foreach($products as $product)
 		@if( $loop->iteration == 2) <!-- bitcoins starts-->

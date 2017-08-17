@@ -15,7 +15,7 @@
         <h3 class="panel-title">Buy or Sell Cryptocurrencies</h3>   
     </div>
     <div class="panel-body row">
-        <div class="col-xs-3 col-sm-4 col-md-4 col-lg-6">
+        <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">
             <img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
         </div>
         <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
@@ -33,7 +33,7 @@
 		<h4 class="text-center">Latest Products</h4>
 		<ul class="list-group">
 		@foreach($side_products as $p)
-			<li class="list-group-item list"><a href="#"> {{$p->title}}</a></li>
+			<li class="list-group-item list"><a href="/product/{{$p->slug}}"> {{$p->title}}</a></li>
 		@endforeach
 		</ul>
 		<h5 class="text-center">Categories</h5>
@@ -49,4 +49,10 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block btn-xs">Go</button>
         </form>
+        <h4 class="text-center">News Updates</h4>
+        <ul class="list-group">
+        @foreach($side_news as $news)
+            <li class="list-group-item list"><a href="/news/{{$news->slug}}"> {{$news->title}}</a></li>
+        @endforeach
+        </ul>
 	</div>

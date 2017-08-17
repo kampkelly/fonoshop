@@ -16,6 +16,10 @@ use App\Jobs\SendTestEmail;
 
 class CryptocurrencyController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,8 +40,13 @@ class CryptocurrencyController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-         return view('cryptocurrencies.create', compact('categories'));
+        if( (checkPermission(['user'])) ){
+            $categories = Category::all();
+             return view('cryptocurrencies.create', compact('categories'));
+        }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
     }
 
     /**
@@ -52,14 +61,19 @@ class CryptocurrencyController extends Controller
                 'price' => 'required',
                 'currency'=>'required'
             ]); 
-        $cryptocurrency = Cryptocurrency::create([
-            'price' => $request->price,
-            'currency' => $request->currency,
-            'user_id' => Auth::user()->id,
-        //    'address' => $request->address,
-           ]); 
-        session()->flash('message', 'Cryptocurrency Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-        return redirect('/myitems/'.Auth::user()->email);
+        if( (checkPermission(['user'])) ){
+            $cryptocurrency = Cryptocurrency::create([
+                'price' => $request->price,
+                'currency' => $request->currency,
+                'user_id' => Auth::user()->id,
+            //    'address' => $request->address,
+               ]); 
+            session()->flash('message', 'Cryptocurrency Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            return redirect('/myitems/'.Auth::user()->email);
+        }else{
+            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
 
     }
 
@@ -82,13 +96,18 @@ class CryptocurrencyController extends Controller
      */
     public function edit($id)
     {
-        $cryptocurrency = Cryptocurrency::find($id);
-        if(Auth::user()->id == $cryptocurrency->user_id) {
-        $categories = Category::all();
-         return view('cryptocurrencies.edit', compact('cryptocurrency'));
+        if( (checkPermission(['user'])) ){
+            $cryptocurrency = Cryptocurrency::find($id);
+            if(Auth::user()->id == $cryptocurrency->user_id) {
+            $categories = Category::all();
+             return view('cryptocurrencies.edit', compact('cryptocurrency'));
+            }else{
+                session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+            }
         }else{
-            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
+            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
         }
     }
 
@@ -101,17 +120,22 @@ class CryptocurrencyController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if( (checkPermission(['user'])) ){
         $cryptocurrency = Cryptocurrency::find($id);
-        if(Auth::user()->id == $cryptocurrency->user_id) {
-            if (Input::has('price')) $cryptocurrency->price = $request->price;
-            if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
-            $cryptocurrency->save();
+            if(Auth::user()->id == $cryptocurrency->user_id) {
+                if (Input::has('price')) $cryptocurrency->price = $request->price;
+                if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
+                $cryptocurrency->save();
 
-            session()->flash('message', 'Cryptocurrency Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
-        }else{
-            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
+                session()->flash('message', 'Cryptocurrency Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+            }else{
+                session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+            }
+         }else{
+            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
         }
     }
 
