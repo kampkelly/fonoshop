@@ -30,8 +30,23 @@ class CryptocurrencyController extends Controller
     {
         $user = Auth::user();
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
-      // $this->dispatch(new WelcomeRegistrationEmail());
-        $this->dispatch((new SendTestEmail())->delay(20));
+       $this->dispatch(new WelcomeRegistrationEmail());
+     //   $this->dispatch((new SendTestEmail())->delay(10));
+      /*  $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => Auth::user()->email,
+             'subject' => 'Welcome To SalesNaija'
+              );
+                $act_code = str_random(60);
+                $view_data = array(
+                'actkey' => $act_code,
+                'email' => Auth::user()->email,
+            );
+
+              Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); */
          return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 

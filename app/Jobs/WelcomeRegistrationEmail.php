@@ -41,7 +41,7 @@ class WelcomeRegistrationEmail implements ShouldQueue
                 $act_code = str_random(60);
                 $view_data = array(
                 'actkey' => $act_code,
-                'email' => $Auth::user()->email,
+                'email' => Auth::user()->email,
             );
 
               Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
