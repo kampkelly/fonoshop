@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Mail\Mailer;
 //use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
-//use App\Jobs\SendTestEmail;
+use App\Jobs\SendTestEmail;
 use App\Jobs\WelcomeRegistrationEmail;
 
 class CryptocurrencyController extends Controller
@@ -30,8 +30,8 @@ class CryptocurrencyController extends Controller
     {
         $user = Auth::user();
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
-       $this->dispatch(new WelcomeRegistrationEmail());
-       // $this->dispatch((new SendVerificationEmail())->delay(20));
+      // $this->dispatch(new WelcomeRegistrationEmail());
+        $this->dispatch((new SendTestEmail())->delay(20));
          return view('cryptocurrencies.index', compact('cryptocurrencies'));
     }
 
