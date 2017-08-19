@@ -74,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
 	Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
 	Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
+	Route::post('/cryptocurrency/delete/{id}', 'CryptocurrencyController@destroy');
 });
 
 //Route::group(['middleware' => 'check-permission:admin|superadmin'], function () {

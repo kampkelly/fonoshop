@@ -12,7 +12,7 @@
         <div class="container-fluid all_innovations" style="padding-left: 30px">
             <h3 class="text-center">Site News</h3>        
 	        @foreach($news as $new)
-                By {{$new->user->name}}
+                By SalesNaija
                 <div class="panel panel-inf">
                     <div class="panel-heading background-third">
                         <h3 class="panel-title"><a href="/news/{{$new->slug}}" style="coor: white;">{{$new->title}}</a><span class="small pull-right" style="colr:white;">{{$new->created_at->diffForHumans()}}</span></h3>

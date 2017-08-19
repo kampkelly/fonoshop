@@ -13,7 +13,7 @@
             <h3 class="text-center">{{$news->title}}</h3>        
                 <div class="panel panel-inf">
                     <div class="panel-heading background-third">
-                        <h3 class="panel-title" style="colr: white;">{{$news->title}}<span class="small pull-right" style="clor:white;">{{$news->created_at->diffForHumans()}}</span></h3>
+                        <h3 class="panel-title" style="colr: white;">{{$news->title}}<span class="small pull-right" style="clor:white;"> By SalesNaija, {{$news->created_at->diffForHumans()}}</span></h3>
                     </div>
                     <div class="panel-body">
                       <p class="text-justify" style="padding: 0px 10px 0px 10px;"> {{$news->body}} </p>

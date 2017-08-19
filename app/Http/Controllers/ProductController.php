@@ -20,7 +20,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'search']]);
+        $this->middleware('auth', ['except' => ['index', 'search', 'show']]);
     }
     /**
      * Display a listing of the resource.
@@ -68,7 +68,7 @@ class ProductController extends Controller
               $categories = Category::all();
              return view('products.create', compact('categories', 'states'));
          }else{
-             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
     }
@@ -152,7 +152,7 @@ class ProductController extends Controller
                 session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect('/myitems/'.Auth::user()->email);
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please lgin as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
 
@@ -191,7 +191,7 @@ class ProductController extends Controller
                 return redirect()->back();
             }
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
               
@@ -283,7 +283,7 @@ class ProductController extends Controller
             return redirect()->back();
         }
     }else{
-         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+         session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
     }
     }

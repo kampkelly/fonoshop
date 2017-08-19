@@ -29,7 +29,14 @@
 	            				<td class="td1 small">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">N{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</td>
 	            				<td> </td>
 	            				<td><a href="/admin/post/edit/{{$cryptocurrency->slug}}" class="btn btn-info btn-xs">Edit</a></td>
-	            				<td><a href="/admin/post/delete/{{$cryptocurrency->slug}}" class="btn btn-danger btn-xs">Delete</a></td>
+	            			<!--	<td><a href="/admin/post/delete/{{$cryptocurrency->slug}}" class="btn btn-danger btn-xs">Delete</a></td> -->
+	            				<td>
+	            					<form action="/cryptocurrency/delete/{{$cryptocurrency->id}}" method="post" value="DELETE" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
+						                {{ csrf_field() }}
+						                <input type="text" name="cryptocurrency_id" value="{{$cryptocurrency->id}}" hidden="true">
+						                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-danger" value="Delete Cryptocurrency">
+						            </form>
+	            				</td>
 	            			</tr>
 	            		 @endforeach
 	            		</tbody>

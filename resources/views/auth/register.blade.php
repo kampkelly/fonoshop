@@ -27,6 +27,16 @@
         heght: 43px !important;
         border-radius: none !important;
     }
+    input[type="file"] {
+
+     display:block;
+    }
+    .imageThumb {
+     max-height: 75px;
+     border: 2px solid;
+     margin: 10px 10px 0 0;
+     padding: 1px;
+     }
 </style>
     <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -77,9 +87,9 @@
                 </div>
                 <div class="form-group">
                     <label for="photo" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Additional Photos <span class="asterisks">*</span></label>
-                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-7">
                     <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(can select multiple photos)</span>
-                        <input type="file" name="photos[]" id="photo" class="btn btn-success btn-block" accept="image/*" onchange="validateFileType()" multiple />
+                        <input type="file" name="photos[]" id="files" class="btn btn-success" accept="image/*" onchange="validateFileType()" multiple />
                     </div>
                 </div>
                 <div class="form-group">
@@ -168,5 +178,39 @@
         $('.search_top').hide();
         $('.search_top').css('visibility', 'hidden');
         $('.search_desktop').hide();
+        //File Preview
+        $("#files").click(function() {
+            $('#files').val("");
+            $('.imageThumb').remove();
+        }); 
+
+    if(window.File && window.FileList && window.FileReader) {
+        $("#files").on("change",function(e) {
+            var files = e.target.files ,
+            filesLength = files.length ;
+            for (var i = 0; i < filesLength ; i++) {
+                var f = files[i]
+                var fileReader = new FileReader();
+                fileReader.onload = (function(e) {
+                    var file = e.target;
+                    $("<img></img>",{
+                        class : "imageThumb",
+                        src : e.target.result,
+                        title : file.name
+                    }).insertAfter("#files"); 
+                 /*   $("<span class=\"pip\">" +
+                    "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+                    "<span class=\"remove text-danger\" style=\"cursor:pointer;\">Remove image</span>" +
+                    "</span>").insertAfter("#files");
+                  $(".remove").click(function(){
+                    $(this).parent(".pip").remove();
+                //    $('this').val("");
+                  }); */
+               });
+               fileReader.readAsDataURL(f);
+           }
+      });
+     } else { alert("Your browser doesn't support to File API") }
+        //File Preview
     });
 </script>

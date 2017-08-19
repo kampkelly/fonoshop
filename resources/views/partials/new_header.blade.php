@@ -18,7 +18,9 @@
       </style>
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="/" style="color: white;">SalesNaija</a>
+		<a class="navbar-brand" href="/" style="color: white;">
+    SalesNaija
+    </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 		<!--	<li>
 				<a href="/" style="color: #d78512;">Home</a>

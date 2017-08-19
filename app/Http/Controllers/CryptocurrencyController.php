@@ -61,7 +61,7 @@ class CryptocurrencyController extends Controller
             $categories = Category::all();
              return view('cryptocurrencies.create', compact('categories'));
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
     }
@@ -88,7 +88,7 @@ class CryptocurrencyController extends Controller
             session()->flash('message', 'Cryptocurrency Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect('/myitems/'.Auth::user()->email);
         }else{
-            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
 
@@ -123,7 +123,7 @@ class CryptocurrencyController extends Controller
                 return redirect()->back();
             }
         }else{
-            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
     }
@@ -151,7 +151,7 @@ class CryptocurrencyController extends Controller
                 return redirect()->back();
             }
          }else{
-            session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Sorry, This operation is not Please login as user! '); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
     }
@@ -162,8 +162,18 @@ class CryptocurrencyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+     public function destroy(Request $request,$id)
     {
-        //
+        if( (checkPermission(['admin'])) ){
+            $id = request('cryptocurrency_id');
+            $deleted = Cryptocurrency::find($id);
+            $deleted->delete();
+           // $id = request('category_id');
+            session()->flash('message', 'Category Deleted!');
+            return redirect()->back();
+        }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+        }
     }
 }
