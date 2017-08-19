@@ -8,6 +8,7 @@ use App\Product;
 use App\Cryptocurrency;
 use App\ProductsPhoto;
 use App\Post;
+use App\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,12 @@ class AdminController extends Controller
          return view('admin.categories', compact('categories'));
     } 
 
+       public function products()
+    {
+        $products = Product::all();
+         return view('admin.products', compact('products'));
+    } 
+
     public function posts()
     {
         $posts = Post::all();
@@ -51,6 +58,46 @@ class AdminController extends Controller
          return view('admin.cryptocurrencies', compact('cryptocurrencies'));
     }
 
+    //set product status
+    public function product_active($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+        $product->status = 'active';
+        $product->save();
+        session()->flash('message', 'Product status changed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+    } 
+
+    public function product_pause($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+        $product->status = 'paused';
+        $product->save();
+        session()->flash('message', 'Product status changed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+    } 
+
+    public function product_sold($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+        $product->status = 'sold';
+        $product->save();
+        session()->flash('message', 'Product status changed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+    }
+    //set product status
+
+    public function products_photos()
+    {
+        $productsphotos = ProductsPhoto::orderBy('id', 'desc')->simplePaginate(40);
+         return view('admin.products_photos', compact('productsphotos'));
+    } 
+
+    public function users()
+    {
+        $users = User::all();
+         return view('admin.users', compact('users'));
+    } 
     /**
      * Show the form for creating a new resource.
      *

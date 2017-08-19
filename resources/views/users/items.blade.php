@@ -44,7 +44,7 @@
 			  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default myitems">
 			  		<div class="row">
 				  		<div class="col-xs-3 col-sm-4 col-md-4 col-lg-3">
-				  			<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-thumbnail">
+				  			<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive img-thumbnail">
 				  			<a href="/product/edit/{{$product->slug}}" style="color: white;" class="btn btn-primary btn-xs btn-block">Update</a>
 				  		</div>
 				  		<div class="col-xs-9 col-sm-8 col-md-8 col-lg-9">
@@ -78,7 +78,7 @@
 			  				}
 			  			</style>
 					  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ch">
-					  			<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive img-rounded">
+					  			<img src="{{ asset('uploads/photos/'.$photo->image) }}" class="img-responsive img-rounded">
 					  		</div>
 				  		@endforeach
 				  		@else

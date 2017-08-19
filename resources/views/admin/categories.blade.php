@@ -51,11 +51,22 @@
 					<div style="height: 20px;"></div>
 				</div>
 			</div>
-			<form action="/category/delete/{{$category->id}}" method="post" value="DELETE" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
+			<form action="/category/delete/{{$category->id}}" method="post" value="DELETE" id="category-delete" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="text" name="category_id" value="{{$category->id}}" hidden="true">
-                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-danger" value="Delete Category">
+                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-danger" value="Delete Category" onclick="logout();">
             </form>
+            <script>
+                function logout() {
+                    if (confirm('Delete this category, cannot undo this action. Continue?')){
+                        event.preventDefault();
+                        document.getElementById('category-delete').submit();
+                    } else {
+                        event.preventDefault();
+                    }
+                }
+                
+            </script>
 			<hr>
 			@endforeach
 		

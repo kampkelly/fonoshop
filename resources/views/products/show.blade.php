@@ -23,11 +23,11 @@
 				<p class="text-center text-justify" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
 				<div class="row" stye="padding: 0px 220px 0px 220px;">
 					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 panel panel-deault">
-						<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive">
+						<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive">
 					</div>
 					@foreach($product->productsphoto as $photo)
 						<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 panel panel-deault">
-							<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive">
+							<img src="{{ asset('uploads/photos/'.$photo->image) }}" class="img-responsive">
 						</div>
 					@endforeach
 				</div>

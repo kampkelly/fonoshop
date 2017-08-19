@@ -74,29 +74,38 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
 	Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
 	Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');
-	Route::post('/cryptocurrency/delete/{id}', 'CryptocurrencyController@destroy');
+	
+	Route::group(['middleware' => 'check-permission:admin|superadmin'], function () {
+		Route::get('/admin/panel', 'AdminController@index')->name('adminpanel');
+		Route::get('/admin/categories', 'AdminController@categories')->name('admincategories');
+		Route::get('/admin/products', 'AdminController@products')->name('adminproducts');
+		Route::get('/admin/posts', 'AdminController@posts')->name('adminposts');
+		Route::post('/categoriess', 'CategoryController@store');
+		Route::post('/category/{id}', 'CategoryController@update');
+		Route::post('/category/delete/{id}', 'CategoryController@destroy');
+		//Posts
+		Route::get('/news', 'PostController@index');
+		Route::get('/admin/post/new', 'PostController@create');
+		Route::post('/admin/posts', 'PostController@store');
+		Route::get('/news/{slug}', 'PostController@show');
+		Route::get('/admin/post/edit/{slug}', 'PostController@edit');
+		Route::post('/admin/post/{slug}', 'PostController@update');
+		Route::get('/admin/post/delete/{slug}', 'PostController@destroy');
+		Route::get('/admin/posts', 'AdminController@posts');
+		//Cryptocurrencies
+		Route::get('/admin/cryptocurrencies', 'AdminController@cryptocurrencies');
+		Route::post('/cryptocurrency/delete/{id}', 'CryptocurrencyController@destroy');
+		//Products
+		Route::get('/admin/product/active/{slug}', 'AdminController@product_active');
+		Route::get('/admin/product/pause/{slug}', 'AdminController@product_pause');
+		Route::get('/admin/product/sold/{slug}', 'AdminController@product_sold');
+		Route::post('/admin/product/delete/{id}', 'ProductController@destroy');
+		//Products Photos
+		Route::get('/admin/products/photos', 'AdminController@products_photos');
+		//Users
+		Route::get('/admin/users', 'AdminController@users');
+	});	
 });
-
-//Route::group(['middleware' => 'check-permission:admin|superadmin'], function () {
-	Route::get('/admin/panel', 'AdminController@index')->name('adminpanel');
-	Route::get('/admin/categories', 'AdminController@categories')->name('admincategories');
-	Route::get('/admin/posts', 'AdminController@posts')->name('adminposts');
-	Route::post('/categoriess', 'CategoryController@store');
-	Route::post('/category/{id}', 'CategoryController@update');
-	Route::post('/category/delete/{id}', 'CategoryController@destroy');
-	//Posts
-	Route::get('/news', 'PostController@index');
-	Route::get('/admin/post/new', 'PostController@create');
-	Route::post('/admin/posts', 'PostController@store');
-	Route::get('/news/{slug}', 'PostController@show');
-	Route::get('/admin/post/edit/{slug}', 'PostController@edit');
-	Route::post('/admin/post/{slug}', 'PostController@update');
-	Route::get('/admin/post/delete/{slug}', 'PostController@destroy');
-	Route::get('/admin/posts', 'AdminController@posts');
-	//Cryptocurrencies
-	Route::get('/admin/cryptocurrencies', 'AdminController@cryptocurrencies');
-//});	
-
 
 Route::get('/cryptocurrencies', 'CryptocurrencyController@index');
 

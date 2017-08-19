@@ -23,5 +23,7 @@ class CheckPermission
         }
 
         return response()->view('errors.check-permission');
+     //    session()->flash('message', 'Invalid Permission!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+       // return redirect()->back();
     }
 }

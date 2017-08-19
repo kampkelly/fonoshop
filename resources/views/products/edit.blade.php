@@ -93,7 +93,7 @@
 				</div>
 				<div class="form-group">
 	                <label for="photo" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Add more photos <span class="asterisks">*</span></label>
-	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
 					<!--	<input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> -->
 						<input type="file" name="photos[]" id="files" class="btn btn-success" value="{{$product->image}}" multiple />
 					</div>
@@ -153,7 +153,7 @@
 				<div class="row" id="pics"> 
 				@foreach($product->productsphoto as $photo)
 			  		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-			  			<img src="{{ asset('uploads/'.$photo->image) }}" class="img-responsive img-rounded" style="height: 12em;">
+			  			<img src="{{ asset('uploads/photos/'.$photo->image) }}" class="img-responsive img-rounded" style="height: 12em;">
 			  			<form action="/product/{{$photo->id}}/image-deleted" method="post" value="DELETE" role="form">
 	                         {{ csrf_field() }}
 	                         <input type="text" name="photo_id" value="{{$photo->id}}" hidden="true">

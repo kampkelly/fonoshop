@@ -10,8 +10,11 @@
 		<h4 class="text-center">Admin Panel</h4>
 		<ol>
 			<li><a href="/admin/categories">Categories</a></li>
+			<li><a href="/admin/products">Products</a></li>
+			<li><a href="/admin/products/photos">Products Photos</a></li>
 			<li><a href="/admin/cryptocurrencies">Cryptocurrencies</a></li>
 			<li><a href="/admin/posts">Posts</a></li>
+			<li><a href="/admin/users">Users</a></li>
 		</ol>
 	</section>
 	</div>

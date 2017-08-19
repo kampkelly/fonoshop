@@ -90,18 +90,24 @@ class ProductController extends Controller
                 'condition'=>'required'
             ]); 
         if( (checkPermission(['user'])) ){
-            if(Input::hasFile('image')){
-                $file=Input::file('image');
-                $dd = $file->getClientOriginalName();
-                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-                $t = date("i-s");
-                $newfilename = md5($file_basename) . $t . $file_ext;
-              //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
-                Image::make($file)->resize(1500, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('/uploads/'. $newfilename));
-              //  $file->move('uploads', $newfilename);
+            if(filesize(Input::file('image')) > 1000){
+                session()->flash('message', 'Image too big');
+               // return redirect()->back();
+                return redirect('/fileuploaderror');
+            }else{
+                if(Input::hasFile('image')){
+                    $file=Input::file('image');
+                    $dd = $file->getClientOriginalName();
+                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                    $t = date("i-s");
+                    $newfilename = md5($file_basename) . $t . $file_ext;
+                  //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
+                    Image::make($file)->resize(1500, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save(public_path('/uploads/cover/'. $newfilename));
+                  //  $file->move('uploads', $newfilename);
+                }
             }
 
                 $slug_title = request('product_title');
@@ -130,23 +136,29 @@ class ProductController extends Controller
 
             if(Input::hasFile('photos')){
                      foreach (request('photos') as $photo) {
-                        //uploading photo starts
-                        $file = $photo;
-                        $dd = $file->getClientOriginalName();
-                        $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                        $file_ext = substr($dd, strripos($dd, '.')); // get file extension
-                        $t = date("i-s");
-                        $filename = md5($file_basename) . $t . $file_ext;
-                        Image::make($file)->resize(1500, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save(public_path('/uploads/'. $filename));
-                     //   $file->move('uploads', $filename);
-                        //uploading photo ends
-                        ProductsPhoto::create([
-                            'product_id' => $product->id,
-                            'image' => $filename,
-                            'user_id' => Auth::user()->id
-                         ]);
+                        if(filesize($photo) > 1000){
+                            session()->flash('message', 'Image too big');
+                           // return redirect()->back();
+                            return redirect('/fileuploaderror');
+                        }else{
+                            //uploading photo starts
+                            $file = $photo;
+                            $dd = $file->getClientOriginalName();
+                            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
+                            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                            $t = date("i-s");
+                            $filename = md5($file_basename) . $t . $file_ext;
+                            Image::make($file)->resize(1500, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })->save(public_path('/uploads/photos/'. $filename));
+                         //   $file->move('uploads', $filename);
+                            //uploading photo ends
+                            ProductsPhoto::create([
+                                'product_id' => $product->id,
+                                'image' => $filename,
+                                'user_id' => Auth::user()->id
+                             ]);
+                        }
                     }
                 }
                 session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
@@ -214,7 +226,7 @@ class ProductController extends Controller
 
     if( (checkPermission(['user'])) ){
          if(Input::hasFile('image')){
-            if(filesize(Input::file('image')) > 500){
+            if(filesize(Input::file('image')) < 1000){
                 session()->flash('message', 'Image too big');
                // return redirect()->back();
                 return redirect('/fileuploaderror');
@@ -228,7 +240,7 @@ class ProductController extends Controller
              //   Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
                 Image::make($file)->resize(1500, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })->save(public_path('/uploads/'. $newfilename));
+                })->save(public_path('/uploads/cover/'. $newfilename));
              //   $file->move('uploads', $newfilename);
             }
         }
@@ -250,8 +262,8 @@ class ProductController extends Controller
 
              if(Input::hasFile('photos')){
                  foreach (request('photos') as $photo) {
-                    if(filesize($photo) > 500){
-                        session()->flash('message', 'Image too big');
+                    if(filesize($photo) < 10500){
+                        session()->flash('message', 'Image is too big');
                        // return redirect()->back();
                         return redirect('/fileuploaderror');
                     }else{
@@ -264,7 +276,7 @@ class ProductController extends Controller
                         $filename = md5($file_basename) . $t . $file_ext;
                         Image::make($file)->resize(1500, null, function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save(public_path('/uploads/'. $filename));
+                        })->save(public_path('/uploads/photos/'. $filename));
                        // $file->move('uploads', $filename);
                         //uploading photo ends
                         ProductsPhoto::create([
@@ -316,8 +328,22 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        if( (checkPermission(['admin'])) ){
+            $id = request('product_id');
+            $deleted = Product::find($id);
+            $productphotos = $deleted->productsphoto()->get();
+            $deleted->delete();
+            foreach($productphotos as $productsphoto) {
+                $productsphoto->delete();
+            }
+           // $id = request('category_id');
+            session()->flash('message', 'Product Deleted!');
+            return redirect()->back();
+        }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+        }
     }
 }

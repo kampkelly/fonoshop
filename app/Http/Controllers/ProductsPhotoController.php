@@ -87,7 +87,7 @@ class ProductsPhotoController extends Controller
     {
         $id = request('photo_id');
         $deleted = ProductsPhoto::find($id);
-        if(Auth::user()->id == $deleted->user_id) {
+        if(Auth::user()->id == $deleted->user_id OR (checkPermission(['admin'])) ) {
         $deleted->delete();
         return redirect()->back()->with('message', 'Image deleted!');
         }else{
