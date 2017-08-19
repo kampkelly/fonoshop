@@ -30,6 +30,9 @@ Route::get('/privacy', function () {
 Route::get('/terms', function () {
     return view('terms');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
 Route::get('/software', function () {
     return view('/categories/show_n');
 });
@@ -54,13 +57,14 @@ Route::post('/category', function(){
 
 });
 Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
+Route::post('/contact', 'HomeController@contact')->name('contact');
 
 
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('myprofile/update/{email}', 'HomeController@myprofile')->name('myprofile');
-	Route::post('/register/{email}', 'HomeController@updateprofile')->name('updateprofile');
-	Route::get('myitems/{email}', 'HomeController@myitems')->name('myitems');
+	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
+	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
+	Route::get('myitems/{email}', 'UserController@myitems')->name('myitems');
 	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
 	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
 	Route::post('/product/{slug}', 'ProductController@update');

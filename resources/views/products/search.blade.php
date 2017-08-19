@@ -40,7 +40,7 @@
 	<?php $tuples=['game','books','ps4','xbox','fifa17','nintendo','sega','consoles','pes','god of war', 'mesut ozil', 'sanchez', 'lacazette', 'ramsey', 'walcott', 'cazorla', 'kolscieny,', 'gibbs', 'monreal', 'wilshere', 'oxlade', 'coquelin', 'mustafi']  ?>
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-		<h4 class="text-center">Results on yourr search for '{{$query}}'</h4>
+		<h4 class="text-center">Results on your search for '{{$query}}'</h4>
 		@if(isset($details))
 			@foreach($details as $product)
 			@if( $loop->iteration == 17)

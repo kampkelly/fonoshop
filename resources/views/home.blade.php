@@ -13,9 +13,21 @@
         background-color: #F8F8F8;
     }
     .square-thumb {
-            width: 200px;
-            height: 600px;
-        }
+        width: 200px;
+        height: 600px;
+    }
+    .first-form input:focus {
+        background-color: #FAFAFA;
+    }
+    .first-form input:hover {
+        background-color: #F5FAFD; 
+    }
+    .first-form input:select {
+        background-color: green !important;
+    }
+    .first-form input {
+        border-radius: none !important;
+    }
 </style>
 <div class="new_cover" style="margin-top: 10px;">
     <div style="height: 10px" class="search_top"></div>
@@ -51,8 +63,8 @@
                 <h5 class="text-capitalize"><b>Want to sell?</b> Start Now...</h5>
                 <form action="/toregister" method="post" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" required="true">
-                    <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" required="true">
+                    <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" title="Enter name of the product you want to sell" required="true">
+                    <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" title="Enter price of product in naira" required="true">
                     <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
                 </form>
             </div>
@@ -80,7 +92,7 @@
                                 <div class="carousel-caption">
                                     <h3>Everything Tech Related.</h3>
                                     <p></p>
-                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse Products</a></p>
+                                    <p><a class="btn btn-lg btn-primary" href="/products" role="button">Browse Products</a></p>
                                 </div>
                             </div>
                         </div>
@@ -192,8 +204,8 @@
                  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="/cryptocurrencies">
-                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px;">{{$category->name}}</h4>
-                            <img src="homepage/new/3.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px;">Cryptocurrencies</h4>
+                            <img src="homepage/bitcoin.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
 
@@ -207,7 +219,7 @@
 
 
     <section class="container fifth_section" style="background:linear-gradient(#f8d8ac, #efa63e); height: 54vh;">
-         <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
+         <form action="/contact" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
         {{ csrf_field() }}
         <h4 class="text-ceter" style="text-decoration: underline;">Contact Us:</h4>
                 <div class="form-group">

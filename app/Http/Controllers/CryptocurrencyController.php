@@ -30,7 +30,7 @@ class CryptocurrencyController extends Controller
     {
         $user = Auth::user();
         $cryptocurrencies = Cryptocurrency::simplePaginate(15);
-       $this->dispatch(new WelcomeRegistrationEmail());
+     //  $this->dispatch(new WelcomeRegistrationEmail());
      //   $this->dispatch((new SendTestEmail())->delay(10));
       /*  $email_data = array(
           //   'recipient' => $user->user_email,

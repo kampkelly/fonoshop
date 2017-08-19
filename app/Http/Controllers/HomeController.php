@@ -9,6 +9,11 @@ use App\Product;
 use App\Cryptocurrency;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\Mail\Mailer;
+use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendTestEmail;
+use App\Jobs\WelcomeRegistrationEmail;
 
 class HomeController extends Controller
 {
@@ -44,60 +49,35 @@ class HomeController extends Controller
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(1);
         return view('welcome', compact('categories', 'products'));
     }
-
-    public function myprofile($email)
+    public function contact(Request $request)
     {
-       // $categories = Category::all();
-        if(Auth::user()->email == $email) {
-            $user = User::where('email', $email)->first();
-            return view('users.profile', compact('user'));
-        }else{
-            session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        $contact_email = $request->contact_email;
+        $contact_name = $request->contact_name;
+        $contact_message = $request->contact_msg;
+        $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => $request->contact_email,
+             'subject' => 'Welcome To SalesNaija'
+              );
+                $act_code = str_random(60);
+                $view_data = array(
+                'actkey' => $act_code,
+              //  'email' => Auth::user()->email,
+                $contact_email = $request->contact_email,
+                $contact_name = $request->contact_name,
+                $contact_message = $request->contact_msg
+            );
+             //   $this->dispatch((new SendContactMessage($view_data))->delay(10));
+              Mail::send('emails.sendcontactmessage', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              });
+         /*     Mail::send('emails.sendcontactmessage', array('a_value' => 'you_could_pass_through'), function($message)
+                {
+                    $message->to('sample1@gmail.com', 'John Smith')->cc('sample2@yahoo.com')->subject('Example!');
+                }); */
+        session()->flash('message', 'Message sent. We wil get back to you shortly!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
-        }
-    }
-
-    public function myitems($email)
-    {
-       // $categories = Category::all();
-        if( (checkPermission(['user'])) ){
-            if(Auth::user()->email == $email) {
-                $user = User::where('email', $email)->first();
-                $products = $user->products()->orderBy('id', 'desc')->get();
-                $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
-                return view('users.items', compact('user', 'products', 'cryptocurrencies'));
-            }else{
-                 session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-                return redirect()->back();
-            }
-         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-                return redirect()->back();
-        }
-    }
-
-    public function updateprofile(Request $request, $email)
-    {
-       $this->validate(request(), [
-           'email' => 'required',
-           'name' => 'required'
-        ]);
-       if(Auth::user()->email == $email) {
-
-       $user = User::where('email', $email)->first();
-            if (Input::has('email')) $user->email = $request->email;
-            if (Input::has('name')) $user->name = $request->name;
-            if (Input::has('phone')) $user->phone = $request->phone;
-            if (Input::has('city')) $user->city = $request->city;
-            
-            $user->save();
-            session()->flash('message', 'Profile Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
-        }else{
-             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect()->back();
-        }
-       
     }
 
 }

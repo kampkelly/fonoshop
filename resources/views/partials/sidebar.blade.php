@@ -20,7 +20,7 @@
         </div>
         <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
         <p class="small">We offer the sale of bitcoins and perfect money. Buy Now!</p>
-        <a href="#" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
+        <a href="/cryptocurrencies" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
         </div>
     </div>
 </div>

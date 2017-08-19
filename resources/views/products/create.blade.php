@@ -8,7 +8,7 @@
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<section class="container-fluid">
-		<h4 class="text-center">Add a new product</h4>
+		<h4 class="text-center">Sell product</h4>
 		<form action="/products" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -36,7 +36,14 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-4 col-md-offset-3 col-lg-offset-3">
+					 <div class="col-xs-0 col-sm-0 col-md-0 col-lg-2">
+                    
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-3 col-lg-1">
+                        <label>Condition <span class="asterisks">*</span></label>
+                    </div>
+					<div class="col-xs-2 col-sm-3 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-0">
+
 						<div class="radio">
 							<label>
 								<input type="radio" name="condition" id="input" value="new">

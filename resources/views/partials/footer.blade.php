@@ -8,6 +8,7 @@
 		<li><a href="/privacy" class="small">Privacy Policy</a></li>
 		<li><a href="/news" class="small">News Updates</a></li>
 		<li><a href="/about" class="small">About</a></li>
+		<li><a href="/contact" class="small">Contact us</a></li>
 		@if(Auth::check())
 		<li>
 			 <a href="{{ route('logout') }}"  class="small" 

@@ -4,40 +4,64 @@
 <div class="container">
 <!--<a class="btn btn-info" href="{{ URL::previous() }}">back</a> 
 <a href="/home">Back to home</a> -->
+<style type="text/css">
+    body {
+        background-color: #FAFAFA;
+    }
+    input:focus {
+        background-color: #FAFAFA;
+    }
+    input:hover {
+        background-color: #FAFAFA; 
+    }
+    input:select {
+        background-color: green !important;
+    }
+    input {
+        border: 1px solid #FAFAFA !important;
+        height: 43px !important;
+        border-radius: none !important;
+    }
+    textarea {
+         border: 1px solid darkgrey !important;
+        heght: 43px !important;
+        border-radius: none !important;
+    }
+</style>
     <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
     {{ csrf_field() }}
-        <h4 class="text-center">Please signup to submit your product</h4>
+        <h4 class="text-center">Please signup to sell your product</h4>
             @if(@isset ($price))
                 <div class="form-group">
                     <label for="product_title" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Title <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="4" value="{{$product_title}}" style="background-color: #f2f2f2;">
+                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="1" title="Enter name of the product you want to sell" value="{{$product_title}}" style="background-color: #f2f2f2;">
                     </div>
                 </div>
                  <div class="form-group">
                     <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Price <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true" value="{{$price}}" style="background-color: #f2f2f2;">
+                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true" title="Enter price of product in naira"  value="{{$price}}" style="background-color: #f2f2f2;">
                     </div>
                 </div>
             @else
                  <div class="form-group">
                     <label for="product_title" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Title <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="4">
+                        <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Name of product" required="true" minlength="1"  title="Enter name of the product you want to sell">
                     </div>
                 </div>
                  <div class="form-group">
                     <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Price <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" required="true">
+                        <input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price of product" title="Enter price of product in naira" required="true">
                     </div>
                 </div>
             @endif
                 <div class="form-group">
                     <label for="phone" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Category <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <select name="category_id" id="category_id" class="form-control">
+                        <select name="category_id" id="category_id" class="form-control" title="Choose the category does the product falls in">
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}" required="true">{{$category->name}}</option>
                             @endforeach
@@ -61,7 +85,7 @@
                 <div class="form-group">
                     <label for="price" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Description <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter full description of product including accessories, functions, etc." required="true"></textarea>
+                        <textarea class="form-control" rows="2" columns="1" name="description" placeholder="Enter full description of product including accessories, functions, etc." title="Fully describe the product" required="true"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -74,7 +98,7 @@
                     <div class="col-xs-2 col-sm-3 col-md-1 col-lg-1 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-0" style="margin-top: -15px">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="condition" id="input" value="new" checked="">
+                                <input type="radio" name="condition" id="input" value="new" checked="" title="New Product">
                                 New
                             </label>
                         </div>
@@ -82,7 +106,7 @@
                     <div class="col-xs-6 col-sm-4 col-md-6 col-lg-6" style="margin-top: -15px">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="condition" id="input" value="used">
+                                <input type="radio" name="condition" id="input" value="used" title="Used Product">
                                 Used
                             </label>
                         </div>
@@ -91,7 +115,7 @@
                 <div class="form-group">
                     <label for="state" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <select name="state" id="state" class="form-control">
+                        <select name="state" id="state" class="form-control" title="Enter State">
                             @foreach($states as $state)
                                 <option value="{{$state}}" required="true">{{$state}}</option>
                             @endforeach
@@ -101,31 +125,31 @@
                 <div class="form-group">
                     <label for="city" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">City <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true">
+                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Phone <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="phone" id="phone" class="form-control" required="required" placeholder="Phone Number" required="true">
+                        <input type="text" name="phone" id="phone" class="form-control" required="required" placeholder="Phone Number" required="true" title="Enter contact phone number">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="name" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Name <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="name" id="name" class="form-control" required="required" placeholder="Full Name" required="true">
+                        <input type="text" name="name" id="name" class="form-control" required="required" placeholder="Full Name" required="true" title="Enter Full name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Email <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" required="true">
+                        <input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" required="true" title="Enter Email Address">
                     </div>
                 </div>             
                 <div class="form-group">
                     <label for="password" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Pasword <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="password" name="password" id="password" class="form-control" required="required" placeholder="Enter Password" required="true" minlength="8">
+                        <input type="password" name="password" id="password" class="form-control" required="required" placeholder="Enter Password" required="true" minlength="8" title="Enter password">
                     </div>
                 </div>
                  <div class="form-group">

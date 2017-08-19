@@ -56,7 +56,10 @@
 				  					<p class="small">{{str_limit($product->description, 100)}}</p>
 				  				</div>
 			  					<div class="panel-foter">
-			  						<p class="small">Phone: {{$product->phone}}, City: {{$product->user->city}} <span><a href="/product/{{$product->slug}}">View</a></span> <span><a href="/product/edit/{{$product->slug}}">Edit</a></span></p> 
+			  						<p class="small">Phone: {{$product->phone}}, City: {{$product->user->city}} <span><a href="/product/{{$product->slug}}">View</a></span>
+			  						@if(Auth::user()->id == $user->id)
+			  						 <span><a href="/product/edit/{{$product->slug}}">Edit</a></span></p> 
+			  						 @endif
 			  					</div>
 				  			</div>
 				  		</div>

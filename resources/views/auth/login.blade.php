@@ -1,6 +1,23 @@
 @extends('layouts.new_master')
 
 @section('content')
+<style type="text/css">
+    body {
+    }
+    input:focus {
+        background-color: #FAFAFA;
+    }
+    input:hover {
+        background-color: #FAFAFA; 
+    }
+    input:select {
+        background-color: green !important;
+    }
+    input {
+        height: 42px !important;
+        border-radius: none !important;
+    }
+</style>
 <div class="container">
 <div style="height: 10px"></div>
     <div class="row">
@@ -15,7 +32,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Adrress" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Adrress" title="Enter your email address"  required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -29,7 +46,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Enter Password" required>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Enter Password" title="Enter Password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">

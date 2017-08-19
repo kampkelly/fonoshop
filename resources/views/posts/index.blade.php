@@ -2,9 +2,9 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<div style="height: 0px"></div>
+	<div style="height: 1px"></div>
 	<div class="container">
-	<div style="height: 0px"></div>
+	<div style="height: 10px"></div>
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<section class="container-fluid">
@@ -19,8 +19,10 @@
                     </div>
                     <div class="panel-body">
                        <p> {{ str_limit(strip_tags($new->body), 50) }} <a href="/news/{{$new->slug}}" class="btn btn-xs btn-info">Read More...</a> 
-                       @if(checkPermission(['admin']))
-                            <a href="/admin/post/edit/{{$new->slug}}" class="btn btn-xs btn-warning">Edit</a> </p>
+                       @if(Auth::check())
+                           @if(checkPermission(['admin']))
+                                <a href="/admin/post/edit/{{$new->slug}}" class="btn btn-xs btn-warning">Edit</a> </p>
+                           @endif
                        @endif
                     </div>
                 </div>
