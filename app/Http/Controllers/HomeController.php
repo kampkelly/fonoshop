@@ -63,9 +63,9 @@ class HomeController extends Controller
                 $view_data = array(
                 'actkey' => $act_code,
               //  'email' => Auth::user()->email,
-                'contact_email' = $request->contact_email,
-                'contact_name' = $request->contact_name,
-                'contact_message' = $request->contact_msg
+                'contact_email' => $request->contact_email,
+                'contact_name' => $request->contact_name,
+                'contact_message' => $request->contact_msg
             );
              //   $this->dispatch((new SendContactMessage($view_data))->delay(10));
               Mail::send('emails.sendcontactmessage', $view_data, function($message) use ($email_data) {
