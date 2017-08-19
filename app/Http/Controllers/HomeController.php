@@ -57,7 +57,8 @@ class HomeController extends Controller
         $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => $request->contact_email,
-             'subject' => 'Welcome To SalesNaija'
+          //   'recipient' => 'infosalesnaija@gmail.com',
+             'subject' => 'New Message From'.$contact_name.'(SalesNaija)'
               );
                 $act_code = str_random(60);
                 $view_data = array(
