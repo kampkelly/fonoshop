@@ -18,9 +18,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-			                <label for="cryptocategory_name" class="col-xs-12 col-sm-3 col-md-4 col-lg-4 control-label">Currency <span class="asterisks">*</span></label>
+			                <label for="currency" class="col-xs-12 col-sm-3 col-md-4 col-lg-4 control-label">Currency <span class="asterisks">*</span></label>
 			                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-0">
-		                        <select name="cryptocategory_name" id="cryptocategory_name" class="form-control">
+		                        <select name="currency" id="currency" class="form-control">
 		                            @foreach($cryptocategories as $cryptocategory)
 		                                <option value="{{$cryptocategory->currency_name}}">{{$cryptocategory->currency_name}}</option>
 		                            @endforeach

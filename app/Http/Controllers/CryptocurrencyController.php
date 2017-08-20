@@ -69,7 +69,8 @@ class CryptocurrencyController extends Controller
             } 
         }else{
             $categories = Category::all();
-                 return view('cryptocurrencies.regcreate', compact('categories')); 
+            $cryptocategories = CryptoCategory::orderBy('id', 'asc')->get();
+                 return view('cryptocurrencies.regcreate', compact('categories', 'cryptocategories')); 
         }
     }
 
@@ -83,12 +84,12 @@ class CryptocurrencyController extends Controller
     {
         $this->validate($request, [
                 'price' => 'required',
-                'cryptocategory_name'=>'required'
+                'currency'=>'required'
             ]); 
         if( (checkPermission(['user'])) ){
             $cryptocurrency = Cryptocurrency::create([
                 'price' => $request->price,
-                'currency' => $request->cryptocategory_name,
+                'currency' => $request->currency,
                 'user_id' => Auth::user()->id,
             //    'address' => $request->address,
                ]); 
