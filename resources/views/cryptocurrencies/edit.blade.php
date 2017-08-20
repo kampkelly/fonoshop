@@ -19,9 +19,11 @@
 				<div class="form-group">
 	                <label for="currency" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Currency <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-lg-offset-0">
-                        <select name="currency" id="currency" class="form-control">
-                            <option value="Bitcoin">Bitcoin</option>
-                            <option value="Perfect Money">Perfect Money</option>
+                         <select name="currency" id="currency" class="form-control">
+                         	 <option value="{{$cryptocurrency->currency}}">{{$cryptocurrency->currency}}</option>
+                            @foreach($cryptocategories as $cryptocategory)
+                                <option value="{{$cryptocategory->currency_name}}">{{$cryptocategory->currency_name}}</option>
+                            @endforeach
                         </select>
                     </div>
 				</div>

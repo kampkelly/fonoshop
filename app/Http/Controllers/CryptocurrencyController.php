@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\Cryptocurrency;
 use App\ProductsPhoto;
+use App\CryptoCategory;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Mail\Mailer;
@@ -60,7 +61,8 @@ class CryptocurrencyController extends Controller
         if(Auth::check()) {
             if( (checkPermission(['user'])) ){
                 $categories = Category::all();
-                 return view('cryptocurrencies.create', compact('categories'));
+                $cryptocategories = CryptoCategory::orderBy('id', 'asc')->get();
+                 return view('cryptocurrencies.create', compact('categories', 'cryptocategories'));
             }else{
                  session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                     return redirect()->back();
@@ -81,12 +83,12 @@ class CryptocurrencyController extends Controller
     {
         $this->validate($request, [
                 'price' => 'required',
-                'currency'=>'required'
+                'cryptocategory_name'=>'required'
             ]); 
         if( (checkPermission(['user'])) ){
             $cryptocurrency = Cryptocurrency::create([
                 'price' => $request->price,
-                'currency' => $request->currency,
+                'currency' => $request->cryptocategory_name,
                 'user_id' => Auth::user()->id,
             //    'address' => $request->address,
                ]); 
@@ -122,7 +124,8 @@ class CryptocurrencyController extends Controller
             $cryptocurrency = Cryptocurrency::find($id);
             if(Auth::user()->id == $cryptocurrency->user_id) {
             $categories = Category::all();
-             return view('cryptocurrencies.edit', compact('cryptocurrency'));
+            $cryptocategories = CryptoCategory::orderBy('id', 'asc')->get();
+             return view('cryptocurrencies.edit', compact('cryptocurrency', 'cryptocategories'));
             }else{
                 session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
