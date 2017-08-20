@@ -94,6 +94,11 @@ Route::group(['middleware' => 'auth'], function () {
 		//Cryptocurrencies
 		Route::get('/admin/cryptocurrencies', 'AdminController@cryptocurrencies');
 		Route::post('/cryptocurrency/delete/{id}', 'CryptocurrencyController@destroy');
+		//Cryptocategory
+		Route::get('/admin/cryptocategories', 'AdminController@cryptocategory');
+		Route::post('/cryptocategories', 'AdminController@cryptocategory_create');
+		Route::post('/cryptocategory/{id}', 'AdminController@cryptocategory_update');
+		Route::post('/cryptocategory/delete/{id}', 'AdminController@cryptocategory_destroy');
 		//Products
 		Route::get('/admin/product/active/{slug}', 'AdminController@product_active');
 		Route::get('/admin/product/pause/{slug}', 'AdminController@product_pause');

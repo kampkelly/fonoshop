@@ -54,7 +54,7 @@
 			<form action="/category/delete/{{$category->id}}" method="post" value="DELETE" id="category-delete" class="form-inline first-form" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="text" name="category_id" value="{{$category->id}}" hidden="true">
-                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-danger" value="Delete Category" onclick="logout();">
+                <input type="submit" name="submit" id="submit" class="form-control btn btn-xs btn-danger" value="Delete Category" onclick="logou();">
             </form>
             <script>
                 function logout() {

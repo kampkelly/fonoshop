@@ -9,6 +9,7 @@ use App\Cryptocurrency;
 use App\ProductsPhoto;
 use App\Post;
 use App\User;
+use App\CryptoCategory;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -56,6 +57,64 @@ class AdminController extends Controller
     {
         $cryptocurrencies = Cryptocurrency::orderBy('id', 'desc')->simplePaginate(40);
          return view('admin.cryptocurrencies', compact('cryptocurrencies'));
+    }
+
+    public function cryptocategory()
+    {
+        $cryptocategories = CryptoCategory::orderBy('id', 'desc')->get();
+         return view('admin.cryptocategory', compact('cryptocategories'));
+    } 
+
+    public function cryptocategory_create()
+    {
+        $this->validate(request(), [
+           'name' => 'required'
+        ]); 
+        if( (checkPermission(['admin'])) ){
+             CryptoCategory::create([
+                'currency_name' => request('name'),
+                'user_id' => Auth::user()->id
+            ]);
+            session()->flash('message', 'CryptoCategory Created!');
+                return redirect()->back();
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
+    }
+
+    public function cryptocategory_update(Request $request, $id)
+    {
+        $this->validate(request(), [
+           'name' => 'required'
+        ]); 
+        if( (checkPermission(['admin'])) ){
+             $cryptocategory = CryptoCategory::find($id);
+                if (Input::has('name')) $cryptocategory->currency_name = Input::get('name');
+                $cryptocategory->user_id = Auth::user()->id;                
+                $cryptocategory->save();
+
+            session()->flash('message', 'CryptoCategory Updated!');
+                return redirect()->back();
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                return redirect()->back();
+        }
+    }
+
+    public function cryptocategory_destroy(Request $request, $id)
+    {
+        if( (checkPermission(['admin'])) ){
+            $id = request('cryptocategory_id');
+            $deleted = CryptoCategory::find($id);
+            $deleted->delete();
+           // $id = request('category_id');
+            session()->flash('message', 'CryptoCategory Deleted!');
+            return redirect()->back();
+        }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+        }
     }
 
     //set product status

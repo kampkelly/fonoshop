@@ -13,10 +13,10 @@
 					     {{ csrf_field() }}
 					     	<h6 class="text-center">Cryptocurrency</h6>
 					     		<div class="row">
-									<div class="col-xs-5 col-sm-6 col-md-5 col-lg-4 col-md-offset-1 col-lg-offset-1 control-label">
+									<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-md-offset-1 col-lg-offset-1 control-label">
 										<div class="form-group">
-							                <label for="currency" class="col-xs-5 col-sm-5 col-md-5 col-lg-6 control-label">Currency <span class="asterisks">*</span></label>
-							                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-6 col-lg-offset-0">
+							                <label for="currency" class="col-xs-3 col-sm-5 col-md-5 col-lg-6 control-label">Currency <span class="asterisks">*</span></label>
+							                <div class="col-xs-8 col-sm-7 col-md-7 col-lg-6 col-lg-offset-0">
 					                            <select name="currency" id="currency" class="form-control">
 					                                <option value="Bitcoin">Bitcoin</option>
 					                                <option value="Perfect Money">Perfect Money</option>
@@ -24,10 +24,10 @@
 					                        </div>
 										</div>
 									</div>
-									<div class="col-xs-5 col-sm-6 col-md-6 col-lg-4" style="margin-top: 5px;">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" style="margin-top: 5px;">
 										<div class="form-group">
 							                <label for="price" class="col-xs-3 col-sm-3 col-md-2 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
-							                <div class="col-xs-7 col-sm-9 col-md-6 col-lg-9">
+							                <div class="col-xs-8 col-sm-9 col-md-6 col-lg-9">
 												<input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price/currency">
 											</div>
 										</div>
