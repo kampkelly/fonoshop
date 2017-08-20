@@ -228,7 +228,8 @@ class RegisterController extends Controller
                 'password'=> 'required|min:6',
                 'phone'=>'required',
                 'price'=>'required',
-                'currency'=>'required'
+                'currency'=>'required',
+                'city'=>'required'
             ]);
 
             $user = User::create([
@@ -236,6 +237,8 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'phone' => $request->phone,
+            'city' => $request->city,
+            'is_permission' => 0,
             'status' => 'pending'
            ]);
 
@@ -261,8 +264,8 @@ class RegisterController extends Controller
               }); */
 
            Auth::login($user);
-            session()->flash('message', 'Thanks for registering!'); 
-             return redirect('/');
+            session()->flash('message', 'Thanks for registering, your cryptocurrency has been added!'); 
+             return redirect('/cryptocurrencies');
     }
 
 }

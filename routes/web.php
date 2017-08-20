@@ -60,7 +60,7 @@ Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
 Route::post('/contact', 'HomeController@contact')->name('contact');
 
 
-
+Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
 	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
@@ -70,7 +70,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/product/{slug}', 'ProductController@update');
 	Route::get('/product_new', 'ProductController@create');
 	Route::post('/products', 'ProductController@store');
-	Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
 	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
 	Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');
 	Route::post('/cryptocurrencies/{id}', 'CryptocurrencyController@update');

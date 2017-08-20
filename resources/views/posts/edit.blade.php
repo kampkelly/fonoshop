@@ -22,9 +22,14 @@
                     <div class="form-group">
                         <label for="body" class="control-label">Post Body</label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <textarea name="body" id="body" class="form-control" rows="5" style="resize:none;" placeholder="Body of Post" value="{{$news->body}}"></textarea>
+                            <textarea name="body" id="post_content" class="form-control" rows="5" style="resize:none;" placeholder="Body of Post" value="{{$news->body}}"></textarea>
                         </div>
                     </div>
+                    <!--hidden content -->
+                    <div id="hidden_content" style="display: none;">
+                    {{$news->body}}
+                    </div>
+                    <!--hidden content -->
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0">
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -44,7 +49,10 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-
+$(document).ready(function () {
+    var x = document.getElementById('hidden_content').textContent;
+    document.getElementById('post_content').value = x;
+});
 
 
 </script>

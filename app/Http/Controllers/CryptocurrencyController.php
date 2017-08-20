@@ -19,7 +19,7 @@ class CryptocurrencyController extends Controller
 {
      public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+      //  $this->middleware('auth', ['except' => ['index', 'create']]);
     }
     /**
      * Display a listing of the resource.
@@ -57,12 +57,17 @@ class CryptocurrencyController extends Controller
      */
     public function create()
     {
-        if( (checkPermission(['user'])) ){
-            $categories = Category::all();
-             return view('cryptocurrencies.create', compact('categories'));
+        if(Auth::check()) {
+            if( (checkPermission(['user'])) ){
+                $categories = Category::all();
+                 return view('cryptocurrencies.create', compact('categories'));
+            }else{
+                 session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                    return redirect()->back();
+            } 
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-                return redirect()->back();
+            $categories = Category::all();
+                 return view('cryptocurrencies.regcreate', compact('categories')); 
         }
     }
 

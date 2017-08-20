@@ -32,13 +32,13 @@
 			<li>
         <a href="/cryptocurrencies" style="color: #d78512;">Cryptocurrencies</a>
       </li>
+       <li>
+          <a href="/cryptocurrency/new" style="color: #d78512;">Sell Cryptocurrency</a>
+        </li>
       @if(Auth::check())
         @if(checkPermission(['user']))
         <li>
           <a href="/product_new" style="color: #d78512;">Sell A Product</a>
-        </li>
-        <li>
-          <a href="/cryptocurrency/new" style="color: #d78512;">Sell Cryptocurrency</a>
         </li>
         @endif
         @if(checkPermission(['admin']))
@@ -56,10 +56,10 @@
       @if(Auth::check())
         <li class="pull-right namedrop" style="position: relative;">
           <a href="#" style="color: #d78512;">{{Auth::user()->name}} <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
-          <ul style="position: absolute; left: 0%; bottom: -240%; width: 180%; height: 9em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <ul style="position: absolute; left: 0%; bottom: -210%; width: 180%; height: 7.5em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
             <li style="display: block;"><a href="/myprofile/update/{{Auth::user()->email}}" class="small">My Profile</a></li>
             <li style="display: block;"><a href="/myitems/{{Auth::user()->email}}" class="small">My Products</a></li>
-            <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li>
+          <!--  <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li> -->
             <li id="last" style="display: block;">
                 <a href="{{ route('logout') }}" class="small" style="color: #d78512;"  
                     onclick="event.preventDefault();
@@ -121,11 +121,11 @@
         @endforeach
       </ul>
   </li>
-  <li><a href='/cryptocurrencies'>Cryptocurrencies</a>
-      <ul>
-          <li><a href='/cryptocurrencies'>Buy Cryptocurrency</a>
-          <li><a href='/cryptocurrency/new'>Sell Cryptocurrency</a>
-      </ul>
+  <li>
+    <a href="/cryptocurrencies">Buy Cryptocurrency</a>
+  </li> 
+  <li>
+    <a href="/cryptocurrency/new">Sell Cryptocurrency</a>
   </li>
    
    <li><a href='/about'>About</a></li>
