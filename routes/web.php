@@ -61,6 +61,8 @@ Route::post('/contact', 'HomeController@contact')->name('contact');
 
 
 Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
+Route::get('/news', 'PostController@index');
+Route::get('/news/{slug}', 'PostController@show');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
 	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
@@ -83,10 +85,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/category/{id}', 'CategoryController@update');
 		Route::post('/category/delete/{id}', 'CategoryController@destroy');
 		//Posts
-		Route::get('/news', 'PostController@index');
+		
 		Route::get('/admin/post/new', 'PostController@create');
 		Route::post('/admin/posts', 'PostController@store');
-		Route::get('/news/{slug}', 'PostController@show');
 		Route::get('/admin/post/edit/{slug}', 'PostController@edit');
 		Route::post('/admin/post/{slug}', 'PostController@update');
 		Route::get('/admin/post/delete/{slug}', 'PostController@destroy');

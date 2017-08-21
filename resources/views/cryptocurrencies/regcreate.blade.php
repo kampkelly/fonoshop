@@ -27,8 +27,8 @@
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" style="margin-top: 5px;">
 										<div class="form-group">
-							                <label for="price" class="col-xs-3 col-sm-3 col-md-2 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
-							                <div class="col-xs-8 col-sm-9 col-md-6 col-lg-9">
+							                <label for="price" class="col-xs-3 col-sm-4 col-md-3 col-lg-4 control-label">Price <span class="asterisks">*</span></label>
+							                <div class="col-xs-8 col-sm-6 col-md-5 col-lg-8">
 												<input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price/currency">
 											</div>
 										</div>
