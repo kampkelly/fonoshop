@@ -196,8 +196,8 @@ class RegisterController extends Controller
             }
           }
             Auth::login($user);
-           // $this->dispatch(new WelcomeRegistrationEmail());
-            $email_data = array(
+         //   $this->dispatch(new WelcomeRegistrationEmail());
+          /*  $email_data = array(
           //   'recipient' => $user->user_email,
              'recipient' => Auth::user()->email,
              'subject' => 'Welcome To SalesNaija'
@@ -212,7 +212,7 @@ class RegisterController extends Controller
               Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              }); 
+              }); */
             session()->flash('message', 'Thanks for registering!'); 
              return redirect('/home');
         }else{
