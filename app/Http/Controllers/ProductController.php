@@ -65,6 +65,7 @@ class ProductController extends Controller
     {
          if( (checkPermission(['user'])) ){
             $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
               $categories = Category::all();
              return view('products.create', compact('categories', 'states'));
          }else{
@@ -162,9 +163,10 @@ class ProductController extends Controller
                     }
                 }
                 session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-            return redirect('/myitems/'.Auth::user()->email);
+        //    return redirect('/myitems/'.Auth::user()->email);
+            return redirect('/cryptocurrencies');
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed! Please lgin as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
         }
 

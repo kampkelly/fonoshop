@@ -7,6 +7,7 @@ use App\User;
 use App\Category;
 use App\Product;
 use App\Cryptocurrency;
+use App\Contact;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Mail\Mailer;
@@ -37,9 +38,9 @@ class HomeController extends Controller
      public function newindex()
     {
         $categories = Category::orderBy('id', 'asc')->get();
-        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(12);
         $prods = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(3);
-        $cryptocurrencies = Cryptocurrency::simplePaginate(15);
+        $cryptocurrencies = Cryptocurrency::simplePaginate(10);
         return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods'));
     }
 
@@ -73,11 +74,17 @@ class HomeController extends Controller
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
               });
+              Contact::create([
+                'name' => $request->contact_name,
+                'email' => $request->contact_email,
+                'message' => $request->contact_msg
+               ]); 
+
          /*     Mail::send('emails.sendcontactmessage', array('a_value' => 'you_could_pass_through'), function($message)
                 {
                     $message->to('sample1@gmail.com', 'John Smith')->cc('sample2@yahoo.com')->subject('Example!');
                 }); */
-        session()->flash('message', 'Message sent. We wil get back to you shortly!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        session()->flash('message', 'Message sent. We wil get back to you shortly via email!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();
     }
 

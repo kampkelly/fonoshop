@@ -4,39 +4,6 @@
 @include('partials/mobile_search')
 	<div style="height: 10px"></div>
 	<section class="container all_products">
-	<style type="text/css">
-		#hov {
-		    position: relative;
-		    display: inline-block;
-		}
-		#hov .shw {
-		    visibility: hidden; 
-		/* display: none; */
-		    
-		    color: white; 
-		    text-align: center;
-		    border-radius: 6px;
-		    padding: 5px;
-		    background-color: #286090;
-
-		    /* Position the tooltip */
-		    position: absolute;
-		    left: 0px;
-		    z-index: 1;
-		}
-		.pael {
-			border-radius: 7px;
-			background-color: #fafafa;
-		}
-		.pael:hover {
-		  /*  visibility: visible; */
-		  cursor: pointer;
-		/*  background-color: #CCCCCC; */
-		  transition: 1s;
-		}
-
-	</style>
-	<?php $tuples=['game','books','ps4','xbox','fifa17','nintendo','sega','consoles','pes','god of war', 'mesut ozil', 'sanchez', 'lacazette', 'ramsey', 'walcott', 'cazorla', 'kolscieny,', 'gibbs', 'monreal', 'wilshere', 'oxlade', 'coquelin', 'mustafi']  ?>
 	<div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 		<h3 class="text-center">{{$category->name}}</h3>
@@ -97,9 +64,9 @@
 					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 						<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
 							{{$product->title}}</h5>
-							<em class="small">#{{$product->price}}</em>
+							<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
 							<p class="small">{{str_limit($product->description, 35)}}</p>
-							<a href="/product/{{$product->slug}}" class="small">See more...</a>
+							<a href="/product/{{$product->slug}}" class="small" style="color: #2980b9;">See more...</a>
 					</div>
 				</div>
 					<div class="shw" style="width: 92%;">

@@ -18,8 +18,11 @@
       </style>
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="/" style="color: white;">
+	<!--	<a class="navbar-brand" href="/" style="color: white;">
     SalesNaija
+    </a> -->
+    <a class="navbar-brand" href="/" style="color: white;">
+      <img src="{{ asset('logo.png') }} " alt="logo" class="img-responsive">
     </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 		<!--	<li>

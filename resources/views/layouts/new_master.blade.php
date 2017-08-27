@@ -13,7 +13,8 @@
      <!--   <link href="{{ asset('jquery-ui/jquery-ui.css') }}" rel="stylesheet"> -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link rel="shortcut icon" href="{{ asset('static-pics/favicon.ico') }}">
+     <!--   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"> -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
      <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>

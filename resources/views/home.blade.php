@@ -158,9 +158,11 @@
     </section>
     <section class="bitcoin_section container">
     <h3 class="text-center">Buy Cryptocurrencies</h3>
-    <ul class="list-group">
+    <ul class="list-group row">
     @foreach($cryptocurrencies as $cryptocurrency)
-        <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">N{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">N{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
+        </div>
     @endforeach
     </ul>
     </section>

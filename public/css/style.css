@@ -18,6 +18,12 @@ body {
   color: white !important;
 }
 
+.navbar-default img {
+  height: 50px;
+  margin-top: -15px;
+  width: 120px;
+}
+
 .navbar-transparent {
   background-color: #DF8109 !important;
 }
@@ -417,28 +423,6 @@ body {
   color: red;
 }
 
-#hov {
-  position: relative;
-  display: inline-block;
-}
-
-#hov .shw {
-  visibility: hidden;
-  /* display: none; */
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  background-color: #286090;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-#hov:hover .shw {
-  /*  visibility: visible; */
-}
-
 .all_products .hv a {
   text-decoration: none;
 }
@@ -471,6 +455,39 @@ body {
   .all_products .hv img {
     height: 100px !important;
   }
+}
+
+.all_products #hov {
+  position: relative;
+  display: inline-block;
+}
+
+.all_products #hov .shw {
+  visibility: hidden;
+  /* display: none; */
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  background-color: #286090;
+  /* Position the tooltip */
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+}
+
+.all_products .pael {
+  border-radius: 7px;
+  background-color: #fafafa;
+}
+
+.all_products .pael a {
+  color: black;
+}
+
+.all_products .pael:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .myitems {

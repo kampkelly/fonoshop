@@ -36,6 +36,11 @@ body {
 	li a {
 		color: white !important;
 	}
+	img {
+		height: 50px;
+		margin-top: -15px;
+		width: 120px;
+	}
 }
 .navbar-transparent {
 	@media only screen and (max-width: 768px) {
@@ -312,27 +317,7 @@ body {
 		color: red;
 	}
 }
-#hov {
-    position: relative;
-    display: inline-block;
-	 .shw {
-	    visibility: hidden; 
-	/* display: none; */
-	    
-	    color: white;
-	    text-align: center;
-	    border-radius: 6px;
-	    padding: 5px;
-	    background-color: #286090;
 
-	    /* Position the tooltip */
-	    position: absolute;
-	    z-index: 1;
-	}
-}
-#hov:hover .shw {
-  /*  visibility: visible; */
-}
 .all_products {
 	.hv {
 		a {
@@ -357,6 +342,35 @@ body {
 				height: 100px !important;
 			}
 		}
+	}
+	#hov {
+	    position: relative;
+	    display: inline-block;
+	    .shw {
+		    visibility: hidden; 
+		/* display: none; */
+		    
+		    color: white;
+		    text-align: center;
+		    border-radius: 6px;
+		    padding: 5px;
+		    background-color: #286090;
+
+		    /* Position the tooltip */
+		    position: absolute;
+		    left: 0px;
+		    z-index: 1;
+		}
+	}
+	.pael {
+		border-radius: 7px;
+		background-color: #fafafa;
+		 a {
+			color: black;
+		}
+	}
+	.pael:hover {
+	  transition: 1s;
 	}
 }
 .myitems {
