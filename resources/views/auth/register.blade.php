@@ -125,17 +125,17 @@
                 <div class="form-group">
                     <label for="state" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <select name="state" id="state" class="form-control" title="Enter State">
-                            @foreach($states as $state)
-                                <option value="{{$state}}" required="true">{{$state}}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="city" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">City <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City">
+                        <select name="city" id="city" class="form-control" title="Enter State">
+                            @foreach($cities as $city)
+                                <option value="{{$city}}" required="true">{{$city}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

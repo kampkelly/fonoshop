@@ -61,6 +61,7 @@ Route::post('/contact', 'HomeController@contact')->name('contact');
 
 
 Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
+Route::get('/mycryptocurrency/delete/{id}', 'CryptocurrencyController@user_destroy');
 Route::get('/news', 'PostController@index');
 Route::get('/news/{slug}', 'PostController@show');
 Route::group(['middleware' => 'auth'], function () {

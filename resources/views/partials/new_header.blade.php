@@ -22,7 +22,7 @@
     SalesNaija
     </a> -->
     <a class="navbar-brand" href="/" style="color: white;">
-      <img src="{{ asset('logo.png') }} " alt="logo" class="img-responsive">
+      <img src="{{ asset('sales_logo.jpg') }} " alt="logo" class="img-responsive">
     </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 		<!--	<li>
@@ -50,18 +50,14 @@
             </li>
         @endif
       @endif
-			<li>
-        <a href="/news" style="color: #d78512;">Site News</a>
-      </li>
-      <li>
-				<a href="#" style="color: #d78512;">Contact Us</a>
-			</li>
+
       @if(Auth::check())
         <li class="pull-right namedrop" style="position: relative;">
           <a href="#" style="color: #d78512;">{{Auth::user()->name}} <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
-          <ul style="position: absolute; left: 0%; bottom: -210%; width: 180%; height: 7.5em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
+          <ul style="position: absolute; left: 0%; bottom: -240%; width: 180%; height: 9.2em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
             <li style="display: block;"><a href="/myprofile/update/{{Auth::user()->email}}" class="small">My Profile</a></li>
             <li style="display: block;"><a href="/myitems/{{Auth::user()->email}}" class="small">My Products</a></li>
+            <li style="display: block;"><a href="/contact" class="small">Contact Us</a></li>
           <!--  <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li> -->
             <li id="last" style="display: block;">
                 <a href="{{ route('logout') }}" class="small" style="color: #d78512;"  

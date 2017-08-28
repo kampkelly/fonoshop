@@ -65,9 +65,9 @@ class ProductController extends Controller
     {
          if( (checkPermission(['user'])) ){
             $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
               $categories = Category::all();
-             return view('products.create', compact('categories', 'states'));
+             return view('products.create', compact('categories', 'states', 'cities'));
          }else{
              session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
@@ -129,7 +129,7 @@ class ProductController extends Controller
                 'condition' => $request->condition,
                 'user_id' => Auth::user()->id,
                 'slug' => $slug,
-                'state' => $request->state,
+             //   'state' => $request->state,
                 'city' => $request->city,
                 'active' => 'active'
             //    'address' => $request->address,
@@ -195,11 +195,12 @@ class ProductController extends Controller
     {
         if( (checkPermission(['user'])) ){
             $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
              $product = Product::where('slug', $slug)->first();
              if(Auth::user()->id == $product->user_id) {
              $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
               $categories = Category::all();
-             return view('products.edit', compact('product', 'productsphotos', 'categories', 'states'));
+             return view('products.edit', compact('product', 'productsphotos', 'categories', 'states', 'cities'));
             }else{
                 session()->flash('message', 'Sorry, incorrect request!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
                 return redirect()->back();
@@ -320,7 +321,7 @@ class ProductController extends Controller
         if(count($products) > 0) {
             return view('products.search')->withDetails($products, $cryptocurrencies)->withQuery( $item );
         }
-        else{ return view ('products.search')->withMessage('No products found. Try to search again !')->withQuery($item);
+        else{ return view ('products.search')->withMessage('No products found!')->withQuery($item);
         }
     }   
 

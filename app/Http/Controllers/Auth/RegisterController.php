@@ -82,19 +82,21 @@ class RegisterController extends Controller
     public function register(Request $request, $product_title, $price)
     {
         $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
         session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
-        return view('auth.register', compact('categories', 'products', 'product_title', 'price', 'states'));
+        return view('auth.register', compact('categories', 'products', 'product_title', 'price', 'states', 'cities'));
     }
 
     public function newregister(Request $request)
     {
         $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
      //   session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
-        return view('auth.register', compact('categories', 'products', 'states'));
+        return view('auth.register', compact('categories', 'products', 'states', 'cities'));
     }
 
     /**

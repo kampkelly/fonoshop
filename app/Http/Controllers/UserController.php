@@ -27,7 +27,8 @@ class UserController extends Controller
        // $categories = Category::all();
         if(Auth::user()->email == $email) {
             $user = User::where('email', $email)->first();
-            return view('users.profile', compact('user'));
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
+            return view('users.profile', compact('user', 'cities'));
         }else{
             session()->flash('message', 'Invalid Operation!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
             return redirect()->back();

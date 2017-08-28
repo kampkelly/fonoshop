@@ -41,7 +41,8 @@ class HomeController extends Controller
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(12);
         $prods = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(3);
         $cryptocurrencies = Cryptocurrency::simplePaginate(10);
-        return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods'));
+        $crypts = Cryptocurrency::orderBy('id', 'desc')->simplePaginate(5);
+        return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods', 'crypts'));
     }
 
     public function index()

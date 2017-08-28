@@ -50,7 +50,11 @@
                         <h4 class="text-center intrtext1" style="color: #236d9d;">Buy Cryptocurrencies</h4>
                         <ul class="list-unstyled text-cnter intrtxt1">
                             <li class=""><h5><a href="/cryptocurrencies">Bitcoins</a></h5></li>
-                            <li class=""><h5><a href="/cryptocurrencies">Perfect Money</a></h5></li>                
+                            <li class=""><h5><a href="/cryptocurrencies">Perfect Money</a></h5></li>  
+                            <h4 style="font-size: 16px; color: #236d9d;">Latest Selling Cryptocurrencies</h4>         
+                            @foreach($crypts as $crypt)     
+                                <li style="margin-bottom: 5px;">{{$crypt->user->name}} is selling at &#8358;{{$crypt->price}}/{{$crypt->currency}}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -117,7 +121,7 @@
                 @foreach($prods as $prod)
                     <div href="#" style="position: relative; padding-left: 50px;">
                         <a href="#">
-                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;">Microsoft Surface Pro Laptop N350,000</h5>
+                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;">Microsoft Surface Pro Laptop  &#8358;350,000</h5>
                         <img src="homepage/new/1.jpg" class="img-responsive img-rounded" style="height: 120px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
@@ -147,7 +151,7 @@
                 <div style="background-color: #FAFAFA;">
                     <a href="/product/{{$product->slug}}">
                             <h5 class="text-center">{{str_limit($product->title, 20)}}</h5>
-                            <h5><b>N{{$product->price}}</b> {{$product->condition}}</h5>
+                            <h5><b> &#8358;{{$product->price}}</b> {{$product->condition}}</h5>
                             <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded" style="posiion: absolute; mx-width: 100%;max-hight: 100%;op: 40%;
                   lft: 0%;">
                     </a>
@@ -177,7 +181,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="/category/{{$category->id}}">
-                            <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
+                            <h4 style="posit=ion: absolute; pading: 0px 10px 0px 10px;" class="text-center">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
@@ -195,7 +199,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="/category/{{$category->id}}">
-                            <h4 style="position: absolute; pading: 0px 10px 0px 10px;">{{$category->name}}</h4>
+                            <h4 style="posit=ion: absolute; pading: 0px 10px 0px 10px;" class="text-center">{{$category->name}}</h4>
                             <img src="{{ asset('categories/'.$category->image) }}" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
@@ -206,7 +210,7 @@
                  <div class="col-xs-6 col-sm-3 col-md-3 col-lg-5 kkks">        
                      <div style="position: relative; padding-eft: 50px;">
                         <a href="/cryptocurrencies">
-                            <h4 style="position: absolute; paddng: 0px 10px 0px 10px;">Cryptocurrencies</h4>
+                            <h4 style="posit=ion: absolute; pading: 0px 10px 0px 10px;" class="text-center">{{$category->name}}</h4>
                             <img src="homepage/bitcoin.jpg" class="img-responsive img-rounded" style="height: 200px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>

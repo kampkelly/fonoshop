@@ -50,7 +50,7 @@
 				  		<div class="col-xs-9 col-sm-8 col-md-8 col-lg-9">
 				  			<div class="panel panel-info">
 				  				<div class="panel-heading">
-				  					<h3 class="panel-title"><a href="/product/{{$product->slug}}">{{$product->title}}</a></h3><span style="color: green;">#{{$product->price}}</span> <span style="color: green;">{{$product->condition}}</span> <span class="pull-right small">{{$product->category->name}}<br>{{$product->status}}</span>
+				  					<h3 class="panel-title"><a href="/product/{{$product->slug}}">{{$product->title}}</a></h3><span style="color: green;"> &#8358;{{$product->price}}</span> <span style="color: green;">{{$product->condition}}</span> <span class="pull-right small">{{$product->category->name}}<br>{{$product->status}}</span>
 				  				</div>
 				  				<div class="panel-body">
 				  					<p class="small">{{str_limit($product->description, 100)}}</p>
@@ -92,7 +92,7 @@
 		  </div>
 		  <div id="tabs-2" class="currency">
 		  	@foreach($cryptocurrencies as $cryptocurrency)
-				<p class="small">Am selling {{$cryptocurrency->currency}}s at {{$cryptocurrency->price}}/{{$cryptocurrency->currency}} <a href="/cryptocurrency/edit/{{$cryptocurrency->id}}">Edit</a></p>
+				<p class="small">Am selling {{$cryptocurrency->currency}}s at {{$cryptocurrency->price}}/{{$cryptocurrency->currency}} <a href="/cryptocurrency/edit/{{$cryptocurrency->id}}">Edit</a> <a href="/mycryptocurrency/delete/{{$cryptocurrency->id}}">Delete</a></p>
 			@endforeach
 		    
 		  </div>

@@ -69,8 +69,9 @@ class CryptocurrencyController extends Controller
             } 
         }else{
             $categories = Category::all();
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
             $cryptocategories = CryptoCategory::orderBy('id', 'asc')->get();
-                 return view('cryptocurrencies.regcreate', compact('categories', 'cryptocategories')); 
+                 return view('cryptocurrencies.regcreate', compact('categories', 'cryptocategories', 'cities')); 
         }
     }
 
@@ -178,7 +179,21 @@ class CryptocurrencyController extends Controller
             $deleted = Cryptocurrency::find($id);
             $deleted->delete();
            // $id = request('category_id');
-            session()->flash('message', 'Category Deleted!');
+            session()->flash('message', 'Cryptocurrency Deleted!');
+            return redirect()->back();
+        }else{
+         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+        }
+    }
+
+    public function user_destroy(Request $request,$id)
+    {
+        if( (checkPermission(['user'])) ){
+            $deleted = Cryptocurrency::find($id);
+            $deleted->delete();
+           // $id = request('category_id');
+            session()->flash('message', 'Cryptocurrency Deleted!');
             return redirect()->back();
         }else{
          session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"

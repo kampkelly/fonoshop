@@ -59,11 +59,21 @@
 									</div>
 								</div>
 								<div class="form-group">
-					                <label for="city" class="col-xs-3 col-sm-3 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
-					                <div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
-										<input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City">
-									</div>
-								</div>
+				                    <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
+				                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled="true">
+				                    </div>
+				                </div>
+								<div class="form-group">
+				                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+				                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				                        <select name="city" id="city" class="form-control">
+				                            @foreach($cities as $city)
+				                                <option value="{{$city}}" required="true">{{$city}}</option>
+				                            @endforeach
+				                        </select>
+				                    </div>
+				                </div>
 					     		<div class="form-group">
 				                    <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6 col-sm-offset-3">
 				                        <button type="submit" class="btn btn-primary btn-block btn-sm">

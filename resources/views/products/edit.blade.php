@@ -44,7 +44,7 @@
 				<div class="form-group">
 	                <label for="price" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Description <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	                	<textarea class="form-control" rows="4" columns="1" id="product_content" name="description" placeholder="Enter Description" value="{{$product->description}}"></textarea>
+	                	<textarea class="form-control" rows="6" columns="1" id="product_content" name="description" placeholder="Enter Description" value="{{$product->description}}"></textarea>
 					</div>
 				</div>
 				<div id="hidden_content" style="display: none;">
@@ -120,18 +120,18 @@
 				<div class="form-group">
                     <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <select name="state" id="state" class="form-control">
-                        		<option value="{{$product->state}}" required="true">{{$product->state}}</option>
-                            @foreach($states as $state)
-                                <option value="{{$state}}" required="true">{{$state}}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled="true">
                     </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                     <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <input type="text" name="city" id="city" class="form-control" required="required" placeholder="Enter City" required="true" value="{{$product->city}}">
+                        <select name="city" id="city" class="form-control">
+                        		<option value="{{$product->city}}" required="true">{{$product->city}}</option>
+                            @foreach($cities as $city)
+                                <option value="{{$city}}" required="true">{{$city}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 				<div class="form-group">

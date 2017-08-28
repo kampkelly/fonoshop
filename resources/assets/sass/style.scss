@@ -584,13 +584,13 @@ footer {
 			left: 20%; 
 			top: 30%; 
 			z-index: 1; 
-			color: white;
+		//	color: white;
 			@media #{$smartphone} {
 				left: 10%; 
 				font-size: $near-normal-font;
 				top: 30%; 
 				z-index: 1; 
-				color: white;
+			//	color: white;
 			}
 			@media #{$mini-laptop} {
 				left: 10%;
