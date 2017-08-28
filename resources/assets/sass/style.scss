@@ -319,16 +319,17 @@ body {
 }
 
 .all_products {
-	.hv {
+	#hov {
+		position: relative;
+	    display: inline-block;
 		a {
 			text-decoration: none;
 		}
-		.pael:hover {
-			background-color: white;
-			transition: 1s;
+		em {
+			color: green; 
+			font-size: 104%;
 		}
 		img {
-			//height: 100px !important;
 			@media #{$smartphone} {
 				height: 80px !important;
 			}
@@ -342,37 +343,31 @@ body {
 				height: 100px !important;
 			}
 		}
-	}
-	#hov {
-	    position: relative;
-	    display: inline-block;
-	    .shw {
-		    visibility: hidden; 
-		/* display: none; */
-		    
+		.shw {
+		    visibility: hidden; 		    
 		    color: white;
 		    text-align: center;
 		    border-radius: 6px;
 		    padding: 5px;
 		    background-color: #286090;
-
-		    /* Position the tooltip */
 		    position: absolute;
 		    left: 0px;
 		    z-index: 1;
 		}
-	}
-	.pael {
-		border-radius: 7px;
-		background-color: #fafafa;
-		 a {
-			color: black;
+		.pael {
+			border-radius: 7px;
+			background-color: #fafafa;
+			 a {
+				color: black;
+			}
 		}
-	}
-	.pael:hover {
-	  transition: 1s;
-	}
+		.pael:hover {
+		background-color: white;
+		  transition: 1s;
+		}
+	}	
 }
+
 .myitems {
 	height: 21em;
 	@media #{$smartphone} {
@@ -470,7 +465,7 @@ footer {
 		padding: 0px 2px 0px 2px !important;
 	}
 }
-.new_cover {
+.new_cover {  //start of homepage styling
 	.introtext1 {
 		@media #{$smartphone} {
 			display: none;
@@ -481,11 +476,12 @@ footer {
 			display: none;
 		}
 		@media #{$smartphone} {
-			//display: inline;
 			margin-top: -7px;
 		}
 	}
 	.firstsection {
+		background-color: #f5fafd; 
+		height: 86vh;
 		h3 {
 			@media #{$smartphone} {
 				font-size: 20px;
@@ -525,14 +521,12 @@ footer {
 					width: 100%;
 				}
 			}
-		//	.carousel-caption {
 				h3,h2 {
 					margin-top: -160px;
 					@media #{$smartphone} {
 						 margin-top: 1000px !important;
 					}
 				}
-		//	}
 		}
 		.top_selling {
 			@media #{$smartphone} {
@@ -551,8 +545,12 @@ footer {
 		}
 	}
 	.second_section {
+		background-color: #236d9d; 
+		height: 40vh; 
+		padding-top: 30px;
 		h3,h4,a {
 			line-height: 30px;
+			color: white;
 		}
 	}
 	.third_section {
@@ -574,29 +572,33 @@ footer {
 		a {
 			text-decoration: none;
 		}
+		.product:hover {
+			transform: scale(0.97,0.97);
+			transition: 1s;
+		}
 	}
-	.kkks:hover {
-		transform: scale(0.97,0.97);
-		transition: 1s;
-	}
+	
 	.fourth_section {
+		height: 100vh; 
+		background-color: white;
 		h4 {
 			left: 20%; 
 			top: 30%; 
 			z-index: 1; 
-		//	color: white;
 			@media #{$smartphone} {
 				left: 10%; 
 				font-size: $near-normal-font;
 				top: 30%; 
 				z-index: 1; 
-			//	color: white;
 			}
 			@media #{$mini-laptop} {
 				left: 10%;
 			}
 		}
 		img {
+			height: 200px; 
+			width: 100%; 
+			filter: blur(0px) brightness(0.8) grayscale(20%);
 			@media #{$smartphone} {
 				height: 100px !important;
 			}
@@ -605,11 +607,16 @@ footer {
 				width: 100%;
 			}
 		}
+		.category:hover {
+			transform: scale(0.97,0.97);
+			transition: 1s;
+		}
+	}
+	.fifth_section {
+		background:linear-gradient(#f8d8ac, #efa63e); 
+		height: 54vh;
 	}
 	.bitcoin_section {
-		.list-group {
-
-		}
 		.list-group-item {
 			border: none !important;
 			background-color: #FAFAFA !important;
@@ -621,7 +628,36 @@ footer {
 		}
 	}
 }
-
+.register {
+	input:focus {
+        background-color: #FAFAFA;
+    }
+    input:hover {
+        background-color: #FAFAFA; 
+    }
+    input:select {
+        background-color: green !important;
+    }
+    input {
+        border: 1px solid #FAFAFA !important;
+        height: 43px !important;
+        border-radius: none !important;
+    }
+    textarea {
+         border: 1px solid darkgrey !important;
+        heght: 43px !important;
+        border-radius: none !important;
+    }
+    input[type="file"] {
+     	display:block;
+    }
+    .imageThumb {
+	     max-height: 75px;
+	     border: 2px solid;
+	     margin: 10px 10px 0 0;
+	     padding: 1px;
+     }
+}
 
 
 

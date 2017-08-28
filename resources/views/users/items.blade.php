@@ -14,7 +14,7 @@
   <script src="{{ asset('js/headscript.js') }}"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('js/script1.js') }}"></script>
   
   <script>
   $( function() {
@@ -92,7 +92,7 @@
 		  </div>
 		  <div id="tabs-2" class="currency">
 		  	@foreach($cryptocurrencies as $cryptocurrency)
-				<p class="small">Am selling {{$cryptocurrency->currency}}s at {{$cryptocurrency->price}}/{{$cryptocurrency->currency}} <a href="/cryptocurrency/edit/{{$cryptocurrency->id}}">Edit</a> <a href="/mycryptocurrency/delete/{{$cryptocurrency->id}}">Delete</a></p>
+				<p class="small">Am selling {{$cryptocurrency->currency}}s at &#8358;{{$cryptocurrency->price}}/{{$cryptocurrency->currency}} <a href="/cryptocurrency/edit/{{$cryptocurrency->id}}">Edit</a> <a href="/mycryptocurrency/delete/{{$cryptocurrency->id}}">Delete</a></p>
 			@endforeach
 		    
 		  </div>
@@ -108,7 +108,6 @@
 <script type="text/javascript">
 $(document).ready(function () {
 	$(".drop").mouseenter(function() {
-	//	$(".drop ul").show("");
 		$(".drop ul").slideDown();
 	}); 
 	$(".drop").mouseleave(function() {

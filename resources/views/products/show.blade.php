@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
 			<h4 class="text-center">{{$product->title}}</h4>
-			<h6 class="text-center">Price: <span style="color: green; font-size: 120%;">N{{$product->price}}</span> Condition:<span style="color: green; font-size: 110%;"> {{$product->condition}}</span> Seller: {{$product->user->name}}</h6>
+			<h6 class="text-center">Price: <span style="color: green; font-size: 120%;">&#8358;{{$product->price}}</span> Condition:<span style="color: green; font-size: 110%;"> {{$product->condition}}</span> Seller: {{$product->user->name}}</h6>
 			<section class="container-fluid text-center product">
 				<p class="text-center text-justify" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
 				<div class="row" stye="padding: 0px 220px 0px 220px;">

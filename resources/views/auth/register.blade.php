@@ -1,42 +1,11 @@
 @extends('layouts.new_master')
 
 @section('content')
-<div class="container">
-<!--<a class="btn btn-info" href="{{ URL::previous() }}">back</a> 
-<a href="/home">Back to home</a> -->
+<div class="container register">
 <style type="text/css">
     body {
         background-color: #FAFAFA;
     }
-    input:focus {
-        background-color: #FAFAFA;
-    }
-    input:hover {
-        background-color: #FAFAFA; 
-    }
-    input:select {
-        background-color: green !important;
-    }
-    input {
-        border: 1px solid #FAFAFA !important;
-        height: 43px !important;
-        border-radius: none !important;
-    }
-    textarea {
-         border: 1px solid darkgrey !important;
-        heght: 43px !important;
-        border-radius: none !important;
-    }
-    input[type="file"] {
-
-     display:block;
-    }
-    .imageThumb {
-     max-height: 75px;
-     border: 2px solid;
-     margin: 10px 10px 0 0;
-     padding: 1px;
-     }
 </style>
     <form action="/newregister" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -198,19 +167,10 @@
                         src : e.target.result,
                         title : file.name
                     }).insertAfter("#files"); 
-                 /*   $("<span class=\"pip\">" +
-                    "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-                    "<span class=\"remove text-danger\" style=\"cursor:pointer;\">Remove image</span>" +
-                    "</span>").insertAfter("#files");
-                  $(".remove").click(function(){
-                    $(this).parent(".pip").remove();
-                //    $('this').val("");
-                  }); */
                });
                fileReader.readAsDataURL(f);
            }
       });
-     } else { alert("Your browser doesn't support to File API") }
-        //File Preview
+     } else { alert("Your browser doesn't support the File API") }
     });
 </script>

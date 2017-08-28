@@ -423,69 +423,67 @@ body {
   color: red;
 }
 
-.all_products .hv a {
-  text-decoration: none;
-}
-
-.all_products .hv .pael:hover {
-  background-color: white;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-@media (min-width: 0px) and (max-width: 467px) {
-  .all_products .hv img {
-    height: 80px !important;
-  }
-}
-
-@media (min-width: 468px) and (max-width: 767px) {
-  .all_products .hv img {
-    height: 100px !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .all_products .hv img {
-    height: 100px !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .all_products .hv img {
-    height: 100px !important;
-  }
-}
-
 .all_products #hov {
   position: relative;
   display: inline-block;
 }
 
+.all_products #hov a {
+  text-decoration: none;
+}
+
+.all_products #hov em {
+  color: green;
+  font-size: 104%;
+}
+
+@media (min-width: 0px) and (max-width: 467px) {
+  .all_products #hov img {
+    height: 80px !important;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .all_products #hov img {
+    height: 100px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .all_products #hov img {
+    height: 100px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .all_products #hov img {
+    height: 100px !important;
+  }
+}
+
 .all_products #hov .shw {
   visibility: hidden;
-  /* display: none; */
   color: white;
   text-align: center;
   border-radius: 6px;
   padding: 5px;
   background-color: #286090;
-  /* Position the tooltip */
   position: absolute;
   left: 0px;
   z-index: 1;
 }
 
-.all_products .pael {
+.all_products #hov .pael {
   border-radius: 7px;
   background-color: #fafafa;
 }
 
-.all_products .pael a {
+.all_products #hov .pael a {
   color: black;
 }
 
-.all_products .pael:hover {
+.all_products #hov .pael:hover {
+  background-color: white;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -597,6 +595,11 @@ footer p {
   }
 }
 
+.new_cover .firstsection {
+  background-color: #f5fafd;
+  height: 86vh;
+}
+
 @media (min-width: 0px) and (max-width: 467px) {
   .new_cover .firstsection h3 {
     font-size: 20px;
@@ -687,10 +690,17 @@ footer p {
   }
 }
 
+.new_cover .second_section {
+  background-color: #236d9d;
+  height: 40vh;
+  padding-top: 30px;
+}
+
 .new_cover .second_section h3,
 .new_cover .second_section h4,
 .new_cover .second_section a {
   line-height: 30px;
+  color: white;
 }
 
 .new_cover .third_section h5 {
@@ -720,11 +730,16 @@ footer p {
   text-decoration: none;
 }
 
-.new_cover .kkks:hover {
+.new_cover .third_section .product:hover {
   -webkit-transform: scale(0.97, 0.97);
           transform: scale(0.97, 0.97);
   -webkit-transition: 1s;
   transition: 1s;
+}
+
+.new_cover .fourth_section {
+  height: 100vh;
+  background-color: white;
 }
 
 .new_cover .fourth_section h4 {
@@ -748,6 +763,13 @@ footer p {
   }
 }
 
+.new_cover .fourth_section img {
+  height: 200px;
+  width: 100%;
+  -webkit-filter: blur(0px) brightness(0.8) grayscale(20%);
+          filter: blur(0px) brightness(0.8) grayscale(20%);
+}
+
 @media (min-width: 0px) and (max-width: 467px) {
   .new_cover .fourth_section img {
     height: 100px !important;
@@ -761,6 +783,19 @@ footer p {
   }
 }
 
+.new_cover .fourth_section .category:hover {
+  -webkit-transform: scale(0.97, 0.97);
+          transform: scale(0.97, 0.97);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.new_cover .fifth_section {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8d8ac), to(#efa63e));
+  background: linear-gradient(#f8d8ac, #efa63e);
+  height: 54vh;
+}
+
 .new_cover .bitcoin_section .list-group-item {
   border: none !important;
   background-color: #FAFAFA !important;
@@ -770,5 +805,40 @@ footer p {
   .new_cover .item img {
     height: 250px !important;
   }
+}
+
+.register input:focus {
+  background-color: #FAFAFA;
+}
+
+.register input:hover {
+  background-color: #FAFAFA;
+}
+
+.register input:select {
+  background-color: green !important;
+}
+
+.register input {
+  border: 1px solid #FAFAFA !important;
+  height: 43px !important;
+  border-radius: none !important;
+}
+
+.register textarea {
+  border: 1px solid darkgrey !important;
+  heght: 43px !important;
+  border-radius: none !important;
+}
+
+.register input[type="file"] {
+  display: block;
+}
+
+.register .imageThumb {
+  max-height: 75px;
+  border: 2px solid;
+  margin: 10px 10px 0 0;
+  padding: 1px;
 }
 

@@ -9,7 +9,6 @@
           cursor: pointer;
         }
         .namedrop ul li a {
-         /* color: #d78512; */
           color: #DF8109;
         }
         .namedrop ul #last {
@@ -18,16 +17,10 @@
       </style>
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
-	<!--	<a class="navbar-brand" href="/" style="color: white;">
-    SalesNaija
-    </a> -->
     <a class="navbar-brand" href="/" style="color: white;">
       <img src="{{ asset('sales_logo.jpg') }} " alt="logo" class="img-responsive">
     </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
-		<!--	<li>
-				<a href="/" style="color: #d78512;">Home</a>
-			</li> -->
 			<li>
         <a href="/products" style="color: #d78512;">Products</a>
       </li>
@@ -80,7 +73,6 @@
         <a href="/login" style="color: #d78512;">Login</a>
       </li>
       @endif
-		<!--	<p class="navbar-text">Purchase all used and new items...</p> -->
 		</ul>
 	</div>
 </nav>
@@ -89,13 +81,6 @@
 
 <ul>
    <li><a href='/'>Home</a></li>
-  <!--  <li><a href='/products'>Categories</a>
-        <ul>
-            <li><a href='/category/1'>Computers/Phones</a>
-            <li><a href='/category/2'>IT Softwares</a>
-            <li><a href='/category/3'>General Equipments</a>
-        </ul>
-    </li> -->
   <li><a href='/products'>All Products</a></li>
    @if(Auth::check())
       <li>
@@ -145,7 +130,3 @@
         @endif
 </ul>
 </div>
-<!--search form -->
-<div style="height: 0px;"></div>
-
-<!--search form -->

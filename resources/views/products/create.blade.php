@@ -38,7 +38,7 @@
 				<div class="form-group">
 	                <label for="price" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<input type="text" name="price" id="price" class="form-control" required="required" placeholder="Price">
+						<input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price in naira">
 					</div>
 				</div>
 				<div class="form-group">
@@ -127,14 +127,10 @@
                     </div>
                 </div>         
 				</form>
-	
 	</section>
 	</div>
 	@include('partials/sidebar')
-	</div>
-	
-	
-	
+	</div>	
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -158,20 +154,10 @@ $(document).ready(function () {
                         src : e.target.result,
                         title : file.name
                     }).insertAfter("#files"); 
-                 /*   $("<span class=\"pip\">" +
-		            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<span class=\"remove text-danger\" style=\"cursor:pointer;\">Remove image</span>" +
-		            "</span>").insertAfter("#files");
-		          $(".remove").click(function(){
-		            $(this).parent(".pip").remove();
-		        //    $('this').val("");
-		          }); */
                });
                fileReader.readAsDataURL(f);
            }
       });
      } else { alert("Your browser doesn't support to File API") }
 });
-
-
 </script>

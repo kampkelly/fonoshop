@@ -11,7 +11,7 @@
 			<section class="container-fluid">
 				@foreach($cryptocurrencies as $cryptocurrency)
 					<ul class="list-group">
-						<li class="list-group-item" style="background-color: #fafafa !important;"><p>{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">N{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span> 
+						<li class="list-group-item" style="background-color: #fafafa !important;"><p>{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">&#8358;{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span> 
 						<span class="show" style="cursor: pointer;"> <span class="pull-right phone" style="display: none">Phone: {{$cryptocurrency->user->phone}}, City: {{$cryptocurrency->user->city}}</span> <span class="pull-right">Show contact</span> </span>
 						</p></li>
 					</ul>
@@ -29,7 +29,6 @@
 	
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script type="text/javascript">
 $(document).ready(function () {
 	$(".show").click(function() {

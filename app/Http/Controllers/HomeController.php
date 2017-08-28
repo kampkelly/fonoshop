@@ -7,6 +7,7 @@ use App\User;
 use App\Category;
 use App\Product;
 use App\Cryptocurrency;
+use App\CryptoCategory;
 use App\Contact;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
@@ -41,8 +42,8 @@ class HomeController extends Controller
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(12);
         $prods = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(3);
         $cryptocurrencies = Cryptocurrency::simplePaginate(10);
-        $crypts = Cryptocurrency::orderBy('id', 'desc')->simplePaginate(5);
-        return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods', 'crypts'));
+        $cryptocategories = Cryptocategory::simplePaginate(10);
+        return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods', 'cryptocategories'));
     }
 
     public function index()

@@ -2,8 +2,6 @@
 
 @section('content')
 <style type="text/css">
-    body {
-    }
     input:focus {
         background-color: #FAFAFA;
     }

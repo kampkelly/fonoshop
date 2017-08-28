@@ -1,23 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 use Illuminate\Support\Facades\Input;
 
-Route::get('/old', function () {
-    return view('welcome');
-});
-Route::get('/category', function () {
-    return view('/categories/show');
-});
+
+//not useful
+Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
+//not useful
+//notauthenticated begins
+
 Route::get('/test', function () {
     return view('test');
 });
@@ -33,37 +24,26 @@ Route::get('/terms', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/software', function () {
-    return view('/categories/show_n');
-});
-Route::get('/olditems', function () {
-    return view('/users/old_items');
-});
-Route::get('/fileuploaderror', function () {
-    return view('filebig');
-});
+
 Route::get('/', 'HomeController@newindex');
 Route::get('/home', 'HomeController@newindex');
-Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/product/{slug}', 'ProductController@show')->name('productshow');
 Route::post('/category', function(){
    $id = Input::get('category_id');    
-  # return Redirect::action('FrontController@buscarPrd', array('nom'=>$bsqd));
    return redirect('/category/'.$id);
-
 });
-Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
 Route::post('/contact', 'HomeController@contact')->name('contact');
-
-
 Route::get('/cryptocurrency/new', 'CryptocurrencyController@create');
 Route::get('/mycryptocurrency/delete/{id}', 'CryptocurrencyController@user_destroy');
 Route::get('/news', 'PostController@index');
 Route::get('/news/{slug}', 'PostController@show');
+Route::get('/cryptocurrencies', 'CryptocurrencyController@index');
+Route::any('/search', 'ProductController@search');
+//notauthenticated ends
+
+Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
 	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
@@ -113,25 +93,16 @@ Route::group(['middleware' => 'auth'], function () {
 	});	
 });
 
-Route::get('/cryptocurrencies', 'CryptocurrencyController@index');
-
-Route::any('/search', 'ProductController@search');
 //admin
 $this->post('login', 'Auth\LoginController@login');
-//$this->post('login', 'LognController@autheicate');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-$this->post('/toregister', 'Auth\RegisterController@toregister')->name('toregister');
-$this->get('/register/{name}/{price}', 'Auth\RegisterController@register')->name('register');
-$this->get('/register', 'Auth\RegisterController@newregister')->name('register');
-#$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-$this->get('investor/register', 'Auth\RegisterController@investor')->name('register');
+$this->post('/toregister', 'Auth\RegisterController@toregister');
+$this->get('/register/{name}/{price}', 'Auth\RegisterController@register');
+$this->get('/register', 'Auth\RegisterController@newregister');
 $this->post('/newregister', 'Auth\RegisterController@new_register');
 $this->post('/bitregister', 'Auth\RegisterController@bit_register');
-$this->post('/innovator/update/{id}', 'StartupController@postinnovator_update');
-#$this->post('register', 'Auth\RegisterController@register');
-$this->post('/investor/register', 'Auth\RegisterController@postinvestor');
 
 // Password Reset Routes...
 $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
