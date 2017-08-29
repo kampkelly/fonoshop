@@ -126,11 +126,12 @@
 	    		<div class="col s12">  <!--images and links-->
 	    			<div class="row">
 		    			<div class="col s6 m3 l6">  <!--cover image-->
-		    			 	<img src="{{ asset('uploads/cover/'.$product->image) }}" class="responsive-img">
+		    			 	<img src="{{ asset('uploads/cover/'.$product->image) }}" class="responsive-img materialboxed">
 		    			 </div>
 		    			 	@foreach($product->productsphoto as $photo)
 		    			 	<div class="col s3 m3 l3">  <!--additional images-->
 						  		<img src="{{ asset('uploads/photos/'.$photo->image) }}" class="responsive-img p_img">
+						  		<div style="height: 10px;"></div>
 						  	 </div>
 					  		@endforeach
 	    			 </div>
@@ -223,6 +224,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
+	$('.materialboxed').materialbox();
 	$(".button-collapse").sideNav();
 	$('select').material_select();
 	$(".drop").mouseenter(function() {
