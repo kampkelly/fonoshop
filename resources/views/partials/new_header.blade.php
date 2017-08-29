@@ -86,20 +86,22 @@
             <a href="/admin/panel">Admin Panel</a>
           </li>
       @endif
-      <li><a href='#'>Sell</a>
+      <li><a href='/new/product'>Sell Products</a></li>
+      <li><a href='/cryptocurrency/new'>Sell Cryptocurrencies</a></li>
+  <!--    <li><a href='#'>Sell</a>
         <ul>
              <li><a href="/new/product">Sell Products</a></li>
              <li><a href="/cryptocurrency/new">Sell Cryptocurrency</a></li>
         </ul>
-    </li>
+    </li> -->
     @endif
-  <li><a href='#'>Categories</a>
+<!--  <li><a href='#'>Categories</a>
       <ul>
       @foreach($side_categories as $category)
           <li><a href='/category/{{$category->id}}'>{{$category->name}}</a>
         @endforeach
       </ul>
-  </li>
+  </li> -->
    @if (Auth::check())
        <li>
         <a href="/myitems/{{Auth::user()->email}}">My Products</a>
