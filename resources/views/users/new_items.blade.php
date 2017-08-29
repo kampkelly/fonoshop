@@ -40,7 +40,7 @@
 </ul>
 <nav> <!--header-->
   <div class="nav-wrapper orange darken-1">
-    <a href="#!" class="brand-logo ceter">SalesNaija</a>
+    <a href="/" class="brand-logo ceter">SalesNaija</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/products">Product</a>
@@ -108,7 +108,7 @@
 <div class="row"> <!--start of row-->
 	<div class="col s12 m12 l9">  <!-- column 9-->
   <div id="ajax-demo">
-    
+
   </div>
 		<h5 class="center-align">My Products</h5>
 		<div class="card-tabs">
