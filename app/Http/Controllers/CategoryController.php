@@ -79,7 +79,7 @@ class CategoryController extends Controller
                 session()->flash('message', 'Category Updated!');
                 return redirect()->back();
              }else{
-                 session()->flash('message', 'Sorry, This operation is not allowed!'); "SHOW"
+                 session()->flash('message', 'Sorry, This operation is not allowed!');
                     return redirect()->back();
             }
     }
