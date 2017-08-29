@@ -63,10 +63,10 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="pics/buy 6.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%); width: 100%;">
+                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/bitcoin.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%); width: 100%;">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h3>Buy Bitcoins, Litecoins, etc.</h3>
+                                    <h3>Buy Bitcoins, PerfectMoney, etc.</h3>
                                     <p></p>
                                     <p><a class="btn btn-lg btn-primary" href="/cryptocurrencies" role="button">Buy Cryptocurrencies</a></p>
                                 </div>
@@ -91,10 +91,10 @@
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top_selling">
                 <h4 class="text-center" style="color: #236d9d;">Latest Additions</h4>
                 @foreach($prods as $prod)
-                    <div href="#" style="position: relative; padding-left: 50px;">
-                        <a href="#">
-                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;"><span style="color: blue;">{{$prod->condition}}</span><br>{{str_limit($prod->title, 20)}} &#8358;{{$prod->price}}</h5>
-                        <img src="{{ asset('uploads/'.$prod->image) }}" style="height: 120px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                    <div href="/product/{{$prod->slug}}" style="position: relative; padding-left: 50px;">
+                        <a href="/product/{{$prod->slug}}">
+                        <h5 style="position: abslute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1;"><span style="color: blue;">{{$prod->condition}}</span><br>{{str_limit($prod->title, 20)}} &#8358;{{$prod->price}}</h5>
+                        <img src="{{ asset('uploads/'.$prod->image) }}" style="height: 80px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
                     <div style="height: 20px;"></div>
