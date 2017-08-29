@@ -107,6 +107,9 @@
 
 <div class="row"> <!--start of row-->
 	<div class="col s12 m12 l9">  <!-- column 9-->
+  <div id="ajax-demo">
+    di
+  </div>
 		<h5 class="center-align">My Products</h5>
 		<div class="card-tabs">
 	      <ul class="tabs tabs-fixd-width">
@@ -155,7 +158,7 @@
 	<div class="col s12 m12 l3">   <!--column 3 the sidebar-->
 		 <div class="row">
 	        <div class="col s12 m12">
-	          <div class="card grey lighten-4 z-depth-2">
+	          <div class="card grey lighten-4 z-depth-1">
 	            <div class="card-content white-text row">
 	            <span class="card-title brown-text">Buy or Sell Cryptocurrencies</span>
 	            <div class="col s4 ">
