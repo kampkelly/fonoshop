@@ -180,7 +180,7 @@
                      <div style="position: relative;">
                         <a href="/cryptocurrencies">
                             <h4 class="text-center">Cryptocurrencies</h4>
-                            <img src="homepage/bitcoin.jpg" class="img-responsive img-rounded">
+                            <img src="homepage/new/bitcoin.jpg" class="img-responsive img-rounded">
                         </a>
                     </div>
 
