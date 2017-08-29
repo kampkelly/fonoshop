@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<div style="height: 10px"></div>
+	<div style="height: 25px"></div>
 	<style type="text/css">
 		.product img {
 		   position: relative;

@@ -14,7 +14,7 @@
 				<div class="pael container-fluid row" style="width: 100%;">
 					<a href="/product/{{$product->slug}}">
 						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-							<img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
+							<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
 							<span class="small">Seller: {{$product->user->name}}</span>
 						</div>
 						<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
