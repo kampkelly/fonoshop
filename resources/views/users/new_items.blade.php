@@ -41,10 +41,22 @@
 <nav> <!--header-->
   <div class="nav-wrapper orange darken-1">
     <a href="#!" class="brand-logo ceter">SalesNaija</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/products">Product</a>
       <li><a href="/cryptocurrencies">Cryptocurrencies</a>
       <li class="rigt"><a href="/cryptocurrency/new">Sell Cryptocurrency</a>
+
+      	<li>
+        	<form>
+        <div class="input-field">
+          <input id="search" type="search" required placeholder="search computers, phones, etc">
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+        </li>
+
       @if(Auth::check())
         @if(checkPermission(['user']))
         <li><a href="/new/product">Sell A Product</a>
@@ -63,6 +75,33 @@
       <!-- Dropdown Trigger -->
       
     </ul>
+    <ul class="side-nav grey lighten-3" id="mobile-demo">
+        <li><a href="/" class="orange-text">Home</a></li>
+        <li><a href="/products" class="orange-text">Products</a></li>
+        <li><a href="/cryptocurrencies" class="orange-text">Cryptocurrencies</a></li>
+        <li><a href="/cryptocurrency/new" class="orange-text">Sell Cryptocurrency</a></li>
+        @if(Auth::check())
+        <li><a href="/new/product" class="orange-text">Sell Product</a></li>
+        <li><a href="/myprofile/update/{{Auth::user()->email}}" class="orange-text">My Profile</a></li>
+        <li><a href="/myitems/{{Auth::user()->email}}" class="orange-text">My Products</a></li>
+        <li><a href="/contact" class="orange-text">Contact</a></li>
+         <li>
+	        <a href="{{ route('logout') }}" class="small orange-text"  
+	            onclick="event.preventDefault();
+	                     document.getElementById('logout-form').submit();">
+	            Logout
+	        </a>
+
+	        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+	            {{ csrf_field() }}
+	        </form>
+	    </li>
+        @else
+        <li><a href="/contact" class="orange-text">Contact</a></li>
+        <li><a href="/login" class="orange-text">Login</a></li>
+        <li><a href="/register" class="orange-text">Register</a></li>
+        @endif
+      </ul>
   </div>
 </nav>
 
@@ -184,6 +223,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
+	$(".button-collapse").sideNav();
 	$('select').material_select();
 	$(".drop").mouseenter(function() {
 		$(".drop ul").slideDown();
