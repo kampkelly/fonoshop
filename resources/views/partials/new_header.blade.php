@@ -19,7 +19,7 @@
     </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 			<li>
-        <a href="/products" style="color: #d78512;">Products</a>
+        <a href="/products" style="color: #d78512;">Productsss</a>
       </li>
       
 			<li>
