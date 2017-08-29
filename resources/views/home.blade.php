@@ -94,7 +94,7 @@
                     <div href="/product/{{$prod->slug}}" style="position: relative; padding-left: 50px;">
                         <a href="/product/{{$prod->slug}}">
                         <h5 style="position: abslute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1;"><span style="color: blue;">{{$prod->condition}}</span><br>{{str_limit($prod->title, 20)}} &#8358;{{$prod->price}}</h5>
-                        <img src="{{ asset('uploads/'.$prod->image) }}" style="height: 80px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        <img src="{{ asset('uploads/cover/'.$prod->image) }}" style="height: 80px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
                     <div style="height: 20px;"></div>
@@ -123,7 +123,7 @@
                     <a href="/product/{{$product->slug}}">
                             <h5 class="text-center">{{str_limit($product->title, 20)}}</h5>
                             <h5><b> &#8358;{{$product->price}}</b> {{$product->condition}}</h5>
-                            <img src="{{ asset('uploads/'.$product->image) }}" class="img-responsive img-rounded">
+                            <img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive img-rounded">
                     </a>
                 </div>
                     <div style="height: 15px;"></div>
