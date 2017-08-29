@@ -87,7 +87,6 @@
           </li>
       @endif
       <li><a href='/new/product'>Sell Products</a></li>
-      <li><a href='/cryptocurrency/new'>Sell Cryptocurrencies</a></li>
   <!--    <li><a href='#'>Sell</a>
         <ul>
              <li><a href="/new/product">Sell Products</a></li>
@@ -95,6 +94,7 @@
         </ul>
     </li> -->
     @endif
+    <li><a href='/cryptocurrency/new'>Sell Cryptocurrencies</a></li>
 <!--  <li><a href='#'>Categories</a>
       <ul>
       @foreach($side_categories as $category)
@@ -122,6 +122,7 @@
             </form>
         </li>
         @else
+        <li><a href='/contact'>Contact Us</a></li>
         <li><a id="log" href="/login">Signin</a></li>
         @endif
 </ul>
