@@ -108,7 +108,7 @@
 <div class="row"> <!--start of row-->
 	<div class="col s12 m12 l9">  <!-- column 9-->
   <div id="ajax-demo">
-    di
+    
   </div>
 		<h5 class="center-align">My Products</h5>
 		<div class="card-tabs">
