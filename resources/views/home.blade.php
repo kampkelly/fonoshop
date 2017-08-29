@@ -63,12 +63,12 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/2remod.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%);">
+                            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="pics/buy 6.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%); width: 100%;">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h3>Everything Tech Related.</h3>
+                                    <h3>Buy Bitcoins, Litecoins, etc.</h3>
                                     <p></p>
-                                    <p><a class="btn btn-lg btn-primary" href="/products" role="button">Browse Products</a></p>
+                                    <p><a class="btn btn-lg btn-primary" href="/cryptocurrencies" role="button">Buy Cryptocurrencies</a></p>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +76,9 @@
                             <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="homepage/new/1.jpg" style="filter: blur(0px) brightness(0.8) grayscale(20%);">
                             <div class="container">
                                 <div class="carousel-caption">
-                                    <h2 style=" ">Buy Bitcoins, Litecoins, etc.</h2>
+                                    <h2 style=" ">Buy Your Tech Products.</h2>
                                     <p></p>
-                                    <p><a class="btn btn-lg btn-warning" href="/cryptocurrencies" role="button">Buy Cryptocurrencies</a></p>
+                                    <p><a class="btn btn-lg btn-warning" href="/products" role="button">Browse Prodcuts</a></p>
                                 </div>
                             </div>
                         </div>
@@ -89,12 +89,12 @@
                  <!--carousel-->
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top_selling">
-                <h4 class="text-center" style="color: #236d9d;">Top Selling Products</h4>
+                <h4 class="text-center" style="color: #236d9d;">Latest Additions</h4>
                 @foreach($prods as $prod)
                     <div href="#" style="position: relative; padding-left: 50px;">
                         <a href="#">
-                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;">Microsoft Surface Pro Laptop  &#8358;350,000</h5>
-                        <img src="homepage/new/1.jpg" class="img-responsive img-rounded" style="height: 120px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
+                        <h5 style="position: absolute; padding: 0px 10px 0px 10px; top: 20%; z-index: 1; color: white;"><span style="color: blue;">{{$prod->condition}}</span><br>{{str_limit($prod->title, 20)}} &#8358;{{$prod->price}}</h5>
+                        <img src="{{ asset('uploads/'.$prod->image) }}" style="height: 120px; width: 100%; filter: blur(0px) brightness(0.8) grayscale(20%);">
                         </a>
                     </div>
                     <div style="height: 20px;"></div>

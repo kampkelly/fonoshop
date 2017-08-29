@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Image;
 use App\Http\Controllers\Mail\Mailer;
-//use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendTestEmail;
 
@@ -22,50 +21,17 @@ class ProductController extends Controller
     {
         $this->middleware('auth', ['except' => ['index', 'search', 'show']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function sendmail()
-    {
-        $user = Auth::user();
-        $this->dispatch(new SendTestEmail());
-      /*  $email_data = array(
-          //   'recipient' => $user->user_email,
-             'recipient' => Auth::user()->email,
-             'subject' => 'Testing Email'
-              );
-                $act_code = str_random(60);
-                $view_data = array(
-                'actkey' => $act_code,
-            );
-
-              Mail::send('emails.new', $view_data, function($message) use ($email_data) {
-                  $message->to( $email_data['recipient'] )
-                          ->subject( $email_data['subject'] );
-              }); */
-        session()->flash('message', 'Mail Sent, please check!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-        return redirect()->back();
-    }
 
       public function index()
     {
         $products = Product::where('status', 'active')->simplePaginate(15);
-      //  $this->dispatch(new SendTestEmail());
          return view('products.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
          if( (checkPermission(['user'])) ){
-            $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu', 'Benin'];
               $categories = Category::all();
              return view('products.create', compact('categories', 'states', 'cities'));
          }else{
@@ -74,12 +40,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -93,21 +53,18 @@ class ProductController extends Controller
         if( (checkPermission(['user'])) ){
             if(filesize(Input::file('image')) > 1000){
                 session()->flash('message', 'Image too big');
-               // return redirect()->back();
                 return redirect('/fileuploaderror');
             }else{
                 if(Input::hasFile('image')){
                     $file=Input::file('image');
                     $dd = $file->getClientOriginalName();
-                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                    $file_basename = substr($dd, 0, strripos($dd, '.')); 
+                    $file_ext = substr($dd, strripos($dd, '.')); 
                     $t = date("i-s");
                     $newfilename = md5($file_basename) . $t . $file_ext;
-                  //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
                     Image::make($file)->resize(1500, null, function ($constraint) {
                         $constraint->aspectRatio();
                     })->save(public_path('/uploads/cover/'. $newfilename));
-                  //  $file->move('uploads', $newfilename);
                 }
             }
 
@@ -129,31 +86,25 @@ class ProductController extends Controller
                 'condition' => $request->condition,
                 'user_id' => Auth::user()->id,
                 'slug' => $slug,
-             //   'state' => $request->state,
                 'city' => $request->city,
                 'active' => 'active'
-            //    'address' => $request->address,
                ]); 
 
             if(Input::hasFile('photos')){
                      foreach (request('photos') as $photo) {
                         if(filesize($photo) > 1000){
                             session()->flash('message', 'Image too big');
-                           // return redirect()->back();
                             return redirect('/fileuploaderror');
                         }else{
-                            //uploading photo starts
                             $file = $photo;
                             $dd = $file->getClientOriginalName();
-                            $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                            $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                            $file_basename = substr($dd, 0, strripos($dd, '.'));
+                            $file_ext = substr($dd, strripos($dd, '.')); 
                             $t = date("i-s");
                             $filename = md5($file_basename) . $t . $file_ext;
                             Image::make($file)->resize(1500, null, function ($constraint) {
                                 $constraint->aspectRatio();
                             })->save(public_path('/uploads/photos/'. $filename));
-                         //   $file->move('uploads', $filename);
-                            //uploading photo ends
                             ProductsPhoto::create([
                                 'product_id' => $product->id,
                                 'image' => $filename,
@@ -162,22 +113,15 @@ class ProductController extends Controller
                         }
                     }
                 }
-                session()->flash('message', 'Product Added!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
-        //    return redirect('/myitems/'.Auth::user()->email);
+                session()->flash('message', 'Product Added!'); 
             return redirect('/cryptocurrencies');
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); 
                 return redirect()->back();
         }
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($slug)
     {
          $product = Product::where('slug', $slug)->where('status', 'active')->first();
@@ -185,66 +129,47 @@ class ProductController extends Controller
         return view('products.show', compact('product', 'productphotos'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($slug)
     {
         if( (checkPermission(['user'])) ){
-            $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu', 'Benin'];
+            $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu', 'Benin'];
              $product = Product::where('slug', $slug)->first();
              if(Auth::user()->id == $product->user_id) {
              $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
               $categories = Category::all();
              return view('products.edit', compact('product', 'productsphotos', 'categories', 'states', 'cities'));
             }else{
-                session()->flash('message', 'Sorry, incorrect request!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+                session()->flash('message', 'Sorry, incorrect request!'); 
                 return redirect()->back();
             }
         }else{
-             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!');
                 return redirect()->back();
         }
               
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $slug)
     {
          $this->validate(request(), [
-          // 'title' => 'required',
-          // 'price' => 'required',
-         //  'description' => 'required'
+          
         ]);
 
     if( (checkPermission(['user'])) ){
          if(Input::hasFile('image')){
             if(filesize(Input::file('image')) < 1000){
                 session()->flash('message', 'Image too big');
-               // return redirect()->back();
                 return redirect('/fileuploaderror');
             }else{
                 $file=Input::file('image');
                 $dd = $file->getClientOriginalName();
-                $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                $file_basename = substr($dd, 0, strripos($dd, '.'));
+                $file_ext = substr($dd, strripos($dd, '.')); 
                 $t = date("i-s");
                 $newfilename = md5($file_basename) . $t . $file_ext;
-             //   Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
                 Image::make($file)->resize(1500, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save(public_path('/uploads/cover/'. $newfilename));
-             //   $file->move('uploads', $newfilename);
             }
         }
 
@@ -267,20 +192,18 @@ class ProductController extends Controller
                  foreach (request('photos') as $photo) {
                     if(filesize($photo) < 10500){
                         session()->flash('message', 'Image is too big');
-                       // return redirect()->back();
                         return redirect('/fileuploaderror');
                     }else{
                         //uploading photo starts
                         $file = $photo;
                         $dd = $file->getClientOriginalName();
-                        $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                        $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                        $file_basename = substr($dd, 0, strripos($dd, '.')); 
+                        $file_ext = substr($dd, strripos($dd, '.')); 
                         $t = date("i-s");
                         $filename = md5($file_basename) . $t . $file_ext;
                         Image::make($file)->resize(1500, null, function ($constraint) {
                             $constraint->aspectRatio();
                         })->save(public_path('/uploads/photos/'. $filename));
-                       // $file->move('uploads', $filename);
                         //uploading photo ends
                         ProductsPhoto::create([
                             'product_id' => $product->id,
@@ -291,14 +214,14 @@ class ProductController extends Controller
                 }
             }
 
-            session()->flash('message', 'Product Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Product Updated');
             return redirect()->back();
         }else{
-            session()->flash('message', 'Sorry, incorrect request!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+            session()->flash('message', 'Sorry, incorrect request!'); 
             return redirect()->back();
         }
     }else{
-         session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+         session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); 
             return redirect()->back();
     }
     }
@@ -325,12 +248,6 @@ class ProductController extends Controller
         }
     }   
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request,$id)
     {
         if( (checkPermission(['admin'])) ){
@@ -341,11 +258,10 @@ class ProductController extends Controller
             foreach($productphotos as $productsphoto) {
                 $productsphoto->delete();
             }
-           // $id = request('category_id');
             session()->flash('message', 'Product Deleted!');
             return redirect()->back();
         }else{
-         session()->flash('message', 'Sorry, This operation is not allowed!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+         session()->flash('message', 'Sorry, This operation is not allowed!'); 
         return redirect()->back();
         }
     }

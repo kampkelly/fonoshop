@@ -88,6 +88,4 @@ $(document).ready(function () {
 		$('#show').show();
 	}); 
 });
-
-
 </script>

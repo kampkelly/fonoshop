@@ -1,7 +1,5 @@
 $(document).ready(function () {
     $(".namedrop").click(function() {
-    //  $(".drop ul").show("");
-        //$(".drop ul").slideDown();
         $(this).find("ul").slideDown();
     }); 
     $(".namedrop").mouseenter(function() {
@@ -54,10 +52,8 @@ $(document).ready(function () {
             $('.intrtext1').addClass('text-center');
         }
         if (w > 992) {
-        // $(".top_selling").show();
          $('.firstsection').addClass('container');
         }else{
-    //      $(".top_selling").hide();
         }
     }
 

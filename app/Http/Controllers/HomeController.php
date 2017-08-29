@@ -11,30 +11,18 @@ use App\CryptoCategory;
 use App\Contact;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
-// use App\Http\Controllers\Mail\Mailer;
-use Illuminate\Mail\Mailer;
+ use App\Http\Controllers\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendTestEmail;
 use App\Jobs\WelcomeRegistrationEmail;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+   
     public function __construct()
     {
-      //  $this->middleware('guest', ['except' => ['myprofile', 'myitems', 'updateprofile']]);
+        $this->middleware('auth', ['except' => ['newindex', 'index', 'contact']]);
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
 
      public function newindex()
     {
@@ -58,20 +46,16 @@ class HomeController extends Controller
         $contact_name = $request->contact_name;
         $contact_message = $request->contact_msg;
         $email_data = array(
-          //   'recipient' => $user->user_email,
-          //   'recipient' => $request->contact_email,
              'recipient' => 'infosalesnaija@gmail.com',
              'subject' => 'New Message From '.$contact_name.'(SalesNaija)'
               );
                 $act_code = str_random(60);
                 $view_data = array(
                 'actkey' => $act_code,
-              //  'email' => Auth::user()->email,
                 'contact_email' => $request->contact_email,
                 'contact_name' => $request->contact_name,
                 'contact_message' => $request->contact_msg
             );
-             //   $this->dispatch((new SendContactMessage($view_data))->delay(10));
               Mail::send('emails.sendcontactmessage', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
@@ -82,12 +66,31 @@ class HomeController extends Controller
                 'message' => $request->contact_msg
                ]); 
 
-         /*     Mail::send('emails.sendcontactmessage', array('a_value' => 'you_could_pass_through'), function($message)
-                {
-                    $message->to('sample1@gmail.com', 'John Smith')->cc('sample2@yahoo.com')->subject('Example!');
-                }); */
-        session()->flash('message', 'Message sent. We wil get back to you shortly via email!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+         
+        session()->flash('message', 'Message sent. We wil get back to you shortly via email!'); 
             return redirect()->back();
+    }
+
+      public function sendmail()
+    {
+        $user = Auth::user();
+        $this->dispatch(new SendTestEmail());
+      /*  $email_data = array(
+          //   'recipient' => $user->user_email,
+             'recipient' => Auth::user()->email,
+             'subject' => 'Testing Email'
+              );
+                $act_code = str_random(60);
+                $view_data = array(
+                'actkey' => $act_code,
+            );
+
+              Mail::send('emails.new', $view_data, function($message) use ($email_data) {
+                  $message->to( $email_data['recipient'] )
+                          ->subject( $email_data['subject'] );
+              }); */
+        session()->flash('message', 'Mail Sent, please check!'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
     }
 
 }

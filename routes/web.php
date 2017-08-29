@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
 	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
 	Route::post('/product/{slug}', 'ProductController@update');
-	Route::get('/product_new', 'ProductController@create');
+	Route::get('/new/product', 'ProductController@create');
 	Route::post('/products', 'ProductController@store');
 	Route::post('/cryptocurrencies', 'CryptocurrencyController@store');
 	Route::get('/cryptocurrency/edit/{id}', 'CryptocurrencyController@edit');

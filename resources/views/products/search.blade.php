@@ -107,15 +107,11 @@
 <script type="text/javascript">
 $(document).ready(function () {
 	$("section #hov").mouseover(function() {
-	//	$(this).css('cursor', 'pointer');
 		$(this).find(".shw").css({"visibility": "visible", "border": "1px solid #fafafa", "transition-delay": "0.5s"});
-	//	$(this).find(".shw").slideDown(1000);
 	}); 
 
 	$("section #hov").mouseleave(function() {
 		$(this).find(".shw").css({"visibility": "hidden", "border": "1px solid #fafafa"});
-		//$(this).find(".shw").slideUp(1000);
-	//	$(this).find(".shw").css({"background-color": "#286090", "border": "1px solid #fafafa"});
 	}); 
 
 	$("section #hov").mouseover(function() {

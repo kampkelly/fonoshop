@@ -53,6 +53,4 @@ $(document).ready(function () {
     var x = document.getElementById('hidden_content').textContent;
     document.getElementById('post_content').value = x;
 });
-
-
 </script>

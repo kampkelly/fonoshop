@@ -69,42 +69,28 @@ class RegisterController extends Controller
 
         public function toregister(Request $request)
     {
-     //   $categories = Category::all();
-     //   $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
         $product_title = $request->product_title;
         $price = $request->price;
-      //  $price = Input::get('price') ;
-       // $product_title = Input::get('product_title') ;
-      //  return view('auth.register', compact('categories', 'products', 'name', 'product_title'));
         return redirect('/register/'.$product_title.'/'.$price);
     }
 
     public function register(Request $request, $product_title, $price)
     {
-        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
         session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
-        return view('auth.register', compact('categories', 'products', 'product_title', 'price', 'states', 'cities'));
+        return view('auth.register', compact('categories', 'products', 'product_title', 'price', 'cities'));
     }
 
     public function newregister(Request $request)
     {
-        $states = ['FCT Abuja','Abia','Adamawa','Anambra','Akwa Ibom','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Enugu','Ekiti','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nassarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
-        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakonba', 'Uselu'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
-     //   session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
-        return view('auth.register', compact('categories', 'products', 'states', 'cities'));
+        return view('auth.register', compact('categories', 'products', 'cities'));
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function create(array $data)
     {
         return User::create([
@@ -139,16 +125,13 @@ class RegisterController extends Controller
 
                     $file=Input::file('image');
                     $dd = $file->getClientOriginalName();
-                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                    $file_basename = substr($dd, 0, strripos($dd, '.')); 
+                    $file_ext = substr($dd, strripos($dd, '.')); 
                     $t = date("i-s");
                     $newfilename = md5($file_basename) . $t . $file_ext;
-                  //  Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
                     Image::make($file)->resize(1500, null, function ($constraint) {
                       $constraint->aspectRatio();
-                  })->save(public_path('/uploads/'. $newfilename));
-                 //   $file->move('uploads', $newfilename);
-               
+                  })->save(public_path('/uploads/'. $newfilename));               
 
            $user = User::create([
             'name' => $request->name,
@@ -173,7 +156,6 @@ class RegisterController extends Controller
             'state' => $request->state,
             'city' => $request->city,
             'status' => 'active'
-        //    'address' => $request->address,
            ]);
 
            if(Input::hasFile('photos')) {
@@ -181,14 +163,13 @@ class RegisterController extends Controller
                 //uploading photo starts
                     $file = $photo;
                     $dd = $file->getClientOriginalName();
-                    $file_basename = substr($dd, 0, strripos($dd, '.')); // get file name
-                    $file_ext = substr($dd, strripos($dd, '.')); // get file extension
+                    $file_basename = substr($dd, 0, strripos($dd, '.')); 
+                    $file_ext = substr($dd, strripos($dd, '.')); 
                     $t = date("i-s");
                     $filename = md5($file_basename) . $t . $file_ext;
                     Image::make($file)->resize(1500, null, function ($constraint) {
                         $constraint->aspectRatio();
                     })->save(public_path('/uploads/'. $filename));
-                  //  $file->move('uploads', $filename);
                     //uploading photo ends
                     ProductsPhoto::create([
                         'product_id' => $product->id,
@@ -199,14 +180,12 @@ class RegisterController extends Controller
           }
             Auth::login($user);
          //   $this->dispatch(new WelcomeRegistrationEmail());
-          /*  $email_data = array(
-          //   'recipient' => $user->user_email,
+            $email_data = array(
              'recipient' => Auth::user()->email,
              'subject' => 'Welcome To SalesNaija'
               );
                 $act_code = str_random(60);
                 $view_data = array(
-                'actkey' => $act_code,
                 'email' => Auth::user()->email,
                 'name' => Auth::user()->name,
             );
@@ -214,7 +193,7 @@ class RegisterController extends Controller
               Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              }); */
+              }); 
             session()->flash('message', 'Thanks for registering!'); 
              return redirect('/home');
         }else{
@@ -248,22 +227,20 @@ class RegisterController extends Controller
             'price' => $request->price,
             'currency' => $request->currency,
             'user_id' => $user->id
-        //    'address' => $request->address,
            ]);  
-           /*
+           
            $email_data = array(
-          //   'recipient' => $user->user_email,
              'recipient' => $request->email,
-             'subject' => 'Thanks For Registering'
+             'subject' => 'Welcome To SalesNaija'
               );
             $view_data = array(
                 'email' => $request->email,
             );
 
-              Mail::send('emails.registered', $view_data, function($message) use ($email_data) {
+              Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
                   $message->to( $email_data['recipient'] )
                           ->subject( $email_data['subject'] );
-              }); */
+              }); 
 
            Auth::login($user);
             session()->flash('message', 'Thanks for registering, your cryptocurrency has been added!'); 

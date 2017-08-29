@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials/mobile_search')
-	<div style="height: 0px"></div>
+	<div style="height: 24px"></div>
 	<div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">

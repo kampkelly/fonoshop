@@ -59,8 +59,5 @@ $(document).ready(function () {
 	$("section #hov").mouseleave(function() {
 		$(this).find(".shw").css({"visibility": "hidden", "border": "1px solid #fafafa"});
 	}); 
-
-	
-
 });
 </script>

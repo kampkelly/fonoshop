@@ -5,11 +5,9 @@
 	<div style="height: 10px"></div>
 	<style type="text/css">
 		.product img {
-		 /*  background-color: red; */
 		   position: relative;
 		   width: 100%;
 		   height: 150px;
-		/*   padding-top: 56.25%; /* 1:1 Aspect Ratio */
 		}
 	</style>
 	<div class="container">
@@ -50,14 +48,12 @@
 
 $(document).ready(function () {
 	$(".show-contact").click(function() {
-	//	$(".contact").toggle();
 		$(".contact").slideDown();
 		$(".show-contact").hide();
 		$(".hide-contact").show();
 	}); 
 	$(".hide-contact").click(function() {
-	//	$(".contact").toggle();
-		$(".contact").slideUp();
+=		$(".contact").slideUp();
 		$(".hide-contact").hide();
 		$(".show-contact").show();
 	}); 

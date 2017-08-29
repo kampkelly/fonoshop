@@ -27,7 +27,8 @@
 </head>
 <body>
 @include('partials/new_header')
-<div style="height: 0px;"></div>
+@include('partials/mobile_search')
+<div style="height: 40px;"></div>
  <div class="container">
 	 <div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
@@ -36,7 +37,6 @@
 		  <ul>
 		    <li><a href="#tabs-1">Products</a></li>
 		    <li><a href="#tabs-2">My Cryptocurrencies</a></li>
-		    <li><a href="#tabs-3">Empty</a></li>
 		  </ul>
 		  <div id="tabs-1">
 		  	<div class="row">
@@ -96,9 +96,7 @@
 			@endforeach
 		    
 		  </div>
-		  <div id="tabs-3">
-		    <p>Empty!</p>
-		  </div>
+		 
 		</div>
 		 
 		 </div>

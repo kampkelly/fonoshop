@@ -21,12 +21,14 @@
                   {{ csrf_field() }}
               </form>
 		</li>
+		@else
+			<li><a href="/login" class="small">Login</a></li>
 		@endif
 	</ul>
 	<ul class="list-inline list-unstyled container">
-	<li><p class="small">Fonoshop &copy 2017 Address: Benin City, Nigeria Email: fonoshop@gmail.com</p></li>
+	<li><p class="small">Salesnaija &copy 2017 Address: Benin City. Email: infosalesnaija@gmail.com</p></li>
 	</ul>
-		<a href="/sendmail" style="visibility: visible;">Test Email</a>
+		<a href="/sendmail" style="visibility: hidden;">Test Email</a>
 </div>
 
 </footer>

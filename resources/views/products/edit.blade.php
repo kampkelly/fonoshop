@@ -199,14 +199,6 @@ $(document).ready(function () {
                         src : e.target.result,
                         title : file.name
                     }).insertAfter("#files"); 
-                 /*   $("<span class=\"pip\">" +
-		            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-		            "<span class=\"remove text-danger\" style=\"cursor:pointer;\">Remove image</span>" +
-		            "</span>").insertAfter("#files");
-		          $(".remove").click(function(){
-		            $(this).parent(".pip").remove();
-		        //    $('this').val("");
-		          }); */
                });
                fileReader.readAsDataURL(f);
            }

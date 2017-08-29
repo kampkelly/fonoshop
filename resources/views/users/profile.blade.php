@@ -1,14 +1,13 @@
 @extends('layouts.new_master')
 
 @section('content')
-	<div style="height: 0px"></div>
+	<div style="height: 30px"></div>
 	<div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<h4 class="text-center">Update My Profile</h4>
 	<div style="height: 40px"></div>
 	<section class="container-fluid">
-	
 	<div class="row">
   <div class="col-xs-12 col-sm-9 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-1 col-lg-offset-2">
   		<form action="/register/{{$user->email}}" method="post" value="PUT" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
@@ -56,8 +55,6 @@
 	@include('partials/sidebar')
 	</section>
 	</div>
-	
-	
 	
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

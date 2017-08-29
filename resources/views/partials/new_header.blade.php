@@ -1,7 +1,4 @@
 <style type="text/css">
-        .namedrop:hover ul {
-          
-        }
         .namedrop ul li {
           padding: 5px 0px 10px 0px;
           border-bottom: 1px solid gray;
@@ -34,7 +31,7 @@
       @if(Auth::check())
         @if(checkPermission(['user']))
         <li>
-          <a href="/product_new" style="color: #d78512;">Sell A Product</a>
+          <a href="/new/product" style="color: #d78512;">Sell A Product</a>
         </li>
         @endif
         @if(checkPermission(['admin']))
@@ -82,21 +79,19 @@
 <ul>
    <li><a href='/'>Home</a></li>
   <li><a href='/products'>All Products</a></li>
+  <li><a href='/cryptocurrencies'>Cryptocurrencies</a></li>
    @if(Auth::check())
-      <li>
-      <a href="/product_new">Sell A Product</a>
-    </li>
-      <li>
-        <a href="/myprofile/update/{{Auth::user()->email}}">My Profile</a>
-      </li>
-      <li>
-        <a href="/myitems/{{Auth::user()->email}}">My Products</a>
-      </li>
       @if(checkPermission(['admin']))
           <li>
             <a href="/admin/panel">Admin Panel</a>
           </li>
       @endif
+      <li><a href='#'>Sell</a>
+        <ul>
+             <li><a href="/new/product">Sell Products</a></li>
+             <li><a href="/cryptocurrency/new">Sell Cryptocurrency</a></li>
+        </ul>
+    </li>
     @endif
   <li><a href='#'>Categories</a>
       <ul>
@@ -105,15 +100,14 @@
         @endforeach
       </ul>
   </li>
-  <li>
-    <a href="/cryptocurrencies">Buy Cryptocurrency</a>
-  </li> 
-  <li>
-    <a href="/cryptocurrency/new">Sell Cryptocurrency</a>
-  </li>
-   
-   <li><a href='/about'>About</a></li>
    @if (Auth::check())
+       <li>
+        <a href="/myitems/{{Auth::user()->email}}">My Products</a>
+      </li> 
+      <li>
+        <a href="/myprofile/update/{{Auth::user()->email}}">My Profile</a>
+      </li>
+      <li><a href='/contact'>Contact Us</a></li>
         <li>
             <a href="{{ route('logout') }}"  
                 onclick="event.preventDefault();
