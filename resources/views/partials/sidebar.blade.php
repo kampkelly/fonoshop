@@ -16,7 +16,7 @@
     </div>
     <div class="panel-body row">
         <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">
-            <img src=" {{ asset('homepage/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
+            <img src=" {{ asset('homepage/new/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
         </div>
         <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
         <p class="small">We offer the sale of bitcoins and perfect money. Buy Now!</p>

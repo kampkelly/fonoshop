@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
 	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
 	Route::get('myitems/{email}', 'UserController@myitems')->name('myitems');
+	Route::get('newitems/{email}', 'UserController@newitems')->name('myitems');
 	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
 	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
 	Route::post('/product/{slug}', 'ProductController@update');
