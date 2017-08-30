@@ -24,6 +24,9 @@ Route::get('/terms', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/fileuploaderror', function () {
+    return view('filebig');
+});
 
 Route::get('/', 'HomeController@newindex');
 Route::get('/home', 'HomeController@newindex');

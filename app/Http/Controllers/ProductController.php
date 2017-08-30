@@ -51,7 +51,7 @@ class ProductController extends Controller
                 'condition'=>'required'
             ]); 
         if( (checkPermission(['user'])) ){
-            if(filesize(Input::file('image')) > 1000){
+            if(filesize(Input::file('image')) < 1000){
                 session()->flash('message', 'Image too big');
                 return redirect('/fileuploaderror');
             }else{
@@ -92,7 +92,7 @@ class ProductController extends Controller
 
             if(Input::hasFile('photos')){
                      foreach (request('photos') as $photo) {
-                        if(filesize($photo) > 1000){
+                        if(filesize($photo) < 1000){
                             session()->flash('message', 'Image too big');
                             return redirect('/fileuploaderror');
                         }else{
@@ -114,7 +114,7 @@ class ProductController extends Controller
                     }
                 }
                 session()->flash('message', 'Product Added!'); 
-            return redirect('/cryptocurrencies');
+            return redirect('/products');
         }else{
              session()->flash('message', 'Sorry, This operation is not allowed! Please login as user!'); 
                 return redirect()->back();
