@@ -100,9 +100,6 @@
 
 <div class="row"> <!--start of row-->
 	<div class="col s12 m12 l9">  <!-- column 9-->
-  <div id="ajax-demo">
-  f
-  </div>
 		<h5 class="center-align">My Products</h5>
 		<div class="card-tabs">
 	      <ul class="tabs tabs-fixd-width">
@@ -197,16 +194,8 @@
 	</div>
 </div>
 
- <form method="post" action="/contact" id="sendform">
-   {{ csrf_field() }}
-   <input type="text" name="name" value="mynamejssokn" id="name">
-   <input type="email" name="email" id="email" value="kamp@gmail.com">
-   <textarea name="message" id="message"></textarea>
-   <button type="submit" onclick="sendnow()">Send</button>
- </form>
 
-<div id="hm">djkd</div>
-<div id="hmmm">djkd</div>
+
 
 
 
@@ -227,7 +216,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
-
 	$('.materialboxed').materialbox();
 	$(".button-collapse").sideNav();
 	$('select').material_select();
