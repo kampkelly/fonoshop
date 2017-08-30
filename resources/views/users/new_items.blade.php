@@ -47,15 +47,7 @@
       <li><a href="/cryptocurrencies">Cryptocurrencies</a>
       <li class="rigt"><a href="/cryptocurrency/new">Sell Cryptocurrency</a>
 
-      	<li>
-        	<form>
-        <div class="input-field">
-          <input id="search" type="search" required placeholder="search computers, phones, etc">
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-        </li>
+      	
 
       @if(Auth::check())
         @if(checkPermission(['user']))
