@@ -44,7 +44,7 @@ class HomeController extends Controller
     {
         $contact_email = $request->contact_email;
         $contact_name = $request->contact_name;
-        $contact_message = $request->contact_msg;
+        $contact_message = $request->contact_msg; 
         $email_data = array(
              'recipient' => 'infosalesnaija@gmail.com',
              'subject' => 'New Message From '.$contact_name.'(SalesNaija)'
@@ -65,7 +65,6 @@ class HomeController extends Controller
                 'email' => $request->contact_email,
                 'message' => $request->contact_msg
                ]); 
-
          
         session()->flash('message', 'Message sent. We wil get back to you shortly via email!'); 
             return redirect()->back();
