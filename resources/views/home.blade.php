@@ -33,7 +33,7 @@
             </div>
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
             @if(Auth::check())
-                <a href="/newitems/{{Auth::user()->email}}">new design</a>
+              <!--  <a href="/newitems/{{Auth::user()->email}}">new design</a>  -->
             @else
             <div class="text-center">
                 <h5 class="text-capitalize"><b>Want to sell?</b> Start Now...</h5>
