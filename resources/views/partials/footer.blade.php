@@ -2,7 +2,7 @@
 <footer style="position: relative; bottom: -1em; min-height: 5em; background-color: #DF8109; width: 100%; padding-top: 1.8em">
 <div class="text-center">
 	<ul class="list-inline list-unstyled container">
-		<li><a href="/" class="small">Fonoshop</a></li>
+		<li><a href="/" class="small">SalesNaija</a></li>
 		<li><a href="/products" class="small">Products</a></li>
 		<li><a href="/terms" class="small">Terms</a></li>
 		<li><a href="/privacy" class="small">Privacy Policy</a></li>

@@ -69,13 +69,13 @@ class UserController extends Controller
     public function updateprofile(Request $request, $email)
     {
        $this->validate(request(), [
-           'email' => 'required',
+        //   'email' => 'required',
            'name' => 'required'
         ]);
        if(Auth::user()->email == $email) {
 
        $user = User::where('email', $email)->first();
-            if (Input::has('email')) $user->email = $request->email;
+       //     if (Input::has('email')) $user->email = $request->email;
             if (Input::has('name')) $user->name = $request->name;
             if (Input::has('phone')) $user->phone = $request->phone;
             if (Input::has('city')) $user->city = $request->city;

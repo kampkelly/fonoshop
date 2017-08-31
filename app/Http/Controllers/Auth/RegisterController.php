@@ -76,7 +76,7 @@ class RegisterController extends Controller
 
     public function register(Request $request, $product_title, $price)
     {
-        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu', 'Benin'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
         session()->flash('message', 'Thanks for filling the form, just a little more before submitting!');
@@ -85,7 +85,7 @@ class RegisterController extends Controller
 
     public function newregister(Request $request)
     {
-        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu'];
+        $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu', 'Benin'];
         $categories = Category::all();
         $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(10);
         return view('auth.register', compact('categories', 'products', 'cities'));
@@ -139,6 +139,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
             'phone' => $request->phone,
             'status' => 'pending',
+            'city' => 'Benin',
             'is_permission' => 0
            ]);
 

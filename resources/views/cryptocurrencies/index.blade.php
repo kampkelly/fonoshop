@@ -12,7 +12,7 @@
 				@foreach($cryptocurrencies as $cryptocurrency)
 					<ul class="list-group">
 						<li class="list-group-item" style="background-color: #fafafa !important;"><p>{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">&#8358;{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span> 
-						<span class="show" style="cursor: pointer;"> <span class="pull-right phone" style="display: none">Phone: {{$cryptocurrency->user->phone}}, City: {{$cryptocurrency->user->city}}</span> <span class="pull-right">Show contact</span> </span>
+						<span class="show" style="cursor: pointer;"> <span class="pull-right phone" style="display: none">Phone: {{$cryptocurrency->user->phone}}, Location: {{$cryptocurrency->user->city}}</span> <span class="pull-right">Show contact</span> </span>
 						</p></li>
 					</ul>
 				@endforeach

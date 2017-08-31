@@ -15,7 +15,7 @@
 			<div class="form-group">
                 <label for="email" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Email <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-					<input type="email" name="email" id="email" class="form-control" required="required" placeholder="Email Address" value="{{$user->email}}" disabled>
+					<input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="{{$user->email}}" disabled>
 				</div>
 			</div>
 			<div class="form-group">
@@ -31,9 +31,10 @@
 				</div>
 			</div>
 			<div class="form-group">
-                    <label for="city" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <label for="city" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Location <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
                         <select name="city" id="city" class="form-control">
+                        	<option value="{{$user->city}}" required="true">{{$user->city}}</option>
                             @foreach($cities as $city)
                                 <option value="{{$city}}" required="true">{{$city}}</option>
                             @endforeach

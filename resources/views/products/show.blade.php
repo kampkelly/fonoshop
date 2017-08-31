@@ -35,7 +35,7 @@
 	<!--	<h6 style="cursor: pointer;" class="btn btn-sm btn-info show-contact">Show Seller's Contact</h6> -->
 		<h6 style="cursor: pointer;" class="btn btn-sm btn-info show-contact">Seller's Contact</h6>
 		<h6 style="cursor: pointer; display: none;" class="btn btn-sm btn-warning hide-contact">Hide Seller Contact</h6>
-		<p class="small contact" style="dislay: none;">Phone: {{$product->phone}}<br> Address: {{$product->state}}, {{$product->city}}</p>
+		<p class="small contact" style="dislay: none;">Phone: {{$product->phone}}<br> Location: {{$product->city}}</p>
 		</div>
 	</div>
 	</div>
