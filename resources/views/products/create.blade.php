@@ -38,7 +38,7 @@
 				<div class="form-group">
 	                <label for="price" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Price <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-						<input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price in naira">
+						<input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price e.g 3000">
 					</div>
 				</div>
 				<div class="form-group">
