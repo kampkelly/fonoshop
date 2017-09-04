@@ -40,7 +40,7 @@
                 <form action="/toregister" method="post" class="form-inline" style="paddng-left: 100px;" role="form" files="true" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="text" name="product_title" id="product_title" class="form-control" required="required" placeholder="Product Title" title="Enter name of the product you want to sell" required="true">
-                    <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price" title="Enter price of product in naira" required="true">
+                    <input type="number" name="price" id="price" class="form-control" required="required" placeholder="Price e.g 3000" title="Enter price of product in naira" required="true">
                     <input type="submit" name="submit" id="submit" class="form-control btn btn-sm btn-warning" value="Continue">
                 </form>
             </div>
