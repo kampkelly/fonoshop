@@ -79,7 +79,7 @@ class ProductController extends Controller
                 'name' => $request->name,
                 'title' => $request->product_title,
                 'image' => $newfilename,
-                'description' => 'desrcibe',
+                'description' => $request->description,
                 'category_id' => $request->category_id,
                 'price' => $request->price,
                 'phone' => $request->phone,
@@ -87,7 +87,7 @@ class ProductController extends Controller
                 'user_id' => Auth::user()->id,
                 'slug' => $slug,
                 'city' => $request->city,
-                'active' => 'active'
+                'status' => 'active'
                ]); 
 
             if(Input::hasFile('photos')){
