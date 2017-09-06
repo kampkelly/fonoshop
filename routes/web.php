@@ -12,6 +12,9 @@ Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
 Route::get('/test', function () {
     return view('test');
 });
+Route::get('/sitemap', function () {
+    return view('sitemap');
+});
 Route::get('/about', function () {
     return view('about');
 });

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://www.salesnaija.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/products</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/cryptocurrencies</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/cryptocurrency/new</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/register</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/login</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/contact</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/category/1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/category/2</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/category/3</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/category/4</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/product/Generator-438762426-2017-09-06</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/product/Television-and-Dvd-2018509928-2017-09-06</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/product/Toyota-Camry-1677681063-2017-09-05</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/product/Snoker-Board-1881044961-2017-08-29</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/terms</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/privacy</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/news</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/about</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/news/Welcome-to-SalesNaija.com-2017-08-29</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.salesnaija.com/password/reset</loc>
+  <changefreq>daily</changefreq>
+</url>
+</urlset>
