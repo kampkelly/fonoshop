@@ -50,14 +50,14 @@
                 <div class="form-group">
                     <label for="image" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Cover Photo <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
-                    <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(cover photo)</span>
+                    <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(cover photo, not more than 600kb)</span>
                         <input type="file" name="image" id="image" class="btn btn-warning btn-block" required="true" accept="image/*" onchange="validateFileType()">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="photo" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Additional Photos <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-7">
-                    <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(can select multiple photos)</span>
+                    <!--    <input type="file" name="photo" id="photo" placeholder="Enter Title" class="btn btn-success"> --><span class="asterisks small">(multiple photos,each not more than 600kb)</span>
                         <input type="file" name="photos[]" id="files" class="btn btn-success" accept="image/*" onchange="validateFileType()" multiple />
                     </div>
                 </div>

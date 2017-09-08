@@ -131,7 +131,8 @@ class RegisterController extends Controller
                     $newfilename = md5($file_basename) . $t . $file_ext;
                     Image::make($file)->resize(1500, null, function ($constraint) {
                       $constraint->aspectRatio();
-                  })->save(public_path('/uploads/'. $newfilename));               
+                  })->save(public_path('/uploads/cover/'. $newfilename));   
+          
 
            $user = User::create([
             'name' => $request->name,
@@ -170,7 +171,7 @@ class RegisterController extends Controller
                     $filename = md5($file_basename) . $t . $file_ext;
                     Image::make($file)->resize(1500, null, function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save(public_path('/uploads/'. $filename));
+                    })->save(public_path('/uploads/photos/'. $filename));
                     //uploading photo ends
                     ProductsPhoto::create([
                         'product_id' => $product->id,
@@ -196,7 +197,8 @@ class RegisterController extends Controller
                           ->subject( $email_data['subject'] );
               }); 
             session()->flash('message', 'Thanks for registering!'); 
-             return redirect('/home');
+        //     return redirect('/home');
+             return redirect('/product/edit/'.$slug);
         }else{
            session()->flash('message', 'Email Already Exists'); 
                 return redirect()->back();
