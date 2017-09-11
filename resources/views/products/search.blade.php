@@ -64,17 +64,19 @@
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hv" id="hov">
 				<div>
 						<div class="pael container-fluid row" style="width: 100%;">
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
-								<span class="small">Seller: {{$product->user->name}}</span>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-								<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
-									{{$product->title}}</h5>
-									<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
-									<p class="small">{{str_limit($product->description, 35)}}</p>
-									<a href="/product/{{$product->slug}}" class="small">See more...</a>
-							</div>
+							<a href="/product/{{$product->slug}}">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
+									<span class="small">Seller: {{$product->user->name}}</span>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+									<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
+										{{$product->title}}</h5>
+										<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
+										<p class="small">{{str_limit($product->description, 35)}}</p>
+										<a href="/product/{{$product->slug}}" class="small">See more...</a>
+								</div>
+							</a>
 						</div>
 							<div class="shw" style="width: 92%;">
 								<p class="small">{{str_limit($product->description, 125)}}</p>
@@ -83,7 +85,6 @@
 									<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
 								</div>
 								</p>
-								<span class="small">Seller resides in {{$product->state}}</span>
 							</div>
 							<div style="height: 10px"></div>
 					</div>

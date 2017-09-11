@@ -32,7 +32,6 @@
 							<a href="/product/{{$product->slug}}" style="color: #DF8109;">Read more...</a>
 						</div>
 						</p>
-						<span class="small">Seller resides in {{$product->city}}</span>
 					</div>
 					<div style="height: 10px"></div>
 			</div>
