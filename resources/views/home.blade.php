@@ -88,7 +88,7 @@
                 </div>
                  <!--carousel-->
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 top_selling">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 top_selling">
                 <h4 class="text-center" style="color: #236d9d;">Latest Additions</h4>
                 @foreach($prods as $prod)
                     <div href="/product/{{$prod->slug}}" style="position: relative; padding-left: 50px;">

@@ -45,6 +45,7 @@ $(document).ready(function () {
             $(".search_top").show();
             $('.firstsection').addClass('container');
             $(".top_selling").hide();
+            $('.firstsection').css('padding', '0px 0px 0px 0px');
         }
         if (w < 468) {
          $('.intrtext1').removeClass('text-center');
@@ -52,8 +53,11 @@ $(document).ready(function () {
             $('.intrtext1').addClass('text-center');
         }
         if (w > 992) {
-         $('.firstsection').addClass('container');
+            $('.firstsection').addClass('container');
+            $(".top_selling").show();
         }else{
+            $(".top_selling").hide();
+            $('.firstsection').css('padding', '0px 20px 0px 20px');
         }
     }
 

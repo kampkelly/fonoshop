@@ -634,14 +634,14 @@ footer p {
 
 @media (min-width: 0px) and (max-width: 467px) {
   .new_cover .firstsection .carousel img {
-    height: 200px !important;
+    height: 220px !important;
     width: 100% !important;
   }
 }
 
 @media (min-width: 468px) and (max-width: 767px) {
   .new_cover .firstsection .carousel img {
-    height: 200px !important;
+    height: 300px !important;
     width: 100% !important;
   }
 }

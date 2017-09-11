@@ -510,11 +510,11 @@ footer {
 			img {
 				height: 371.5px;
 				@media #{$smartphone} {
-					height: 200px !important;
+					height: 220px !important;
 					width: 100% !important;
 				}
 				@media #{$tablet} {
-					 height: 200px !important;
+					 height: 300px !important;
 					 width: 100% !important;
 				}
 				@media #{$mini-laptop} {
