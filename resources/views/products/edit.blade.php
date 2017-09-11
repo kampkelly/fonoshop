@@ -111,6 +111,7 @@
 	                <label for="category_id" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Category <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <select name="category_id" id="category_id" class="form-control">
+                        	<option value="{{$product->category->id}}">{{$product->category->name}}</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
