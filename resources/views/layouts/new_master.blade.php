@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-site-verification" content="801XK9yhdgwexU7lcgw_4c_QzmPuTtZcDZsA0GFNSlw" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>SalesNaija</title>
         <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/headmobile.css') }}" rel="stylesheet">

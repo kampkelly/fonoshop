@@ -54,21 +54,21 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item">
-                            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="homepage/new/3.jpg" style="filter: blur(0px) brightness(0.8) grayscale(0%);">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <h3>Be Satisfied With What You Get!</h3>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
                             <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="homepage/new/bitcoin.jpg" class="img-responsive" style="filter: blur(0px) brightness(0.8) grayscale(10%); width: 100%;">
                             <div class="container">
                                 <div class="carousel-caption">
                                     <h3>Buy Bitcoins, PerfectMoney, etc.</h3>
                                     <p></p>
                                     <p><a class="btn btn-lg btn-primary" href="/cryptocurrencies" role="button">Buy Cryptocurrencies</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="homepage/new/3.jpg" style="filter: blur(0px) brightness(0.8) grayscale(0%);">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h3>Be Satisfied With What You Get!</h3>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
