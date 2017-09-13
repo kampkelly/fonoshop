@@ -41,6 +41,7 @@
                     <label for="phone" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Category <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
                         <select name="category_id" id="category_id" class="form-control" title="Choose the category does the product falls in">
+                                <option value="" required="true" disabled selected>Select a Category</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}" required="true">{{$category->name}}</option>
                             @endforeach

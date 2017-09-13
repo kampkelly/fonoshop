@@ -72,7 +72,7 @@
 								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 									<h5><span style="color: #449D44;">{{$product->condition}}</span><br>
 										{{$product->title}}</h5>
-										<em class="small" style="color: green; font-size: 104%;">#{{$product->price}}</em>
+										<em class="small" style="color: green; font-size: 104%;"> &#8358;{{$product->price}}</em>
 										<p class="small">{{str_limit($product->description, 35)}}</p>
 										<a href="/product/{{$product->slug}}" class="small">See more...</a>
 								</div>

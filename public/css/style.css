@@ -641,7 +641,7 @@ footer p {
 
 @media (min-width: 468px) and (max-width: 767px) {
   .new_cover .firstsection .carousel img {
-    height: 300px !important;
+    height: 200px !important;
     width: 100% !important;
   }
 }
