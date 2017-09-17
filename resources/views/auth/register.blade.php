@@ -92,6 +92,12 @@
                         </div>
                     </div>
                 </div>
+               <div class="form-group">
+                    <label for="negotiable" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Negotiable <span class="asterisks">*</span></label>
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                            <input type="checkbox" name="negotiable" id="negotiable" value="1">
+                    </div>
+                </div> 
                 <div class="form-group">
                     <label for="state" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">

@@ -32,7 +32,7 @@
  <div class="container">
 	 <div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-		<h4 class="text-center">My Products</h4>
+		<h4 class="text-center">My Productss</h4>
 		<div id="tabs">
 		  <ul>
 		    <li><a href="#tabs-1">Products</a></li>

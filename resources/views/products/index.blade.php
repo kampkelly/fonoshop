@@ -16,6 +16,7 @@
 						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 							<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive" style="max-height: 90px;">
 							<span class="small">Seller: {{$product->user->name}}</span>
+							<span class="badge" style="font-size: 60%; background: #DF8109; ">viewed {{$product->viewcounts}} times</span>
 						</div>
 						<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 							<h5><span style="color: #449D44;">{{$product->condition}}</span><br>

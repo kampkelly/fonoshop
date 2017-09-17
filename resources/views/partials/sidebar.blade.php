@@ -12,7 +12,7 @@
 </form>
 <div class="pael panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Buy or Sell Cryptocurrencies</h3>   
+        <h3 class="panel-title">Bitcoins/Perfect Money</h3>   
     </div>
     <div class="panel-body row">
         <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">

@@ -1,4 +1,25 @@
 $(document).ready(function () {
+  /*  $(document, '#closeicon').click( function(){
+        $('#mobmenu').css({"transition": "1s", "left": "-50%"});
+        $('#closeicon').hide();
+        $('#openicon').show();
+    }); */
+    $(document).on('click', function(event) {
+      if (!$(event.target).closest('#mobmenu, #openicon').length) {
+        // Hide the menus.
+        $('#mobmenu').css({"transition": "1s", "left": "-50%"});
+        $('#closeicon').hide();
+        $('#openicon').show();
+      }
+    });
+    $("#openicon").click(function(event) {
+     //   event.stopPropagation();
+       $('#mobmenu').css({"transition": "1s", "left": "0"});
+       $('#mobmenu').focus();
+       $(this).hide();
+       $('#closeicon').show();
+     }); 
+ 
     $(".namedrop").click(function() {
         $(this).find("ul").slideDown();
     }); 
@@ -62,3 +83,4 @@ $(document).ready(function () {
     }
 
   }); 
+///push menu

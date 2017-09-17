@@ -33,6 +33,7 @@ Route::get('/fileuploaderror', function () {
 
 Route::get('/', 'HomeController@newindex');
 Route::get('/home', 'HomeController@newindex');
+Route::get('/homepag', 'HomeController@homepage');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/product/{slug}', 'ProductController@show')->name('productshow');
@@ -54,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('myprofile/update/{email}', 'UserController@myprofile')->name('myprofile');
 	Route::post('/register/{email}', 'UserController@updateprofile')->name('updateprofile');
 	Route::get('myitems/{email}', 'UserController@myitems')->name('myitems');
+	Route::get('allmyitems/{email}', 'UserController@allmyitems')->name('allmyitems');
 	Route::get('newitems/{email}', 'UserController@newitems')->name('myitems');
 	Route::get('/product/edit/{slug}', 'ProductController@edit')->name('edit');
 	Route::post('/product/{id}/image-deleted', 'ProductsPhotoController@destroy');
@@ -108,6 +110,8 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 $this->post('/toregister', 'Auth\RegisterController@toregister');
 $this->get('/register/{name}/{price}', 'Auth\RegisterController@register');
 $this->get('/register', 'Auth\RegisterController@newregister');
+$this->get('/authregister', 'Auth\RegisterController@showregister');
+$this->post('/authregister', 'Auth\RegisterController@authregister');
 $this->post('/newregister', 'Auth\RegisterController@new_register');
 $this->post('/bitregister', 'Auth\RegisterController@bit_register');
 
@@ -118,3 +122,7 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //admin
+
+Route::get('/auth/{provider}', 'Auth\LoginController@redirectToProvider');
+//Route::get('/auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

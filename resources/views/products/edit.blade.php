@@ -86,6 +86,16 @@
 						@endif
 					</div>
 				</div>
+				<div class="form-group">
+                    <label for="negotiable" class="col-xs-3 col-sm-4 col-md-4 col-lg-4 control-label">Negotiable <span class="asterisks">*</span></label>
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-lg-4">
+                    	@if($product->negotiable == 1)
+                        	<input type="checkbox" name="negotiable" id="negotiable" value="1" checked>
+                        @else
+							<input type="checkbox" name="negotiable" id="negotiable" value="1">
+                        @endif
+                    </div>
+                </div> 
 				<div style="height: 10px;"></div>
 				<div class="form-group">
 	                <label for="image" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Cover Photo <span class="asterisks">*</span></label>

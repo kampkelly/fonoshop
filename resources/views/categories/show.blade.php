@@ -8,6 +8,7 @@
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 		<h3 class="text-center">{{$category->name}}</h3>
 		<div class="row">
+		@if( $countproducts >= 1)
 		@foreach($products as $product)
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="hov">
 				<div class="pael container-fluid row" style="width: 100%;">
@@ -35,6 +36,11 @@
 					<div style="height: 10px"></div>
 			</div>
 		@endforeach	
+		@else
+			<div class="container">
+				<h3>Hello,there are no products here now. Do u have something to sell, you can do so <a href="/new/product">right here</a></h3>
+			</div>
+		@endif
 		</div>
 		<div class="text-center"> 
             {{ $products->links() }} <!--paginate links-->

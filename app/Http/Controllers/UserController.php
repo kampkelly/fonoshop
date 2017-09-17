@@ -48,6 +48,24 @@ class UserController extends Controller
         }
     } 
 
+    public function allmyitems($email)
+    {
+        if( (checkPermission(['user'])) ){
+            if(Auth::user()->email == $email) {
+                $user = User::where('email', $email)->first();
+                $products = $user->products()->orderBy('id', 'desc')->get();
+                $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
+                return view('users.allitems', compact('user', 'products', 'cryptocurrencies'));
+            }else{
+                 session()->flash('message', 'Invalid Operation!'); 
+                return redirect()->back();
+            }
+         }else{
+             session()->flash('message', 'Sorry, This operation is not allowed!');
+                return redirect()->back();
+        }
+    } 
+
     public function newitems($email)
     {
         if( (checkPermission(['user'])) ){

@@ -3,8 +3,8 @@
         {{ csrf_field() }}
         <div class="input-group">
             <input type="text" class="form-control" name="item"
-                placeholder="Search computers, laptops, phones, software, accessories, etc..."> <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">
+                placeholder="Find an item to buy now!"> <span class="input-group-btn">
+                <button type="submit" class="btn btn-info">
                     <span class="glyphicon glyphicon-search" style="height: 1.4em;"></span>
                 </button>
             </span>

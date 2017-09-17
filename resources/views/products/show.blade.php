@@ -15,12 +15,13 @@
 	<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 	<div class="row">
 		<div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-			<h4 class="text-center">{{$product->title}}</h4>
+			<h4 class="text-center">{{$product->title}} <span class="badge" style="font-size: 50%; background: #DF8109; ">viewed {{$product->viewcounts}} times</span></h4> 
 			<h6 class="text-center">Price: <span style="color: green; font-size: 120%;">&#8358;{{$product->price}}</span> Condition:<span style="color: green; font-size: 110%;"> {{$product->condition}}</span> Seller: {{$product->user->name}}</h6>
 			<section class="container-fluid text-center product">
-				<p class="text-center text-justify" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
+				<p class="text-center text-justify hide-smartphone" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
+				<p class="text-center text-justify show-only-smartphone lead" stle="padding: 0px 190px 0px 190px;">{{$product->description}}</p>
 				<div class="row" stye="padding: 0px 220px 0px 220px;">
-					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 panel panel-deault">
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 panel panel-deault">
 						<img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive">
 					</div>
 					@foreach($product->productsphoto as $photo)
@@ -31,11 +32,17 @@
 				</div>
 			</section>
 		</div>
-		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-3">
+			@if($product->negotiable == 1)
+			<p class="small">Product Negotiable</p>
+			@else
+			<p class="small">Product Not Negotiable</p>
+			@endif
+
 	<!--	<h6 style="cursor: pointer;" class="btn btn-sm btn-info show-contact">Show Seller's Contact</h6> -->
-		<h6 style="cursor: pointer;" class="btn btn-sm btn-info show-contact">Seller's Contact</h6>
-		<h6 style="cursor: pointer; display: none;" class="btn btn-sm btn-warning hide-contact">Hide Seller Contact</h6>
-		<p class="small contact" style="dislay: none;">Phone: {{$product->phone}}<br> Location: {{$product->city}}</p>
+		<h6 style="cursor: pointer;" class="btn btn-sm btn-info show-contact col-xs-6 col-sm-12">Seller's Contact</h6>
+		<h6 style="cursor: pointer; display: none;" class="btn btn-sm btn-warning hide-contact col-xs-6 col-sm-12">Hide Seller Contact</h6>
+		<p class="small contact col-xs-6 col-sm-12" style="dislay: none;">Phone: {{$product->phone}}<br> Location: {{$product->city}}</p>
 		</div>
 	</div>
 	</div>

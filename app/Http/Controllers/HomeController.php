@@ -21,7 +21,7 @@ class HomeController extends Controller
    
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['newindex', 'index', 'contact']]);
+        $this->middleware('auth', ['except' => ['newindex', 'index', 'contact', 'homepage']]);
     }
 
      public function newindex()
@@ -32,6 +32,16 @@ class HomeController extends Controller
         $cryptocurrencies = Cryptocurrency::simplePaginate(10);
         $cryptocategories = Cryptocategory::simplePaginate(10);
         return view('home', compact('categories', 'products', 'cryptocurrencies', 'prods', 'cryptocategories'));
+    }  
+
+    public function homepage()
+    {
+        $categories = Category::orderBy('id', 'asc')->get();
+        $products = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(42);
+        $prods = Product::where('status', 'active')->orderBy('id', 'desc')->simplePaginate(12);
+        $cryptocurrencies = Cryptocurrency::simplePaginate(10);
+        $cryptocategories = Cryptocategory::simplePaginate(10);
+        return view('homepage', compact('categories', 'products', 'cryptocurrencies', 'prods', 'cryptocategories'));
     }
 
     public function index()

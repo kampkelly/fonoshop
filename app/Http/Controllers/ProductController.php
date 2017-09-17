@@ -74,6 +74,10 @@ class ProductController extends Controller
                 $slug_combine = $slug_title.' '.$slug_random.' '.$slug_date;
                 $slug_format = strtr($slug_combine, ' ', '-');
                 $slug = $slug_format;
+                if (Input::get('negotiable') == '1')
+                { $negotiable = True;}
+                else
+                { $negotiable = False;}
 
             $product = Product::create([
                 'name' => $request->name,
@@ -84,6 +88,7 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'phone' => $request->phone,
                 'condition' => $request->condition,
+                'negotiable' => $negotiable,
                 'user_id' => Auth::user()->id,
                 'slug' => $slug,
                 'city' => $request->city,
@@ -126,7 +131,21 @@ class ProductController extends Controller
     {
          $product = Product::where('slug', $slug)->where('status', 'active')->first();
          $productphotos = $product->productsphoto()->orderBy('id', 'desc')->get();
-        return view('products.show', compact('product', 'productphotos'));
+       //  $viewcounts = 0;  s_naija_pro_count  /product/'.$slug.'
+      //  $cookie_count = "s_naija_pro_count";
+        $cookie_count = $slug;
+        
+        if(!isset($_COOKIE[$cookie_count])) {
+            $cookie_value =  1;
+            setcookie($cookie_count, $cookie_value, time() + (1800), "/");
+            $viewcounts = $product->viewcounts + 1;
+            $product->viewcounts = $viewcounts;
+            $product->save();
+            $ok = '';
+        } else {
+            $ok = $_COOKIE[$cookie_count];
+        }
+        return view('products.show', compact('product', 'productphotos', 'ok'));
     }
 
     public function edit($slug)
@@ -183,6 +202,12 @@ class ProductController extends Controller
             if (Input::has('phone')) $product->phone = $request->phone;
             if (Input::has('category_id')) $product->category_id = $request->category_id;
             if (Input::has('condition')) $product->condition = $request->condition;
+         //   if (Input::has('negotiable')) $product->negotiable = True;
+         //   if (isset($request->negotiable)) $product->negotiable = True;
+            if (Input::get('negotiable') == '1')
+            { $product->negotiable = True;}
+            else
+            { $product->negotiable = False;}
             if (Input::has('state')) $product->state = $request->state;
             if (Input::has('city')) $product->city = $request->city;
             if (Input::has('status')) $product->status = $request->status;

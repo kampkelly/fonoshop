@@ -50,7 +50,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $pro = Product::all();
          $products = $category->products()->where('status', 'active')->orderBy('id', 'desc')->simplePaginate(15);
-        return view('categories.show', compact('category', 'products', 'pro'));
+         $countproducts = count($products);
+        return view('categories.show', compact('category', 'products', 'pro', 'countproducts'));
     }
 
     public function update(Request $request, $id)

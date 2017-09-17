@@ -74,6 +74,55 @@ class RegisterController extends Controller
         return redirect('/register/'.$product_title.'/'.$price);
     }
 
+      public function showregister(Request $request)
+    {
+        return view('auth.authregister');
+    }
+
+        public function authregister(Request $request)
+    {
+       $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'password'=> 'required|min:6'
+        ]);  
+       $user = User::where('email', '=', Input::get('email'))->first();
+            if ($user === null) {
+              $user = User::create([
+                  'name' => $request->name,
+                  'email' => $request->email,
+                  'password' => bcrypt($request->password),
+                  'status' => 'pending',
+                  'is_permission' => 0
+             ]);
+                Auth::login($user);
+             //   $this->dispatch(new WelcomeRegistrationEmail());
+             /*   $email_data = array(
+                 'recipient' => Auth::user()->email,
+                 'subject' => 'New Registration On SalesNaija'
+                  );
+                    $act_code = str_random(60);
+                    $view_data = array(
+                    'email' => Auth::user()->email,
+                    'name' => Auth::user()->name,
+                );
+
+                  Mail::send('emails.welcomeregistration', $view_data, function($message) use ($email_data) {
+                      $message->to( $email_data['recipient'] )
+                              ->subject( $email_data['subject'] );
+                  });  */
+                session()->flash('message', 'Welcome, you can upload your product here!'); 
+            //     return redirect('/home');
+                 return redirect('/new/product/');
+            }else{
+               session()->flash('message', 'Email Already Exists'); 
+                    return redirect()->back();
+            }
+        $product_title = $request->product_title;
+        $price = $request->price;
+        return redirect('/register/'.$product_title.'/'.$price);
+    }
+
     public function register(Request $request, $product_title, $price)
     {
         $cities = ['Airport Road', 'Aduwawa', 'Ekewan', 'G.R.A', 'Iguobazuwa', 'Ikpoba hill', 'Oka', 'Oluku', 'Ugbiyoko', 'Ugbowo', 'Upper Mission', 'Upper Sakponba', 'Uselu', 'Benin'];
@@ -133,6 +182,10 @@ class RegisterController extends Controller
                       $constraint->aspectRatio();
                   })->save(public_path('/uploads/cover/'. $newfilename));   
           
+          if (Input::get('negotiable') == '1')
+            { $negotiable = True;}
+            else
+            { $negotiable = False;}
 
            $user = User::create([
             'name' => $request->name,
@@ -155,6 +208,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'slug' => $slug,
             'condition' => $request->condition,
+            'negotiable' => $negotiable,
             'state' => $request->state,
             'city' => $request->city,
             'status' => 'active'
