@@ -34,19 +34,21 @@ class LoginController extends Controller
      //socialite login
      public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->redirect();
+     //   return Socialite::driver($provider)->redirect();
+        return Socialite::with($provider)->redirect();
     }
 
      public function handleProviderCallback($provider)
     {
         try {
-            $provideduser = Socialite::driver($provider)->user();
+         //   $provideduser = Socialite::driver($provider)->user();
+            $providerUser = Socialite::with($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/'.$provider);
+         //   return Redirect::to('auth/'.$provider);
         }
 
         $authUser = $this->findOrCreateser($provideduser, $provider);
-    //    $authUser = $this->findOrCreateUser($githubUser);
+        $authUser = $this->findOrCreateUser($githubUser);
 
         Auth::login($authUser, true);
 
@@ -63,7 +65,7 @@ class LoginController extends Controller
                 'email' => $provideduser->email,
                 'provider' => $provider,
                 'provider_id' => $provideduser->id,
-                'is_permission'=> '0',
+                'is_permission'=> 0,
                 'status' => 'pending'
             ]);
     }

@@ -124,5 +124,4 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 //admin
 
 Route::get('/auth/{provider}', 'Auth\LoginController@redirectToProvider');
-//Route::get('/auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
