@@ -1,24 +1,3 @@
-<style type="text/css">
-#mobmenu {
-    display: none;
-    width: 50%; 
-    height: 100vh; 
-    position: fixed; 
-    background-color: #FAFAFA; 
-    z-index: 98; 
-    margin-top: 83px; 
-    border: 1px solid #c4c4c4; 
-    border-radius: 3px; 
-    left: -50%;
-  }  
-  #mobmenu .list-group-item {
-      background-color: #FAFAFA !important;
-    }
-    #mobmenu a, i {
-      color: grey;
-    }
-</style>
-
 <div style="position: relative;" id="mob-head-container" class=" hide-mini-laptop hide-desktop">
 <header id="mob-hea" style="background:#F5FAFD !important; width: 100%; position: fixed; z-index: 99; height: 45px;">
     <div style="background: red !important; width: 100%;">
