@@ -112,7 +112,7 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 $this->post('/toregister', 'Auth\RegisterController@toregister');
 $this->get('/register/{name}/{price}', 'Auth\RegisterController@register');
 $this->get('/register', 'Auth\RegisterController@newregister');
-$this->get('/authregister', 'Auth\RegisterController@showregister');
+$this->get('/signup', 'Auth\RegisterController@showregister');
 $this->post('/authregister', 'Auth\RegisterController@authregister');
 $this->post('/newregister', 'Auth\RegisterController@new_register');
 $this->post('/bitregister', 'Auth\RegisterController@bit_register');

@@ -47,7 +47,7 @@
             </li>
         @else
             <li class="list-group-item"><a href="/login">Signin</a></li>
-            <li class="list-group-item"><a href="/authregister">Signup</a></li>
+            <li class="list-group-item"><a href="/signup">Signup</a></li>
         @endif  
         <li class="list-group-item"><a href="/contact">Contact</a></li>
         <li class="list-group-item"><a href="/about">About</a></li>
@@ -141,7 +141,7 @@
         </li>
       @else
       <li class="pull-right">
-        <a href="/authregister" style="color: #d78512;">Register</a>
+        <a href="/signup" style="color: #d78512;">Register</a>
       </li>
       <li class="pull-right">
         <a href="/login" style="color: #d78512;">Login</a>
