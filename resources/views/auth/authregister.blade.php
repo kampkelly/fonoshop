@@ -77,14 +77,14 @@
                                 <button type="submit" class="btn btn-primary btn-block">
                                     Signup To Sell
                                 </button>
+                                <h4 class="text-center">or</h4>
+                                <ul style="display: flex;" class="list-unstyled list-inline">
+                                    <li style="flex: 1;"><a href="/auth/google" class="btn btn-danger">Signup With Google</a></li>
+                                    <li style="flex: 1;"><a href="/auth/facebook" class="btn btn-primary">Signup With Facebook</a></li>
+                                </ul>
                             </div>
                         </div>
                     </form>
-                    <h4 class="text-center">or</h4>
-                    <div class="text-cente col-md-8 col-md-offset-4">
-                        <a href="/auth/google" class="btn btn-danger">Signup With Google</a>
-                        <a href="/auth/facebook" class="btn btn-primary">Signup With Facebook</a>
-                    </div>
                 </div>
                 
             </div>

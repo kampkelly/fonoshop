@@ -30,7 +30,7 @@
 <div style="height: 0px" class="hide-mini-laptop hide-desktop"></div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <a href="/homepag" class="btn btn-xs btn-danger"><span class=" glyphicon glyphicon-home"></span> Back to home</a><br><br>
+            <a href="/" class="btn btn-xs btn-danger"><span class=" glyphicon glyphicon-home"></span> Back to home</a><br><br>
             <div class="panel panel-default">
                 <div class="panel-heading text-center" style="color: darkorange"><h4>SalesNaija, Signin to your account</h4></div>
                 <div class="panel-body">
@@ -82,8 +82,8 @@
                                 </button> 
                                 <h4 class="text-center">or</h4>
                                 <ul style="display: flex;" class="list-unstyled list-inline">
-                                 <li style="flex: 1;"><a href="/auth/google" class="btn btn-danger">Signin With Google</a> </li>
-                                <li style="flex: 1;"><a href="/auth/facebook" class="btn btn-primary">Signin With Facebook</a></li>
+                                     <li style="flex: 1;"><a href="/auth/google" class="btn btn-danger">Signin With Google</a> </li>
+                                    <li style="flex: 1;"><a href="/auth/facebook" class="btn btn-primary">Signin With Facebook</a></li>
                                 </ul>
                                  <br><br>
 
