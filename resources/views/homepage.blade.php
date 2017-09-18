@@ -97,6 +97,11 @@
         @endforeach
     </section>
 
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            
+        </div>
+    </div>
    <section class="bitcoin_section container">
     <h3 class="text-center">Available Cryptocurrencies</h3>
     <ul class="list-group row">
