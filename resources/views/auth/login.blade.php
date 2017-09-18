@@ -25,7 +25,7 @@
         display: none;
     }
 </style>
-<div class="container" style="height: 100vh; overflow-y: hidden;">
+<div class="container logns" style="height: 100vh; overflow-y: hidden;">
 <div style="height: 40px" class="hide-smartphone hide-tablet"></div>
 <div style="height: 0px" class="hide-mini-laptop hide-desktop"></div>
     <div class="row">
