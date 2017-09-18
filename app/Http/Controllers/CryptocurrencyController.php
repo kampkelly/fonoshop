@@ -61,7 +61,7 @@ class CryptocurrencyController extends Controller
                 'user_id' => Auth::user()->id,
                ]); 
             session()->flash('message', 'Cryptocurrency Added!'); 
-            return redirect('/myitems/'.Auth::user()->email);
+            return redirect('/allmyitems/'.Auth::user()->email);
         }else{
             session()->flash('message', 'Sorry, This operation is not allowed! Please login as user'); 
                 return redirect()->back();

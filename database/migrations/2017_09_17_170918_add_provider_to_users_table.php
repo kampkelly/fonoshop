@@ -17,7 +17,6 @@ class AddProviderToUsersTable extends Migration
             $table->string('provider')->nullable();
             $table->string('provider_id')->unique()->nullable();
             $table->string('password')->nullable()->change();
-            $table->string('email')->nullable()->change();
         });
     }
 
@@ -32,7 +31,6 @@ class AddProviderToUsersTable extends Migration
             $table->dropColumn('provider');
             $table->dropColumn('provider_id');
             $table->string('password')->change();
-            $table->string('email')->change();
         });
     }
 }
