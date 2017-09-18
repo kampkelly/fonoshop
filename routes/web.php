@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Input;
 Route::get('/sendmail', 'ProductController@sendmail')->name('sendmail');
 //not useful
 //notauthenticated begins
-
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+    return "cleared";
+});
 Route::get('/test', function () {
     return view('test');
 });
