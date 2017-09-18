@@ -19,7 +19,7 @@
             <img src=" {{ asset('homepage/new/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
         </div>
         <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
-        <p class="small">Great deals for bitcoins and perfect money. Buy Now!</p>
+        <p class="small tog">Great deals for bitcoins and perfect money. Buy Now!</p>
         <a href="/cryptocurrencies" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
         </div>
     </div>
@@ -50,3 +50,15 @@
         @endforeach
         </ul>
 	</div>
+    <script type="text/javascript">
+        setInterval(function(){
+         /*   setTimeout(function(){
+                $('.tog').css({"transform":"scale(1,1)","transition":"2s"});
+             }, 1000); */
+            $('.tog').fadeOut(500);
+            $('.tog').fadeIn(1500);
+          /*  setTimeout(function(){
+                $('.tog').css({"transform":"scale(1.2,1.2)","transition":"2s"});
+            }, 2000); */
+        }, 2500);
+    </script>

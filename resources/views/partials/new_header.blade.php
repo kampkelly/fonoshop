@@ -33,13 +33,24 @@
         @if(Auth::check())
             <li class="list-group-item"><a href="/myprofile/update/{{Auth::user()->email}}">My Profile</a></li>
             <li class="list-group-item"><a href="/allmyitems/{{Auth::user()->email}}">My Products</a></li>
+            <li class="list-group-item">
+                <a href="{{ route('logout') }}"  
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Signout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
         @else
             <li class="list-group-item"><a href="/login">Signin</a></li>
             <li class="list-group-item"><a href="/authregister">Signup</a></li>
         @endif  
         <li class="list-group-item"><a href="/contact">Contact</a></li>
         <li class="list-group-item"><a href="/about">About</a></li>
-        <li class="list-group-item"><a href="/termsofuse">Terms</a></li>
+        <li class="list-group-item"><a href="/terms">Terms</a></li>
     </ul>
 </nav>
 </div>
@@ -118,7 +129,7 @@
                 <a href="{{ route('logout') }}" class="small" style="color: #d78512;"  
                     onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
-                    Logout
+                    Signout
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -76,16 +76,21 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    Login
+                                    Signin
                                 </button> 
-                                <h4 class="text-center">or</h4> <a href="/auth/google" class="btn btn-danger">Signin With Google</a> <a href="/auth/facebook" class="btn btn-primary">Signin With Facebook</a><br><br>
+                                <h4 class="text-center">or</h4>
+                                <ul style="display: flex;" class="list-unstyled list-inline">
+                                 <li style="flex: 1;"><a href="/auth/google" class="btn btn-danger">Signin With Google</a> </li>
+                                <li style="flex: 1;"><a href="/auth/facebook" class="btn btn-primary">Signin With Facebook</a></li>
+                                </ul>
+                                 <br><br>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                                <a class="btn btn-link" href="/">
+                                <a class="btn btn-link" href="/authregister">
                                     Register
                                 </a>
                             </div>

@@ -23,6 +23,7 @@
 		  <div class="col-sm-12 main_content">
 		<div class="row">
         <div class="col-sm-7 col-lg-7 col-sm-offset-4 col-lg-offset-3">
+            <a href="/login" class="btn btn-xs btn-info pull-right">Signin <span class=" glyphicon glyphicon glyphicon-log-in"></span></a><br><br>
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><h4>Signup</h4></div>
                 <div class="panel-body">
@@ -79,7 +80,7 @@
                             </div>
                         </div>
                     </form>
-                    <h4 class="text-center">OR</h4>
+                    <h4 class="text-center">or</h4>
                     <div class="text-cente col-md-8 col-md-offset-4">
                         <a href="/auth/google" class="btn btn-danger">Signup With Google</a>
                         <a href="/auth/facebook" class="btn btn-primary">Signup With Facebook</a>

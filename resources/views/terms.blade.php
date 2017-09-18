@@ -6,7 +6,7 @@
 		<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
 			<section class="container-fluid terms">
-				<h4 class="text-center">SalesNaija Privacy Policy</h4>
+				<h4 class="text-center">Terms of Use</h4>
 				<p>
 .</p>
 				
