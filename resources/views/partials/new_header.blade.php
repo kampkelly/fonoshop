@@ -12,8 +12,9 @@
 </header>
 <nav id="mobmenu">
     <ul class="list-unstyled list-group" style="padding-top: 0px;">
-        <li class="list-group-item"><a href="/homepag">Home</a></li>
+        <li class="list-group-item"><a href="/">Home</a></li>
         <li class="list-group-item"><a href="/products">Products</a></li>
+        <li class="list-group-item"><a href="/new/product">Sell a product</a></li>
         <li class="list-group-item expand">
             <a href="#categories" data-toggle="collapse">Categories</a> <i class="glyphicon glyphicon-plus"></i>
             <ul class="nav collapse" id="categories">
@@ -21,7 +22,7 @@
                     <li style="padding-bottom:0px;">
                         <div class="col-sm-1">&nbsp;</div>
                         <div class="col-sm-1">
-                            <a href="/category/{{$headcategories->idk}}">{{$headcategories->name}}</a>
+                            <a href="/category/{{$headcategories->id}}">{{$headcategories->name}}</a>
                         </div>
                         <div class="clearfix"></div>
                     </li>

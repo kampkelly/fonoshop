@@ -103,6 +103,7 @@
 	                <label for="phone" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Category <span class="asterisks">*</span></label>
 	                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <select name="category_id" id="category_id" class="form-control">
+                        	<option value="" required="true" disabled selected>Select a Category</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
@@ -112,11 +113,17 @@
 				<div class="form-group">
                     <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled="true">
+                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled>
                     </div>
                 </div>
 				<div class="form-group">
                     <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="state" id="" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Benin" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Region <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <select name="city" id="city" class="form-control">
                             @foreach($cities as $city)

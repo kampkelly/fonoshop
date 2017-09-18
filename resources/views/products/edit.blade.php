@@ -131,11 +131,17 @@
 				<div class="form-group">
                     <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">State <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled="true">
+                        <input type="text" name="state" id="state" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Edo" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <input type="text" name="stat" id="stat" class="form-control" required="required" placeholder="Enter City" required="true" title="Enter City" value="Benin" disabled>
                     </div>
                 </div>
 				<div class="form-group">
-                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">City <span class="asterisks">*</span></label>
+                    <label for="city" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">Region <span class="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <select name="city" id="city" class="form-control">
                         		<option value="{{$product->city}}" required="true">{{$product->city}}</option>

@@ -58,6 +58,8 @@ class CryptocurrencyController extends Controller
             $cryptocurrency = Cryptocurrency::create([
                 'price' => $request->price,
                 'currency' => $request->currency,
+                'phone' => $request->phone,
+                'address' => $request->address,
                 'user_id' => Auth::user()->id,
                ]); 
             session()->flash('message', 'Cryptocurrency Added!'); 
@@ -95,6 +97,8 @@ class CryptocurrencyController extends Controller
             if(Auth::user()->id == $cryptocurrency->user_id) {
                 if (Input::has('price')) $cryptocurrency->price = $request->price;
                 if (Input::has('currency')) $cryptocurrency->currency = $request->currency;
+                if (Input::has('phone')) $cryptocurrency->phone = $request->phone;
+                if (Input::has('address')) $cryptocurrency->address = $request->address;
                 $cryptocurrency->save();
 
                 session()->flash('message', 'Cryptocurrency Updated'); 

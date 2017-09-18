@@ -76,7 +76,7 @@ class HomeController extends Controller
                 'message' => $request->contact_msg
                ]); 
          
-        session()->flash('message', 'Message sent. We wil get back to you shortly via email!'); 
+        session()->flash('message', 'Message sent. You will receive a reply shortly via email!'); 
             return redirect()->back();
     }
 

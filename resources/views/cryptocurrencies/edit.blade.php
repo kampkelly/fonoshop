@@ -27,6 +27,18 @@
                         </select>
                     </div>
 				</div>
+				<div class="form-group">
+	                <label for="phone" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Phone <span class="asterisks">*</span></label>
+	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<input type="text" name="phone" id="phone" class="form-control" required value="{{$cryptocurrency->phone}}" placeholder="Phone No.">
+					</div>
+				</div>
+				<div class="form-group">
+	                <label for="address" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 control-label">Address <span class="asterisks">*</span></label>
+	                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<input type="text" name="address" id="address" class="form-control" required value="{{$cryptocurrency->address}}" placeholder="Address">
+					</div>
+				</div>
 				 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                         <button type="submit" class="btn btn-primary btn-block btn-sm">

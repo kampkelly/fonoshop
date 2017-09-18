@@ -98,11 +98,13 @@
     </section>
 
    <section class="bitcoin_section container">
-    <h3 class="text-center">Buy Cryptocurrencies</h3>
+    <h3 class="text-center">Available Cryptocurrencies</h3>
     <ul class="list-group row">
     @foreach($cryptocurrencies as $cryptocurrency)
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">&#8358;{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span></li>
+            <li class="list-group-item">{{$cryptocurrency->user->name}} is selling at <span style="color: #DF8109;">&#8358;{{$cryptocurrency->price}}/{{$cryptocurrency->currency}}</span>
+            <span class="show" style="cursor: pointer;"> <span class="pull-right phone" style="display: none"> Phone: {{$cryptocurrency->phone}}, Location: {{$cryptocurrency->address}}</span> <span class="pull-right">Show contact </span> </span>
+            </li>
         </div>
     @endforeach
     </ul>
@@ -145,7 +147,23 @@
  </div>   
     <!--products section-->
 @endsection
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
+    $(document).ready(function () {
+        $(".show").click(function() {
+            console.log('show clicked');
+            $(this).hide();
+            $(this).find(".phone").show(800);
+        });
+        $(".show").mouseleave(function() {
+            $(this).show();
+            $(this).find(".phone").hide(800);
+        });
+
+    });
 
     function leftMove() {
         $('#rightevent').hide();

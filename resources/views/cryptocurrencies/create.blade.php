@@ -27,6 +27,18 @@
 		                        </select>
 		                    </div>
 						</div>
+						<div class="form-group">
+			                <label for="phone" class="col-xs-12 col-sm-3 col-md-4 col-lg-4 control-label">Phone <span class="asterisks">*</span></label>
+			                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+								<input type="text" name="phone" id="phone" class="form-control" required placeholder="Phone No.">
+							</div>
+						</div>
+						<div class="form-group">
+			                <label for="address" class="col-xs-12 col-sm-3 col-md-4 col-lg-4 control-label">Address <span class="asterisks">*</span></label>
+			                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+								<input type="text" name="address" id="address" class="form-control" required placeholder="Address">
+							</div>
+						</div>
 						 <div class="form-group">
 		                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
 		                        <button type="submit" class="btn btn-primary btn-block btn-sm">
