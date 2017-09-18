@@ -18,7 +18,7 @@
 		<div class="col-xs-12 col-sm-7 col-md-8 hide-smartphone hide-tablet" style="position: absolute; bottom: 0; right: 0;">
 			Price: <span style="color: green;"> &#8358;{{$product->price}}</span>; <span style="color: green;">{{$product->condition}}</span> 
 			<span>in {{$product->category->name}}</span> <br>
-				<a href="/product/edit/{{$product->slug}}" class="btn btn-warning">Edit Product</a> <a href="/product/{{$product->slug}}" class="btn btn-info">View Product</a> <span class="badge">viewed 3 times</span>
+				<a href="/product/edit/{{$product->slug}}" class="btn btn-warning">Edit Product</a> <a href="/product/{{$product->slug}}" class="btn btn-info">View Product</a> <span class="badge">viewed {{$product->viewcounts}} times</span>
 		</div>	
 		<div class="col-xs-12 col-sm-7 col-md-8 hide-mini-laptop hide-desktop">
 			Price: <span style="color: green;"> &#8358;{{$product->price}}</span>; <span style="color: green;">{{$product->condition}}</span> 
