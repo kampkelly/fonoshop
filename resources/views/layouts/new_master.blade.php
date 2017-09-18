@@ -11,6 +11,7 @@
         <link href="{{ asset('css/headmobile.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/newstyle.css') }}" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
