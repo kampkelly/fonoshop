@@ -15,13 +15,24 @@
         height: 42px !important;
         border-radius: none !important;
     }
+    header {
+        display: none;
+    }
+    nav {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
 </style>
-<div class="container">
-<div style="height: 10px"></div>
+<div class="container" style="height: 100vh; overflow-y: hidden;">
+<div style="height: 40px" class="hide-smartphone hide-tablet"></div>
+<div style="height: 0px" class="hide-mini-laptop hide-desktop"></div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <a href="/homepag" class="btn btn-xs btn-danger"><span class=" glyphicon glyphicon-home"></span> Back to home</a><br><br>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Welcome, Signin to your account</div>
+                <div class="panel-heading text-center" style="color: darkorange"><h4>SalesNaija, Signin to your account</h4></div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -66,9 +77,10 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     Login
-                                </button>
+                                </button> 
+                                <h4 class="text-center">or</h4> <a href="/auth/google" class="btn btn-danger">Signin With Google</a> <a href="/auth/facebook" class="btn btn-primary">Signin With Facebook</a><br><br>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?

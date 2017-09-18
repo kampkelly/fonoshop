@@ -5,7 +5,8 @@
             <h4><span class="glyphicon glyphicon-menu-hamburger" style="color: #DF8109" id="openicon"></span><span class="glyphicon glyphicon-remove" style="color: #DF8109; display: none;" id="closeicon"></span></h4>
         </div>
         <div class="col-xs-10 col-sm-2 col-md-2 col-lg-2" style="background:#F5FAFD !important;">
-            <h4 class="text-cente" style="color: #DF8109">SalesNaija <a href="/new/product" class="pull-right" style="font-size: 70%; color:grey;  padding-right: 10px;">Sell a Product</a></h4>
+            <h4 class="text-cente" style="color: #DF8109">SalesNaija
+              <a href="/new/product" class="pull-right" style="font-size: 70%; color:grey;  padding-right: 10px;">Sell a Product</a></h4>
         </div>
     </div>
 </header>
@@ -27,8 +28,8 @@
                 @endforeach
             </ul>
         </li>
-        <li class="list-group-item"><a href="/cryptocurrrencies">Buy Cryptocurrencies</a></li>
-        <li class="list-group-item"><a href="/cryptocurrrencies">Sell Cryptocurrencies</a></li>
+        <li class="list-group-item"><a href="/cryptocurrencies">Buy Cryptocurrencies</a></li>
+        <li class="list-group-item"><a href="/cryptocurrency/new">Sell Cryptocurrencies</a></li>
         @if(Auth::check())
             <li class="list-group-item"><a href="/myprofile/update/{{Auth::user()->email}}">My Profile</a></li>
             <li class="list-group-item"><a href="/allmyitems/{{Auth::user()->email}}">My Products</a></li>
@@ -79,7 +80,7 @@
 <nav class="navbar navbar-default navbar-static-top tophead" role="navigation">
 	<div class="container">
     <a class="navbar-brand" href="/" style="color: white;">
-      <img src="{{ asset('logo.png') }} " alt="logo" class="img-responsive">
+      <img src="{{ asset('newlogo.png') }} " alt="logo" class="img-responsive">
     </a>
 		<ul class="nav navbar-nav" style="width: 80%;">
 			<li>
@@ -110,7 +111,7 @@
           <a href="#" style="color: #d78512;">{{Auth::user()->name}} <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
           <ul style="position: absolute; left: 0%; bottom: -240%; width: 180%; height: 9.2em; background-color: #DF8109; padding: 5px 10px 0px 10px; text-align: none; display: none; z-index: 99;">
             <li style="display: block;"><a href="/myprofile/update/{{Auth::user()->email}}" class="small">My Profile</a></li>
-            <li style="display: block;"><a href="/myitems/{{Auth::user()->email}}" class="small">My Products</a></li>
+            <li style="display: block;"><a href="/allmyitems/{{Auth::user()->email}}" class="small">My Products</a></li>
             <li style="display: block;"><a href="/contact" class="small">Contact Us</a></li>
           <!--  <li style="display: block;"><a href="/cryptocurrency/new" class="small">Settings</a></li> -->
             <li id="last" style="display: block;">
@@ -128,7 +129,7 @@
         </li>
       @else
       <li class="pull-right">
-        <a href="/register" style="color: #d78512;">Register</a>
+        <a href="/authregister" style="color: #d78512;">Register</a>
       </li>
       <li class="pull-right">
         <a href="/login" style="color: #d78512;">Login</a>

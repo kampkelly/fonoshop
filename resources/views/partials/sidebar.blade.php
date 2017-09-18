@@ -12,14 +12,14 @@
 </form>
 <div class="pael panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Bitcoins/Perfect Money</h3>   
+        <h3 class="panel-title">Purchase Cryptocurrencies</h3>   
     </div>
     <div class="panel-body row">
         <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">
             <img src=" {{ asset('homepage/new/bitcoin.jpg') }} " class="img-responsive img-rounded" style="heght: 60px;">
         </div>
         <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
-        <p class="small">We offer the sale of bitcoins and perfect money. Buy Now!</p>
+        <p class="small">Great deals for bitcoins and perfect money. Buy Now!</p>
         <a href="/cryptocurrencies" class="btn btn-primary btn-sm" style="color: white;">Buy Now</a>
         </div>
     </div>

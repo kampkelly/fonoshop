@@ -8,6 +8,7 @@
 	<h3 class="text-center">My Products</h3>
 	<a href="#" class="pull-right text-warning">Cryptocurrencies am selling</h3>
 	
+	@if($countproducts >= 1)
 	@foreach($products as $product)
 	<div class="row" style="position: relative;">
 		<div class="col-xs-12 col-sm-5 col-md-4">
@@ -27,6 +28,10 @@
 	</div>
 	<hr>
 	@endforeach
+	@else
+	<a href="/new/product">click here to sell</a>
+		<h4>Hey {{Auth::user()->name}}, You are not selling any products at the moment,  </h4>
+	@endif
 	
 
 	</div>

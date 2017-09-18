@@ -34,32 +34,34 @@ class LoginController extends Controller
      //socialite login
      public function redirectToProvider($provider)
     {
-     //   return Socialite::driver($provider)->redirect();
-        return Socialite::with($provider)->redirect();
+        return Socialite::driver($provider)->redirect();
+       // return Socialite::with($provider)->redirect();
     }
 
      public function handleProviderCallback($provider)
     {
         try {
-         //   $provideduser = Socialite::driver($provider)->user();
-            $providerUser = Socialite::with($provider)->user();
+           // $provideduser = Socialite::driver($provider)->stateless()->user();
+            $provideduser = Socialite::driver($provider)->user();
+          //  $providerUser = Socialite::with($provider)->user();
         } catch (Exception $e) {
-         //   return Redirect::to('auth/'.$provider);
+            return Redirect::to('auth/'.$provider);
         }
 
-        $authUser = $this->findOrCreateser($provideduser, $provider);
-        $authUser = $this->findOrCreateUser($githubUser);
+        $authUser = $this->findOrCreateUser($provideduser, $provider);
+     //   $authUser = $this->findOrCreateUser($githubUser);
 
-        Auth::login($authUser, true);
+      //  Auth::login($authUser, true);
+        Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to('/homepag');
+        return Redirect::to('/products');
     }
     private function findOrCreateUser($provideduser, $provider)
     {
         if ($authUser = User::where('provider_id', $provideduser->id)->first()) {
             return $authUser;
         } 
-     //   return 'its ok';
+    //    return 'its ok';
             return User::create([
                 'name' => $provideduser->name,
                 'email' => $provideduser->email,

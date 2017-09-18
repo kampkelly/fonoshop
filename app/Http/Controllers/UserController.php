@@ -54,8 +54,9 @@ class UserController extends Controller
             if(Auth::user()->email == $email) {
                 $user = User::where('email', $email)->first();
                 $products = $user->products()->orderBy('id', 'desc')->get();
+                $countproducts = count($products);
                 $cryptocurrencies = $user->cryptocurrencies()->orderBy('id', 'desc')->get();
-                return view('users.allitems', compact('user', 'products', 'cryptocurrencies'));
+                return view('users.allitems', compact('user', 'products', 'cryptocurrencies', 'countproducts'));
             }else{
                  session()->flash('message', 'Invalid Operation!'); 
                 return redirect()->back();

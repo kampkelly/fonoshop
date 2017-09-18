@@ -31,9 +31,10 @@ Route::get('/fileuploaderror', function () {
     return view('filebig');
 });
 
-Route::get('/', 'HomeController@newindex');
-Route::get('/home', 'HomeController@newindex');
-Route::get('/homepag', 'HomeController@homepage');
+//Route::get('/', 'HomeController@newindex');
+//Route::get('/home', 'HomeController@newindex');
+Route::get('/', 'HomeController@homepage');
+Route::get('/home', 'HomeController@homepage');
 Route::get('/category/{id}', 'CategoryController@show')->name('show');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/product/{slug}', 'ProductController@show')->name('productshow');
@@ -103,6 +104,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //admin
+//$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 

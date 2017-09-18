@@ -5,6 +5,7 @@
     <div style="height: 10px" class="search_top"></div>
     <div style="margin-top: -10px" class="search_desktop"></div>
     <div class="container firstsection">
+    <div style="height: 10px" class="show-only-smartphone"></div>
     <h3 class="text-center" style="color: #DF8109; text-shadow: 0.3px 0.3px #DF8109;">Find a Product, contact Seller, Buy! It's that easy.</h3>
 
     <!--insertion-->
@@ -20,7 +21,7 @@
                 <div style="background-color: #FAFAFA;">
                     <a href="/product/{{$product->slug}}">
                             <h5 class="text-center">{{str_limit($product->title, 20)}}</h5>
-                            <h5><b> &#8358;{{$product->price}}</b> {{$product->condition}}</h5>
+                            <h5><b> &#8358;{{$product->price}}</b> {{$product->condition}} <span class="badge pull-right" style="font-size: 50%; background: #DF8109; ">viewed {{$product->viewcounts}} times</span></h5>
                             <img src="{{ asset('uploads/cover/'.$product->image) }}" class="img-responsive img-rounded">
                     </a>
                 </div>

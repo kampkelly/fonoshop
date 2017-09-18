@@ -1,12 +1,30 @@
 @extends('layouts.new_master')
 
 @section('content')
-    <div class="row" style="margin-top: 100px;">
-		  <div class="col-sm-8 main_content">
-			           <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+<style type="text/css">
+    input:focus {
+        background-color: #FAFAFA;
+    }
+    input:hover {
+        background-color: #FAFAFA; 
+    }
+    input:select {
+        background-color: green !important;
+    }
+    input {
+        height: 42px !important;
+        border-radius: none !important;
+    }
+    #searchdiv {display: none;}
+</style>
+    <div class="row container" style="margin-top: 0px;">
+    <div style="height: 40px" class="hide-smartphone hide-tablet"></div>
+    <div style="height: 20px" class="hide-mini-laptop hide-desktop"></div>
+		  <div class="col-sm-12 main_content">
+		<div class="row">
+        <div class="col-sm-7 col-lg-7 col-sm-offset-4 col-lg-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">SalesNaija Signup</div>
+                <div class="panel-heading text-center"><h4>Signup</h4></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="/authregister">
                         {{ csrf_field() }}
@@ -61,12 +79,13 @@
                             </div>
                         </div>
                     </form>
+                    <h4 class="text-center">OR</h4>
+                    <div class="text-cente col-md-8 col-md-offset-4">
+                        <a href="/auth/google" class="btn btn-danger">Signup With Google</a>
+                        <a href="/auth/facebook" class="btn btn-primary">Signup With Facebook</a>
+                    </div>
                 </div>
-                <h4 class="text-center">OR</h4>
-                <div class="text-center">
-                    <a href="/auth/google" class="btn btn-danger">Signup With Google</a>
-                    <a href="/auth/facebook" class="btn btn-primary">Signup With Facebook</a>
-                </div>
+                
             </div>
         </div>
     </div>
