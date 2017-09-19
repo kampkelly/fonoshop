@@ -12,7 +12,7 @@
 </header>
 <nav id="mobmenu">
     <ul class="list-unstyled list-group" style="padding-top: 0px;">
-        <li class="list-group-item"><a href="/">Homes</a></li>
+        <li class="list-group-item"><a href="/">Home</a></li>
         <li class="list-group-item"><a href="/products">Products</a></li>
         <li class="list-group-item"><a href="/new/product">Sell a product s</a></li>
         <li class="list-group-item expand">
